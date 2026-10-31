@@ -17,9 +17,15 @@ A living design for a personal agent system: one interaction agent across device
 
 All project artifacts have their canonical files in this `wiki/` directory. Open the browser-ready HTML for the interactive experience. The earlier app-managed TSX copy is superseded as the entry point; its source is preserved here for reference.
 
+## Interactive maps
+
+Both workspaces now use one matching map-first interface. Select a lens, choose a branch, and expand individual records in the details panel. The client map covers experience, stack choices, validation and decisions; the system map covers architecture, specialists, delivery and decisions. Notes and applicable statuses remain editable. Use Detailed editor for the complete original editing/import tools, and Return to map to resume visual exploration. Export JSON regularly.
+
+The full design was committed before this redesign; the map views retain the same underlying data and browser storage keys.
+
 ### Artifact files
 
-- [Agent system workspace](workspace/agent-system-workspace.html), [starting data](workspace/agent-system.seed.json), and [usage guide](workspace/START-HERE.txt).
+- [Agent system workspace](workspace/agent-system-workspace.html), [starting data](workspace/agent-system.seed.json), [map preview](workspace/agent-system-preview.png), and [usage guide](workspace/START-HERE.txt).
 - [Client exploration workspace](workspace/client-exploration.html), [starting data](workspace/client-exploration.seed.json), [original TSX source](workspace/client-exploration-source.tsx), and [interface preview](workspace/client-exploration-preview.png).
 
 The TSX source requires the original host SDK and is not a standalone browser application. Use the HTML version to interact. No GUI framework is selected. A required separate Obsidian host is ruled out in favor of one unified April application; other deferred frameworks remain recommendations rather than confirmed rejections.

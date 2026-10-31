@@ -102,4 +102,103 @@ $('#import-file').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{
 $('#help-btn').onclick=()=>modal(`<div class="eyebrow">A living design, not a deployed system</div><h2>Keep building the idea</h2><p><strong>1. Start with the overview.</strong> Refine your vision and principles. Select a specialist in the diagram to develop its brief.</p><p><strong>2. Work one part at a time.</strong> Fill in roles, data access, boundaries, questions, and a first milestone. Copy an agent’s design prompt to continue in chat.</p><p><strong>3. Record choices.</strong> Use Decisions to separate proposals from chosen directions. Use Roadmap for small outcomes and Idea inbox for possibilities.</p><p><strong>4. Export regularly.</strong> Edits autosave only in this browser when local storage is available. Export JSON for backup or to import on another device. Export brief for a readable design document.</p><p><strong>5. Bring edits back.</strong> Attach the latest JSON or brief to a future chat. Ask for changes to a specific agent or contract. Import updated JSON to continue here.</p><p class="small muted">There is no cloud sync, account connection, agent execution, or telemetry in this file. Browser storage can be cleared. Moving the HTML file or changing browsers may use a different storage area. Do not enter API keys, private recordings, or other secrets into this planning workspace.</p>`);
 window.addEventListener('beforeunload',e=>{if(unsaved){save();if(unsaved){e.preventDefault();e.returnValue='';}}});
 render();$('#save-status').textContent=storageProblem?'Using starting content':'Ready · edits save in this browser';
-</script></body></html>
+</script>
+<style id="april-map-style">
+[hidden]{display:none!important}#amap{--mbg:#121718;--mpanel:#192122;--mink:#e8efeb;--mmuted:#9dada7;--mline:#33433e;--maccent:#b9dfcb;position:relative;min-height:100vh;background:var(--mbg);color:var(--mink);font:14px/1.5 system-ui,sans-serif;padding:28px 30px}#amap *{box-sizing:border-box}#amap h1{font-size:25px;letter-spacing:-.6px;margin:8px 0}#amap h2{font-size:20px;margin:10px 0}#amap h3{font-size:14px;margin:8px 0}#amap p{margin:8px 0;color:var(--mmuted)}#amap button,#amap select,#amap input,#amap textarea{font:inherit;color:var(--mink);background:var(--mpanel);border:1px solid var(--mline);border-radius:6px;padding:8px 12px;width:auto}#amap button{cursor:pointer}#amap button:hover,#amap button[aria-pressed=true]{border-color:var(--maccent);color:var(--maccent)}#amap button:focus-visible,#amap summary:focus-visible,#amap textarea:focus-visible{outline:2px solid var(--maccent);outline-offset:4px}#amap textarea{width:100%;min-height:95px;resize:vertical;line-height:1.6}#amap .am-eyebrow{font-size:10px;letter-spacing:.18em;color:var(--mmuted)}#amap .am-header{display:flex;justify-content:space-between;gap:24px;align-items:center}#amap .am-actions,#amap .am-lenses{display:flex;gap:8px;flex-wrap:wrap}#amap .am-lenses{margin:24px 0 14px}#amap .am-lenses button{background:transparent;border-color:transparent;border-radius:0;border-bottom:2px solid transparent}#amap .am-lenses button[aria-pressed=true]{border-bottom-color:var(--maccent)}#amap .am-layout{display:grid;grid-template-columns:minmax(520px,1fr) 330px;gap:24px;align-items:start}#amap .am-map{position:relative;height:640px;border-top:1px solid var(--mline);border-bottom:1px solid var(--mline);overflow:hidden}#amap .am-map svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}#amap .am-node{position:absolute;left:var(--x);top:var(--y);width:25%;min-height:90px;text-align:left;padding:13px 14px;background:var(--mbg)}#amap .am-node strong{display:block;font-size:14px;margin:3px 0}#amap .am-node small{display:block;color:var(--mmuted);font-size:11px;line-height:1.5}#amap .am-node .am-index{font-size:10px;color:var(--maccent);letter-spacing:.1em}#amap .am-node.am-center{left:39%;top:43%;width:22%;min-height:95px;text-align:center;border-color:var(--maccent);background:var(--mpanel)}#amap .am-inspector{padding:0 0 0 20px;border-left:1px solid var(--mline);height:640px;overflow:auto}#amap .am-inspector>p{font-size:13px}#amap .am-record{border-bottom:1px solid var(--mline);padding:13px 0}#amap summary{cursor:pointer;list-style:none;font-weight:550;display:flex;justify-content:space-between;gap:10px}#amap summary:after{content:'+';color:var(--mmuted)}#amap details[open]>summary:after{content:'−'}#amap .am-status{display:inline-block;font-size:10px;border:1px solid var(--mline);padding:2px 7px;border-radius:20px;margin-top:8px;color:var(--maccent)}#amap .am-record p{font-size:12px;white-space:pre-line}#amap .am-record label{display:block;color:var(--mmuted);font-size:11px;margin-top:12px}#amap a{color:var(--maccent)}#amap .am-footer{display:flex;gap:18px;justify-content:space-between;flex-wrap:wrap;padding-top:18px;font-size:11px;color:var(--mmuted)}#amap .am-route{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin:10px 0 0;font-size:11px;color:var(--mmuted)}#amap .am-route span{padding:4px 9px;border:1px solid var(--mline)}#am-return{position:fixed;bottom:18px;right:20px;z-index:30;background:#192122;color:#e8efeb;border:1px solid #9dada7;padding:10px 16px;border-radius:6px;cursor:pointer}
+@media(max-width:1000px){#amap{padding:24px 18px}#amap .am-layout{grid-template-columns:1fr}#amap .am-inspector{height:auto;max-height:none;border-left:0;padding:8px 0}#amap .am-map{height:600px}#amap .am-header{align-items:start;flex-direction:column}}@media(max-width:620px){#amap .am-map{height:700px}#amap .am-node{width:30%;font-size:12px;padding:9px 8px}#amap .am-node strong{font-size:12px}#amap .am-node small{font-size:10px}#amap .am-node.am-center{left:35%;width:30%}#amap .am-node.am-right{left:70%}#amap .am-node.am-left{left:0}#amap .am-header h1{font-size:23px}}@media(prefers-color-scheme:light){[hidden]{display:none!important}#amap{--mbg:#f5f6f1;--mpanel:#fff;--mink:#24342d;--mmuted:#64746d;--mline:#d0dbd3;--maccent:#265d45}}
+</style>
+
+<script id="april-map-code">
+(()=>{
+const client=false;
+const original=client?document.querySelector('body>main'):document.querySelector('.app');
+const map=document.createElement('div');map.id='amap';document.body.prepend(map);original.hidden=true;
+const back=document.createElement('button');back.id='am-return';back.textContent='Return to map';back.hidden=true;document.body.append(back);
+const h=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let lens=client?'Experience':'System',active='root';
+const find=t=>data.decisions.filter(d=>d.title===t);
+const matching=terms=>data.decisions.filter(d=>terms.some(t=>d.title.toLowerCase().includes(t)));
+const decision=t=>find(t);
+const group=(id,title,caption,records,kind='decision')=>({id,title,caption,records,kind});
+function groups(){
+if(client){
+ if(lens==='Experience')return[
+ group('voice','Summon & speak','Hold to start · voice to dismiss',matching(['mac voice activation','replaceable realtime'])),
+ group('presence','Desktop presence','Notch · active monitor · no focus theft',matching(['notch and multi','mac voice activation'])),
+ group('workspace','One workspace','Obsidian-inspired · native to April',matching(['unified april','artifact types'])),
+ group('vaults','Vault boundaries','Your folders · temporary private access',matching(['user-owned multi','private vault'])),
+ group('artifacts','Artifacts keep flowing','New / edited / action required',matching(['non-blocking artifact'])),
+ group('devices','Across devices','Mac → web → Android',matching(['client rollout','platform-agnostic core'])),
+ group('memory','Quiet memory','Inspectable · sensitive context separate',matching(['queryable and parallel','sensitive memory'])),
+ group('offline','Offline fallback','Typed queue · eager sync',matching(['offline-first']))];
+ if(lens==='Stack choices')return[
+ group('shared','Shared UI candidates','Prototype before choosing',data.candidates.filter(c=>['tauri','electron','wails'].includes(c.id)),'candidate'),
+ group('custom','Custom rendering','Editor-like alternatives',data.candidates.filter(c=>['gpui','iced','slint','egui'].includes(c.id)),'candidate'),
+ group('native','Native & Go','Adapter or alternate shell',data.candidates.filter(c=>['swift','fyne','gio'].includes(c.id)),'candidate'),
+ group('established','Other frameworks','Compare only where requirements fit',data.candidates.filter(c=>['qt','flutter','avalonia','raven'].includes(c.id)),'candidate'),
+ group('ruled','Ruled out','Separate required Obsidian host',data.candidates.filter(c=>c.id==='obsidian-host'),'candidate')];
+ if(lens==='Validation')return data.experiments.map(e=>group(e.id,e.title,e.status,[e],'experiment'));
+ return[
+ group('authority','Authority & review','Restrictive start · your approval',matching(['adjustable autonomy','user-led feature','self-extension'])),
+ group('open','Unresolved questions','Next decisions to clarify',data.questions.split('\n').filter(Boolean).map((q,i)=>({title:q,rationale:'Open — not yet decided.',status:'Open',id:'question-'+i}))),
+ group('all','Decision register','Confirmed, proposed and open',data.decisions),
+ group('notes','Working notebook','Your ongoing notes',[{title:'Exploration notes',rationale:data.notes,status:'Working notes'}],'notebook')];
+}
+if(lens==='System')return[
+ group('relationship','One relationship','Voice first · artifacts alongside',matching(['one interaction','voice-first surfaces'])),
+ group('specialists','Specialist agents','Coding · research · media · recording',data.agents,'agent'),
+ group('core','Portable core','Shared domain · native adapters',matching(['platform-agnostic core','client rollout','unified april'])),
+ group('memory','Memory & context','Query + parallel enrichment',matching(['queryable and parallel','sensitive memory','canonical memory'])),
+ group('authority','Autonomy & approval','User guardrails · learned approver',matching(['adjustable autonomy','autonomy through policy','user-led feature'])),
+ group('cloud','Cloud coordination','Cloudflare direction · services provisional',data.platform,'platform'),
+ group('vaults','Local vaults','Files you own · scoped access',matching(['user-owned multi','private vault','non-blocking artifact'])),
+ group('continuity','Across the day','Active device · offline queue',matching(['context-aware','offline-first','cross-device']))];
+if(lens==='Specialists')return data.agents.map(a=>group(a.id,a.name,a.category,[a],'agent'));
+if(lens==='Delivery')return[
+ group('bootstrap','Bootstrap April','Conversation → coding → self-extension',matching(['self-extension','self-improving'])),
+ group('plan','Discuss before building','You decide when the plan is ready',matching(['user-led feature'])),
+ group('review','Development → PR → approval','Production follows user review',matching(['self-extension'])),
+ group('roadmap','Milestones','A proposed sequence, not deployed work',data.roadmap,'task'),
+ group('contracts','Task contracts','Scope · cancellation · evidence',Object.entries(data.contracts).map(([title,rationale])=>({title,rationale,status:'Draft contract'}))),
+ group('mac','First integration','Mac → web → native Android',matching(['mac voice','notch and multi','client rollout','replaceable realtime']))];
+return[
+ group('decisions','Decision register','Explore the rationale',data.decisions),
+ group('questions','Open questions','Unresolved details across agents',data.agents.flatMap(a=>a.questions.split('\n').filter(Boolean).map(q=>({title:q,rationale:a.name,status:'Open'})))),
+ group('ideas','Idea inbox','Future possibilities',data.ideas.map(i=>({title:i.title,rationale:i.body,status:i.status}))),
+ group('notes','Working notebook','Portable design notes',[{title:'System notes',rationale:data.notes,status:'Working notes'}],'notebook')];
+}
+let page=0;
+function shortStatus(r){return r.status||r.category||r.layer||'Proposed'}
+function details(g){
+if(g.id==='root')return `<div class="am-eyebrow">SELECT A BRANCH TO EXPLORE</div><h2>${client?'April’s client experience':'April’s agent system'}</h2><p>${client?'A portable core with a Mac-first native experience. One app for voice, files and interactive artifacts.':'One interaction agent coordinates specialists. Local capabilities and cloud services stay behind explicit boundaries.'}</p><div class="am-route"><span>Mac</span>→<span>Web</span>→<span>Android</span></div><hr style="border:0;border-top:1px solid var(--mline);margin:22px 0"><h3>How to explore</h3><p>Select a branch, then expand only the decisions you want to inspect. Switch lenses above to explore ${client?'frameworks and tests':'specialists and delivery'}.</p><h3>Current direction</h3><p>Voice first. Artifacts over chat. Adjustable autonomy. User review before production.</p><h3>Still open</h3><p>GUI framework, core language and implementation details. The map documents a design, not running agents.</p>`;
+let records=g.records;
+return `<div class="am-eyebrow">${h(lens.toUpperCase())} / ${records.length} RECORD${records.length===1?'':'S'}</div><h2>${h(g.title)}</h2><p>${h(g.caption)}</p>`+records.map((r,i)=>{
+const title=r.title||r.name;
+let body='',edit='';
+if(g.kind==='candidate')body=`<p>${h(r.basis)}</p><h3>Why consider it</h3><p>${h(r.strength)}</p><h3>Tradeoffs</h3><p>${h(r.risk)}</p><h3>Next validation</h3><p>${h(r.next)}</p>`;
+else if(g.kind==='agent')body=`<p>${h(r.purpose)}</p><h3>Responsibilities</h3><p>${h(r.responsibilities)}</p><h3>First milestone</h3><p>${h(r.firstMilestone)}</p><h3>Boundaries</h3><p>${h(r.boundaries)}</p>`;
+else if(g.kind==='platform')body=`<p>${h(r.purpose)}</p><h3>Uncertainty</h3><p>${h(r.caveat)}</p>`;
+else if(g.kind==='experiment')body=`<p>${h(r.procedure)}</p><h3>Evidence to collect</h3><p>${h(r.evidence)}</p>`;
+else if(g.kind==='task')body=`<p>${h(r.phase)}</p><p>${h(r.notes)}</p>`;
+else body=`<p>${h(r.rationale||'')}</p>${r.next?`<h3>Next validation</h3><p>${h(r.next)}</p>`:''}`;
+const statusOptions=g.kind==='candidate'?['Explore','Defer','Selected','Ruled out']:g.kind==='experiment'?['Planned','In progress','Passed','Failed','Inconclusive']:null;
+if(statusOptions)edit+=`<label>Status<select data-am-record="${i}" data-am-field="status">${statusOptions.map(s=>`<option ${r.status===s?'selected':''}>${h(s)}</option>`).join('')}</select></label>`;
+if(g.kind==='notebook')edit+=`<label>Working notes<textarea data-am-record="${i}" data-am-field="root-notes">${h(data.notes)}</textarea></label>`;
+else if(['candidate','agent','experiment','task'].includes(g.kind))edit+=`<label>Working notes<textarea data-am-record="${i}" data-am-field="notes">${h(r.notes||'')}</textarea></label>`;
+const url=r.source||'';
+return `<details class="am-record" ${records.length===1?'open':''}><summary>${h(title)}</summary><span class="am-status">${h(shortStatus(r))}</span>${body}${/^https:\/\//.test(url)?`<p><a href="${h(url)}" target="_blank" rel="noopener">Primary reference</a></p>`:''}${edit}</details>`;
+}).join('');
+}
+function draw(){
+const all=groups().filter(g=>g.records.length);if(active!=='root'&&!all.some(g=>g.id===active))active='root';
+const pages=Math.ceil(all.length/8);if(page>=pages)page=0;const visible=all.slice(page*8,page*8+8);const chosen=all.find(g=>g.id===active)||{id:'root'};
+const lenses=client?['Experience','Stack choices','Validation','Decisions']:['System','Specialists','Delivery','Decisions'];
+map.innerHTML=`<header class="am-header"><div><div class="am-eyebrow">APRIL / ${client?'CLIENT EXPLORATION':'SYSTEM DESIGN'}</div><h1>${client?'One app. Many possibilities.':'One relationship. Many specialists.'}</h1><p>Explore the map. Open details only when you need them.</p></div><div class="am-actions"><button data-am-action="other">${client?'Agent system map':'Client experience map'}</button><button data-am-action="export">Export JSON</button><button data-am-action="editor">Detailed editor</button></div></header><div class="am-lenses" role="group" aria-label="Map lenses">${lenses.map(l=>`<button data-am-lens="${h(l)}" aria-pressed="${l===lens}">${h(l)}</button>`).join('')}${pages>1?`<button data-am-action="page">More branches · ${page+1}/${pages}</button>`:''}</div><div class="am-layout"><section class="am-map" aria-label="${h(lens)} mind map"><svg viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">${visible.map((g,i)=>{const left=i<4;const row=i%4;const x=left?270:730,y=(8+row*22+7)*7;return `<path d="M ${left?390:610} 350 C ${left?330:670} 350 ${left?340:660} ${y} ${x} ${y}" fill="none" stroke="${active===g.id?'var(--maccent)':'var(--mline)'}" stroke-width="${active===g.id?2:1}"/>`}).join('')}</svg><button class="am-node am-center" data-am-node="root" aria-pressed="${active==='root'}"><small>APRIL</small><strong>${h(lens)}</strong><small>${client?'Unified experience':'Portable agent core'}</small></button>${visible.map((g,i)=>`<button class="am-node ${i<4?'am-left':'am-right'}" style="--x:${i<4?2:73}%;--y:${8+(i%4)*22}%" data-am-node="${h(g.id)}" aria-pressed="${g.id===active}"><span class="am-index">${String(page*8+i+1).padStart(2,'0')} / ${g.records.length} ${g.kind==='candidate'?'CHOICES':g.kind==='experiment'?'TEST':'RECORDS'}</span><strong>${h(g.title)}</strong><small>${h(g.caption)}</small></button>`).join('')}</section><aside class="am-inspector" aria-label="Selected branch details">${details(chosen)}</aside></div><footer class="am-footer"><span id="am-save">Edits save in this browser · export JSON to keep a portable copy.</span><span>31 October 2026 · confirmed decisions distinguished from proposals</span></footer>`;
+}
+map.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.amLens){lens=b.dataset.amLens;active='root';page=0;draw()}if(b.dataset.amNode){active=b.dataset.amNode;draw()}if(b.dataset.amAction==='page'){page++;active='root';draw()}if(b.dataset.amAction==='editor'){original.hidden=false;map.hidden=true;back.hidden=false;window.scrollTo(0,0)}if(b.dataset.amAction==='other')location.href=client?'agent-system-workspace.html':'client-exploration.html';if(b.dataset.amAction==='export'){const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=client?'april-client-exploration.json':'april-agent-system.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);map.querySelector('#am-save').textContent='Export downloaded. Browser edits remain saved locally.'}});
+map.addEventListener('input',e=>{const i=e.target.dataset.amRecord;if(i===undefined)return;const g=groups().find(g=>g.id===active);const r=g.records[Number(i)];const f=e.target.dataset.amField;if(f==='root-notes')data.notes=e.target.value;else r[f]=e.target.value;save();map.querySelector('#am-save').textContent='Saved in this browser · export JSON to preserve edits.';if(f==='status'){const d=e.target.closest('details');d.querySelector('.am-status').textContent=e.target.value}});
+back.onclick=()=>{original.hidden=true;map.hidden=false;back.hidden=true;draw();window.scrollTo(0,0)};
+draw();
+})();
+</script>
+</body></html>
