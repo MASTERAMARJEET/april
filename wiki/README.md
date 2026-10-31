@@ -19,7 +19,7 @@ All project artifacts have their canonical files in this `wiki/` directory. Open
 
 ## Interactive maps
 
-Both workspaces now use one matching map-first interface, with a shared Workspace dropdown for navigation that can grow as more workspaces are added. Select a lens, choose a branch, and expand individual records in the details panel. The client map covers experience, stack choices, validation and decisions; the system map covers architecture, specialists, delivery and decisions. Notes and applicable statuses remain editable. Use Detailed editor for the complete original editing/import tools, and Return to map to resume visual exploration. Export JSON regularly.
+Both workspaces now use one matching map-first interface, with a shared Workspace dropdown for navigation that can grow as more workspaces are added. Select a lens, choose a branch, and expand individual records in the details panel. The client map covers experience, stack choices, validation and decisions; the system map covers architecture, specialists, delivery and decisions. Notes and applicable statuses remain editable. Use Detailed editor for a shared section-based form editor with record selection and import/export; Back to map resumes visual exploration. Both artifacts use the same map and editor styling. Export JSON regularly.
 
 The full design was committed before this redesign; the map views retain the same underlying data and browser storage keys.
 
