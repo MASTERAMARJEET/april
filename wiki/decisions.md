@@ -356,3 +356,17 @@ Confirmed long-term user goal: Far-future direction: own/control the AI inferenc
 ## Private classification follows derived artifacts
 
 Confirmed direction: Artifacts derived from private material automatically inherit its private classification, including summaries. Do not place them in ordinary/public-to-April memory or expose them through less-restricted artifact views. Existing private-task approval boundaries still apply. Mixed-source classification, explicit declassification and retention/derived-context cleanup remain implementation details; no automatic declassification is selected.
+
+## Delete derived summaries with private sources
+
+Confirmed user direction: When a private source file is deleted, its derived summaries are deleted as well and follow the same restorable-bin and user-reviewed permanent-cleanup process. Do not leave the summaries as independently retained private artifacts by default. Maintain source-summary lineage for this behavior. Mixed-source summaries, restore consistency and indexes/embeddings need explicit implementation rules; the user specifically confirmed summaries, not an indiscriminate cascade to every linked document.
+
+## Cloudflare-account-based identity and recovery direction
+
+User prefers identity/setup and recovery tied to their Cloudflare account, with Access/OAuth-style facilities to be evaluated rather than a separate recovery-key UX chosen now. Official Cloudflare docs confirm Cloudflare-as-identity-provider support in Access and Managed OAuth for supported non-browser clients; evaluate native-client compatibility, policy, token/device lifecycle and account recovery before selecting the flow. Distinguish application sign-in from OAuth permissions to manage Cloudflare resources and from encryption-key recovery. This does not create/configure accounts, grant credentials or settle key custody.
+
+Verified official references via Exa:
+
+- [Cloudflare as identity provider](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/cloudflare/)
+- [Access Managed OAuth](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/managed-oauth/)
+- [Authorizing access to Cloudflare resources](https://developers.cloudflare.com/fundamentals/oauth/authorizing-an-application/)

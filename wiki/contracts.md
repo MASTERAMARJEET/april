@@ -112,3 +112,7 @@ Confirmed user direction: Process as much data as possible within the user-contr
 ## Derived-artifact privacy
 
 Confirmed direction: Artifacts derived from private material automatically inherit its private classification, including summaries. Do not place them in ordinary/public-to-April memory or expose them through less-restricted artifact views. Existing private-task approval boundaries still apply. Mixed-source classification, explicit declassification and retention/derived-context cleanup remain implementation details; no automatic declassification is selected.
+
+## Source-summary deletion propagation
+
+Confirmed user direction: When a private source file is deleted, its derived summaries are deleted as well and follow the same restorable-bin and user-reviewed permanent-cleanup process. Do not leave the summaries as independently retained private artifacts by default. Maintain source-summary lineage for this behavior. Mixed-source summaries, restore consistency and indexes/embeddings need explicit implementation rules; the user specifically confirmed summaries, not an indiscriminate cascade to every linked document.

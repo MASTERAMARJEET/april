@@ -606,6 +606,16 @@
       "title": "Derived private artifacts stay private",
       "status": "Confirmed direction",
       "rationale": "Artifacts derived from private material automatically inherit its private classification, including summaries. Do not place them in ordinary/public-to-April memory or expose them through less-restricted artifact views. Existing private-task approval boundaries still apply. Mixed-source classification, explicit declassification and retention/derived-context cleanup remain implementation details; no automatic declassification is selected."
+    },
+    {
+      "title": "Delete summaries with their private source",
+      "status": "Confirmed direction",
+      "rationale": "When a private source file is deleted, its derived summaries are deleted as well and follow the same restorable-bin and user-reviewed permanent-cleanup process. Do not leave the summaries as independently retained private artifacts by default. Maintain source-summary lineage for this behavior. Mixed-source summaries, restore consistency and indexes/embeddings need explicit implementation rules; the user specifically confirmed summaries, not an indiscriminate cascade to every linked document."
+    },
+    {
+      "title": "Cloudflare-account identity and recovery direction",
+      "status": "Confirmed direction",
+      "rationale": "User prefers identity/setup and recovery tied to their Cloudflare account, with Access/OAuth-style facilities to be evaluated rather than a separate recovery-key UX chosen now. Official Cloudflare docs confirm Cloudflare-as-identity-provider support in Access and Managed OAuth for supported non-browser clients; evaluate native-client compatibility, policy, token/device lifecycle and account recovery before selecting the flow. Distinguish application sign-in from OAuth permissions to manage Cloudflare resources and from encryption-key recovery. This does not create/configure accounts, grant credentials or settle key custody."
     }
   ],
   "questions": "Confirmed: approved cloud tasks, including private-file tasks under existing task-scoped access, continue if the Mac disconnects. Next: specify key custody, revocation and device-unavailable handling; all persistent files are cloud-backed.\nEngineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.\nPrivate grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.\nSync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.\nCoding bootstrap: Cloudflare execution, April-only GitHub repositories, dev/PR/user approval flow are decided; validate macOS packaging/native tests and exact release evidence.\nDeferred deep dives: plugin contracts/trust, per-integration API versus UI, Codex-inspired computer use and memory systems including Supermemory.\nOperational implementation: accurate cost tracking and non-blocking $20 AI nudge, task retry/cancellation, recovery history and permission enforcement.",
@@ -981,5 +991,7 @@
   "deletionReviewRevision": 1,
   "processorPrivacyRevision": 1,
   "ownedInferenceRevision": 1,
-  "derivedPrivacyRevision": 1
+  "derivedPrivacyRevision": 1,
+  "summaryDeletionRevision": 1,
+  "cloudflareIdentityRevision": 1
 }

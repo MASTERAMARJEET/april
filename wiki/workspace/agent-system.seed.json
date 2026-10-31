@@ -779,6 +779,20 @@
       "rationale": "Artifacts derived from private material automatically inherit its private classification, including summaries. Do not place them in ordinary/public-to-April memory or expose them through less-restricted artifact views. Existing private-task approval boundaries still apply. Mixed-source classification, explicit declassification and retention/derived-context cleanup remain implementation details; no automatic declassification is selected.",
       "id": "derived-private-classification",
       "next": "Enforce classification across derived artifacts, indexes and views."
+    },
+    {
+      "title": "Delete summaries with their private source",
+      "status": "Chosen direction",
+      "rationale": "When a private source file is deleted, its derived summaries are deleted as well and follow the same restorable-bin and user-reviewed permanent-cleanup process. Do not leave the summaries as independently retained private artifacts by default. Maintain source-summary lineage for this behavior. Mixed-source summaries, restore consistency and indexes/embeddings need explicit implementation rules; the user specifically confirmed summaries, not an indiscriminate cascade to every linked document.",
+      "id": "private-summary-deletion-propagation",
+      "next": "Track derivation lineage and apply recoverable deletion/restore rules."
+    },
+    {
+      "title": "Cloudflare-account identity and recovery direction",
+      "status": "Chosen direction",
+      "rationale": "User prefers identity/setup and recovery tied to their Cloudflare account, with Access/OAuth-style facilities to be evaluated rather than a separate recovery-key UX chosen now. Official Cloudflare docs confirm Cloudflare-as-identity-provider support in Access and Managed OAuth for supported non-browser clients; evaluate native-client compatibility, policy, token/device lifecycle and account recovery before selecting the flow. Distinguish application sign-in from OAuth permissions to manage Cloudflare resources and from encryption-key recovery. This does not create/configure accounts, grant credentials or settle key custody.",
+      "id": "cloudflare-account-identity-direction",
+      "next": "Validate Access/Managed OAuth client flow and key-recovery architecture."
     }
   ],
   "roadmap": [
@@ -1333,5 +1347,7 @@
   "deletionReviewRevision": 1,
   "processorPrivacyRevision": 1,
   "ownedInferenceRevision": 1,
-  "derivedPrivacyRevision": 1
+  "derivedPrivacyRevision": 1,
+  "summaryDeletionRevision": 1,
+  "cloudflareIdentityRevision": 1
 }

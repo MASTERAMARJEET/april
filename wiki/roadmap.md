@@ -102,3 +102,5 @@ The user intends self-extension as the development strategy. It is not permissio
 - [ ] **Audit external data processors before selection** — AI, search, document processing and other external tools: zero-retention commitments, exact endpoint/account eligibility, exceptions/logging, data minimization and configuration. No vendor is accepted by default. Prefer processing in the user-controlled cloud.
 
 - [ ] **Far future: evaluate owned AI inference** — Keep provider interfaces replaceable now; later assess user-controlled inference and reduced external data disclosure. Not required for the initial release.
+
+- [ ] **Evaluate Cloudflare-account sign-in** — Access Cloudflare IdP plus Managed OAuth is a documented candidate; validate Mac flow and separate user sign-in, deployment privileges and encrypted-data key recovery. No infrastructure setup is authorized by this design note.
