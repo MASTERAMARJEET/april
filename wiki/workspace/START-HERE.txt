@@ -1,6 +1,6 @@
 INTERACTIVE MAP UPDATE — 31 OCTOBER 2026
 
-Both agent-system-workspace.html and client-exploration.html now open with the same map-first interface. Choose a lens, select a branch, and expand only the records you want. Notes and relevant status fields are editable. Export JSON preserves browser edits. Detailed editor opens the shared section-based form editor, including import/export; Back to map restores the visual view. Both workspaces use one editor design. The underlying seed schemas and browser storage keys are unchanged.
+Both agent-system-workspace.html and client-exploration.html now open with the same map-first interface. Choose a lens, select a branch, and expand only the records you want. Notes and relevant status fields are editable. Export JSON preserves browser edits. The fixed Map / Editor toggle switches between the visual map and shared editor with import/export. Both workspaces use one editor design. The underlying seed schemas and browser storage keys are unchanged.
 
 The instructions below describe the detailed agent-system editor.
 
