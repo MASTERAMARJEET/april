@@ -12,6 +12,7 @@ A living design for a personal agent system: one interaction agent across device
 - [Roadmap](roadmap.md)
 - [Ideas and working notes](ideas.md)
 - [Interactive design workspace](workspace/agent-system-workspace.html)
+- [Interactive concept demo](workspace/april-experience-demo.html) — a scripted local simulation of voice activation, research artifacts, feature review and private-task approval. No actual microphone, accounts, repository or cloud services are connected.
 - [Client and GUI exploration seed](workspace/client-exploration.seed.json) — platform-agnostic core with Mac integration first, 15 choices, decisions, open questions, and ten proposed experiments (31 October 2026).
 - [Interactive client and GUI exploration](workspace/client-exploration.html) — open in a browser; includes editable choices, experiments, decisions, notes, and JSON import/export. Browser edits save locally and do not automatically update the seed or TSX file.
 
