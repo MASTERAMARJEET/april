@@ -135,3 +135,9 @@ Compatibility, packaging, secrets delivery, isolation mechanism and multi-role p
 Confirmed default: Default plugin update behavior: tasks already running finish on the plugin version they started with; new tasks use the approved updated version. Do not hot-swap plugin behavior inside an in-flight task by default. Record the version with task/audit data. Retention of old versions, dependency resolution, resume behavior and exceptional migration handling remain engineering work.
 
 Plugin lifecycle requirement: independent versioned updates with core/host compatibility checks. Bind task execution to an approved plugin version. Installation/update must not silently expand authority; approval policy and release verification still apply. Rollback, package integrity and old-version retention need concrete design.
+
+## Plugin rollout recovery
+
+Confirmed user direction: If a plugin update fails after rollout, automatically revert to the last known working plugin version and notify the user. Record failed and restored versions plus rollback evidence. This is the chosen recovery default, not a requirement to await user permission before reverting. Concrete health criteria, affected in-flight task recovery, compatibility/data-migration handling and irreversible side effects still require design; code rollback must not be assumed to undo external actions.
+
+Draft plugin lifecycle: candidate built → verified/reviewed → approved version activated for new tasks → monitored. On failed rollout: restore last known working active version → notify and audit → investigate candidate. Running task version bindings remain explicit; do not silently hot-swap their code. Final handling of affected tasks and migrations remains open.

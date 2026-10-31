@@ -388,3 +388,7 @@ Confirmed default: Default plugin update behavior: tasks already running finish 
 ## Independent plugin releases
 
 Confirmed direction: Plugins should be independently installable/updatable rather than requiring a whole April release for every change. Bundled releases would be simpler initially, but independent lifecycle fits incremental self-extension. Use reviewed, versioned releases and compatibility checks; running tasks keep original versions. Cloud/client/runtime host distinctions and native packaging/signing constraints must be evaluated: changes to native client capabilities may still require a client release. No plugin packaging/runtime product has been selected.
+
+## Automatic rollback of failed plugin updates
+
+Confirmed user direction: If a plugin update fails after rollout, automatically revert to the last known working plugin version and notify the user. Record failed and restored versions plus rollback evidence. This is the chosen recovery default, not a requirement to await user permission before reverting. Concrete health criteria, affected in-flight task recovery, compatibility/data-migration handling and irreversible side effects still require design; code rollback must not be assumed to undo external actions.
