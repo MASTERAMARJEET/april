@@ -219,6 +219,8 @@ Status: Confirmed user goal
 
 Replace the user's ChatGPT app workflow for text, voice and computer use. Progressively take over much of the user's manual Cursor prompting. Keep the existing phased bootstrap and initial integration scope; full parity is a destination, not an initial-release promise.
 
+User confirmed the integration boundary: initially retain Cursor as the editor, Slack as its client, and the existing browser. April orchestrates those tools rather than rebuilding them. Its own voice/chat/artifact workspace remains the unified interaction surface; existing tools may still be used or shown when a workflow calls for them. Do not treat this as selecting particular API or UI adapters.
+
 ## Initial operating budget
 
 Status: User budget preference confirmed; actual costs unverified

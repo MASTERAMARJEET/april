@@ -10,11 +10,19 @@ Treat a natural pause as completion of the current answer and move to the next u
 
 ## Resume the clarification session
 
-Session paused by user on 31 October 2026. Do not restart the questionnaire. Use the latest [question ledger](workspace/clarification-status.json), including partial answers, and ask one focused question at a time. Several topics are deliberately deferred to implementation or separate deep dives, not forgotten.
+Paused at the user's request after the broad product pass. The original 50-question ledger has 30 answered and 20 scoped/deferred follow-ups, not 20 missing product directions. Do not restart the questionnaire or repeat confirmed choices. See [question ledger and technical follow-ups](workspace/clarification-status.json).
 
-Highest-priority remaining clarifications: concrete initial guardrail/action classes and learned-approval boundaries; private grant expiry/revocation; encryption key custody and recovery; sync conflicts and deletion; task retry/cancellation and mistake recovery; costs and resource budgets; minimum bootstrap acceptance criteria. Other remaining product questions include replacement workflows, knowledge curation/corrections, cross-device sessions and remote capabilities, activity visibility, and later Windows/Linux support scope.
+Next session: compare architecture/GUI options against the recorded workflows and measured constraints. One explicitly unanswered question: may an approved private-vault task continue in the cloud if the Mac goes offline? Do not infer an answer; it affects key custody and task availability.
 
-Explicitly deferred: plugin internals, API-versus-UI choice per integration, Codex-inspired computer-use deep dive, memory-system research (including Supermemory), headless interface, and final GUI/language selection. Final audio decisions: transcripts may lag; no retained audio by default, with explicit opt-in for saved meeting/conversation recordings.
+Settled in the latest pass: private grants end with tasks; additional approval categories evolve through use; dedicated learned approver and reviewed default allowances; conversational mistake correction; Cloudflare $5 base-plan target (usage unverified), AI $20 soft nudge with work continuing; efficiency and fluidity over shipping speed; M2 Pro/10-core/16 GB Mac baseline; phone requests may use authorized online Mac; preserve both sync conflicts and ask; ask/correct wiki conflicts; proactive simpler work and discuss larger features; inform/add missing capabilities then resume; no language preference; replace ChatGPT workflows and manual Cursor prompting while retaining underlying tools.
+
+- Unanswered: if the user approves a private-vault task and the Mac goes offline, may the cloud continue it until completion? This affects availability and encryption-key custody; do not assume an answer.
+- Engineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.
+- Private grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.
+- Sync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.
+- Coding bootstrap: Cloudflare execution, April-only GitHub repositories, dev/PR/user approval flow are decided; validate macOS packaging/native tests and exact release evidence.
+- Deferred deep dives: plugin contracts/trust, per-integration API versus UI, Codex-inspired computer use and memory systems including Supermemory.
+- Operational implementation: accurate cost tracking and non-blocking $20 AI nudge, task retry/cancellation, recovery history and permission enforcement.
 
 ## Future specialist ideas
 
@@ -30,6 +38,6 @@ Next design conversation: pick one vertical slice and define its job contract, p
 
 30 answered, 20 partial, 0 entirely open. The partial items include explicitly deferred design details; this does not mean implementation decisions are complete. Partial means the direction is known but a detail remains unresolved. See [question-by-question review](workspace/clarification-status.json).
 
-Next priorities: cloud/key access to encrypted private vaults; private-grant lifetime/revocation; local/cloud sync conflicts; first native accessibility workflow and observation scope; resource/cost budgets; first coding acceptance criteria and recovery behavior. Languages, recording scope and detailed device handoff can be clarified later unless needed by the bootstrap.
+Next priorities are the technical follow-ups above. Languages, initial recording scope, grant expiry, conflict behavior and starting budget already have recorded answers; do not ask those preferences again.
 
 Latest pass: original broad questionnaire is covered, with 20 scoped/deferred follow-ups. Confirmed task-end private grant expiry, soft $20 AI nudge, efficiency/fluidity over shipping speed, verified M2 Pro/16 GB Mac baseline, phone-to-Mac capabilities, preserve both sync conflicts, clarify/correct wiki conflicts, reviewed learned approval, proactive simple work and missing-capability task resumption. Next: evaluate architecture/GUI against these requirements; do not repeat settled preference questions.

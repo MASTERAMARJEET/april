@@ -25,8 +25,8 @@ The full design was committed before this redesign; the map views retain the sam
 
 ### Artifact files
 
-- [Agent system workspace](workspace/agent-system-workspace.html), [starting data](workspace/agent-system.seed.json), [map preview](workspace/agent-system-preview.png), and [usage guide](workspace/START-HERE.txt).
-- [Client exploration workspace](workspace/client-exploration.html), [starting data](workspace/client-exploration.seed.json), [original TSX source](workspace/client-exploration-source.tsx), and [interface preview](workspace/client-exploration-preview.png).
+- [Agent system workspace](workspace/agent-system-workspace.html), [starting data](workspace/agent-system.seed.json), [historical map preview](workspace/agent-system-preview.png), and [usage guide](workspace/START-HERE.txt).
+- [Client exploration workspace](workspace/client-exploration.html), [starting data](workspace/client-exploration.seed.json), [original TSX source](workspace/client-exploration-source.tsx), and [historical interface preview](workspace/client-exploration-preview.png).
 
 The TSX source requires the original host SDK and is not a standalone browser application. Use the HTML version to interact. No GUI framework is selected. A required separate Obsidian host is ruled out in favor of one unified April application; other deferred frameworks remain recommendations rather than confirmed rejections.
 
@@ -45,3 +45,7 @@ The interactive HTML is a portable starting snapshot, not a synchronized view of
 To continue in chat, reference the relevant page or attach the latest exported JSON. Do not put credentials, recordings, or sensitive source data in this wiki.
 
 Seeded from the design conversation on 30 October 2026. This documents a proposed system, not deployed infrastructure.
+
+## Latest checkpoint
+
+Broad product clarification is complete enough for architecture evaluation. Both maps include Decisions → Next technical session and Original Q&A review. The wiki resumption notes distinguish confirmed requirements, deliberately deferred engineering details and the unanswered private-task/offline-Mac question. Preview PNGs and original TSX are historical snapshots; the maintained interactive HTML and seed JSON contain the current decisions.

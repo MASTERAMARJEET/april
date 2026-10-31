@@ -501,10 +501,15 @@
       "title": "Replace chat/voice/computer-use and Cursor prompting workflows",
       "status": "Confirmed direction",
       "rationale": "Replace the user's ChatGPT app workflows: text chat, voice conversation and computer use. Later take over much of manual Cursor prompting. Cursor remains an initial integration target; reducing prompting does not necessarily mean replacing the editor. Full parity is a destination, not a v1 promise."
+    },
+    {
+      "title": "Orchestrate existing tools rather than rebuild them",
+      "rationale": "User confirms retaining Cursor as editor, Slack as client and existing browser initially. April orchestrates them, taking over much manual prompting, while providing its own unified voice/chat/artifact surface. This does not select API versus UI adapters.",
+      "status": "Confirmed direction"
     }
   ],
-  "questions": "2. Top three tasks [Partial]: Coding/self-extension is first. Other first-priority tasks beyond the bootstrap are not ranked.\n3. Products to replace [Open]: Obsidian is a UX reference, but the products/workflows April should replace are unspecified.\n8. Platform-specific shells [Partial]: Unified April experience confirmed; allowable UI differences between operating systems remain open.\n9. Windows/Linux timing [Partial]: Core portability is required; client timing and supported Linux environments remain unspecified.\n13. First accessibility tasks [Partial]: Deep native integration required; exact first read/control workflows are unspecified.\n14. First target applications [Partial]: Coding targets April repos on GitHub; native apps to inspect/control are not named.\n16. API versus visible UI [Open]: Prefer direct service API or visible interaction when both are available is not decided.\n17. Screenshot/input fallback [Open]: Fallback when accessibility information is missing is not decided.\n18. Concurrent desktop control [Partial]: Summoning voice preserves focus; whether automation may take foreground control while user works is open.\n19. Uncertain targets [Partial]: Approval is centralized; behavior for ambiguous UI targets still needs definition.\n20. Remembering application context [Partial]: Quiet inspectable memory chosen; what app content can be captured and retained is not defined.\n28. Voice quality priorities [Partial]: Reference transcription may lag. Live spoken response/interruption quality, acceptable delays and resource/cost tradeoffs still need targets.\n29. Wiki content priorities [Partial]: Research/learning wiki and personal artifacts are envisioned; initial content mix is not prioritized.\n30. Autonomous wiki updates [Partial]: Background autonomy desired; rules for maintaining versus proposing wiki edits are not specified.\n34. Knowledge corrections and conflicts [Open]: Handling conflicting sources, outdated claims and user corrections is not specified.\n36. Automatic action scope [Partial]: Maximum useful autonomy inside adjustable guardrails; concrete allowed action classes remain open.\n37. Mandatory human involvement [Partial]: Explicit overlay click for private access and initial PR approval before production; other mandatory categories remain open.\n38. Permission model granularity [Partial]: Central approver, task-scoped private grants and public cross-vault access; exact domain/task/default rules open.\n39. Activity visibility [Partial]: Artifact update indicators and context-aware notification chosen; live execution visibility not defined.\n41. Excluded information [Partial]: Financial/medical excluded from ordinary memory with provisional task access; any other exclusions not specified.\n42. Mistake recovery [Open]: User-facing undo, history, rollback and action-log expectations are not chosen.\n43. Cross-device continuity [Partial]: Seamless continuity desired; same versus separate sessions and conflict behavior remain open.\n44. Remote device capabilities [Open]: Phone task using the Mac, consent and device-selection rules not decided.\n45. Mac asleep/offline [Partial]: Cloudflare background execution chosen; device-dependent task handling during sleep/offline remains open.\n46. Technology preferences [Open]: Core language and GUI framework not chosen; Exa preferred for research.\n47. Resource/development tradeoffs [Open]: Memory, startup, battery and platform-specific effort priorities are not set.\n48. Budget [Open]: Comfortable monthly spend, caps and per-task limits not set.\n50. Explicit deferrals [Partial]: Wake word, memory-provider research, other repos, web/Android later. Complete v1 scope boundary still needs refinement.",
-  "notes": "Exploration snapshot, not a benchmark or implementation audit. Framework positioning records the discussion as of 31 October 2026. Most alternatives received only high-level review. Preserve rationale when changing status. Export saved edits before reconciling them into the repository.\nDirection revision 2: platform-agnostic core, macOS native integration first. Later Windows/Linux support is architectural scope, not simultaneous delivery. Specific GUI, implementation language and process layout remain open.\nVoice clarification complete for this pass. Next discussion: Mac experience. Financial and medical information is excluded from ordinary memory; task-scoped access only.\nMac clarification: unified April app. Obsidian separate host is ruled out; use as a UX reference. Configurable held-key ongoing voice, no focus theft, active-monitor overlay, user-owned vault folders, temporary private grants and non-blocking artifact updates. Next: evaluate GUI/libraries against the whole integrated experience.\nSession paused by user. Resume unresolved questions one at a time; see Original Q&A review and wiki resumption log. No audio retention by default; explicit opt-in to save recordings. Transcript may lag.",
+  "questions": "Unanswered: if the user approves a private-vault task and the Mac goes offline, may the cloud continue it until completion? This affects availability and encryption-key custody; do not assume an answer.\nEngineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.\nPrivate grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.\nSync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.\nCoding bootstrap: Cloudflare execution, April-only GitHub repositories, dev/PR/user approval flow are decided; validate macOS packaging/native tests and exact release evidence.\nDeferred deep dives: plugin contracts/trust, per-integration API versus UI, Codex-inspired computer use and memory systems including Supermemory.\nOperational implementation: accurate cost tracking and non-blocking $20 AI nudge, task retry/cancellation, recovery history and permission enforcement.",
+  "notes": "Exploration snapshot, not a benchmark or implementation audit. Framework positioning records the discussion as of 31 October 2026. Most alternatives received only high-level review. Preserve rationale when changing status. Export saved edits before reconciling them into the repository.\nDirection revision 2: platform-agnostic core, macOS native integration first. Later Windows/Linux support is architectural scope, not simultaneous delivery. Specific GUI, implementation language and process layout remain open.\nVoice clarification complete for this pass. Next discussion: Mac experience. Financial and medical information is excluded from ordinary memory; task-scoped access only.\nMac clarification: unified April app. Obsidian separate host is ruled out; use as a UX reference. Configurable held-key ongoing voice, no focus theft, active-monitor overlay, user-owned vault folders, temporary private grants and non-blocking artifact updates. Next: evaluate GUI/libraries against the whole integrated experience.\nSession paused by user. Resume unresolved questions one at a time; see Original Q&A review and wiki resumption log. No audio retention by default; explicit opt-in to save recordings. Transcript may lag.\nPaused after broad requirements. Next: technical architecture/GUI evaluation. Private-task continuation when Mac goes offline is explicitly unanswered. See Next technical session branch.",
   "directionRevision": 2,
   "voiceRevision": 1,
   "macRevision": 1,
@@ -729,25 +734,25 @@
         "number": 36,
         "topic": "Automatic action scope",
         "status": "Partial",
-        "detail": "Maximum useful autonomy inside adjustable guardrails; concrete allowed action classes remain open."
+        "detail": "Broad autonomy for simpler proactive work, including research; substantial feature work needs discussion. Additional action classes can be discovered during use; detailed rules deferred."
       },
       {
         "number": 37,
         "topic": "Mandatory human involvement",
         "status": "Partial",
-        "detail": "Explicit overlay click for private access and initial PR approval before production; other mandatory categories remain open."
+        "detail": "Private-vault approval uses explicit overlay click and initial production follows PR approval. Additional mandatory approval categories are intentionally discovered during use."
       },
       {
         "number": 38,
         "topic": "Permission model granularity",
         "status": "Partial",
-        "detail": "Central learned approval agent with policy-bounded automatic approvals. Repeated routinely approved prompts can be reviewed into default allowances. Private grants expire with task; enforcement details remain implementation work."
+        "detail": "Central approval model learns decisions and auto-approves within policy; repeated unnecessary prompts can be reviewed into default allowances. Private grants end with task. Enforcement/revocation details remain."
       },
       {
         "number": 39,
         "topic": "Activity visibility",
         "status": "Partial",
-        "detail": "Artifact update indicators and context-aware notification chosen; live execution visibility not defined."
+        "detail": "Non-blocking new/edited artifact indicators and context-aware delivery are chosen. Detailed activity/live execution presentation can be designed later."
       },
       {
         "number": 40,
@@ -771,7 +776,7 @@
         "number": 43,
         "topic": "Cross-device continuity",
         "status": "Partial",
-        "detail": "Seamless continuity desired; same versus separate sessions and conflict behavior remain open."
+        "detail": "Seamless device continuity and cloud authority chosen. Preserve both conflicting local/cloud edits and ask the user. Exact session merging remains open."
       },
       {
         "number": 44,
@@ -783,7 +788,7 @@
         "number": 45,
         "topic": "Mac asleep/offline",
         "status": "Partial",
-        "detail": "Cloudflare background execution chosen; device-dependent task handling during sleep/offline remains open."
+        "detail": "Cloud task management while user is away is allowed. Private-vault task continuation after Mac goes offline was asked but not answered; native actions need available devices."
       },
       {
         "number": 46,
@@ -801,7 +806,7 @@
         "number": 48,
         "topic": "Budget",
         "status": "Partial",
-        "detail": "Starting target: Cloudflare $5 base plan plus about $20/month AI, flexible with usage. Actual infrastructure usage costs, overage behavior and caps remain unverified/open."
+        "detail": "Cloudflare $5 base-plan target plus $20/month AI soft nudge; ask about higher spend but keep working. Actual usage costs and overrun safeguards need validation."
       },
       {
         "number": 49,
@@ -821,7 +826,16 @@
       "Partial": 20,
       "Open": 0
     },
-    "resume": "Original broad questionnaire reviewed: no fully unanswered items remain; 20 partial items retain scoped follow-ups or explicitly deferred detail. Continue with engineering evaluation and focused architecture choices, without reopening settled product decisions. Consult decision log for latest grant, budget, performance and correction decisions."
+    "resume": "Paused at user request after broad requirements. Do not repeat settled questions. Start focused architecture/GUI evaluation or clarify the explicitly unanswered private-task/offline-Mac question. Deferred engineering details are not absent requirements.",
+    "technicalFollowups": [
+      "Unanswered: if the user approves a private-vault task and the Mac goes offline, may the cloud continue it until completion? This affects availability and encryption-key custody; do not assume an answer.",
+      "Engineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.",
+      "Private grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.",
+      "Sync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.",
+      "Coding bootstrap: Cloudflare execution, April-only GitHub repositories, dev/PR/user approval flow are decided; validate macOS packaging/native tests and exact release evidence.",
+      "Deferred deep dives: plugin contracts/trust, per-integration API versus UI, Codex-inspired computer use and memory systems including Supermemory.",
+      "Operational implementation: accurate cost tracking and non-blocking $20 AI nudge, task retry/cancellation, recovery history and permission enforcement."
+    ]
   },
   "questionReviewRevision": 1,
   "audienceRevision": 1,
@@ -839,5 +853,15 @@
   "hardwareRemoteRevision": 1,
   "syncConflictRevision": 1,
   "approvalLanguageRevision": 1,
-  "replacementRevision": 1
+  "replacementRevision": 1,
+  "technicalFollowups": [
+    "Unanswered: if the user approves a private-vault task and the Mac goes offline, may the cloud continue it until completion? This affects availability and encryption-key custody; do not assume an answer.",
+    "Engineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.",
+    "Private grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.",
+    "Sync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.",
+    "Coding bootstrap: Cloudflare execution, April-only GitHub repositories, dev/PR/user approval flow are decided; validate macOS packaging/native tests and exact release evidence.",
+    "Deferred deep dives: plugin contracts/trust, per-integration API versus UI, Codex-inspired computer use and memory systems including Supermemory.",
+    "Operational implementation: accurate cost tracking and non-blocking $20 AI nudge, task retry/cancellation, recovery history and permission enforcement."
+  ],
+  "pauseCheckpointRevision": 1
 }

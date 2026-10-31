@@ -216,25 +216,25 @@
       "number": 36,
       "topic": "Automatic action scope",
       "status": "Partial",
-      "detail": "Maximum useful autonomy inside adjustable guardrails; concrete allowed action classes remain open."
+      "detail": "Broad autonomy for simpler proactive work, including research; substantial feature work needs discussion. Additional action classes can be discovered during use; detailed rules deferred."
     },
     {
       "number": 37,
       "topic": "Mandatory human involvement",
       "status": "Partial",
-      "detail": "Explicit overlay click for private access and initial PR approval before production; other mandatory categories remain open."
+      "detail": "Private-vault approval uses explicit overlay click and initial production follows PR approval. Additional mandatory approval categories are intentionally discovered during use."
     },
     {
       "number": 38,
       "topic": "Permission model granularity",
       "status": "Partial",
-      "detail": "Central learned approval agent with policy-bounded automatic approvals. Repeated routinely approved prompts can be reviewed into default allowances. Private grants expire with task; enforcement details remain implementation work."
+      "detail": "Central approval model learns decisions and auto-approves within policy; repeated unnecessary prompts can be reviewed into default allowances. Private grants end with task. Enforcement/revocation details remain."
     },
     {
       "number": 39,
       "topic": "Activity visibility",
       "status": "Partial",
-      "detail": "Artifact update indicators and context-aware notification chosen; live execution visibility not defined."
+      "detail": "Non-blocking new/edited artifact indicators and context-aware delivery are chosen. Detailed activity/live execution presentation can be designed later."
     },
     {
       "number": 40,
@@ -258,7 +258,7 @@
       "number": 43,
       "topic": "Cross-device continuity",
       "status": "Partial",
-      "detail": "Seamless continuity desired; same versus separate sessions and conflict behavior remain open."
+      "detail": "Seamless device continuity and cloud authority chosen. Preserve both conflicting local/cloud edits and ask the user. Exact session merging remains open."
     },
     {
       "number": 44,
@@ -270,7 +270,7 @@
       "number": 45,
       "topic": "Mac asleep/offline",
       "status": "Partial",
-      "detail": "Cloudflare background execution chosen; device-dependent task handling during sleep/offline remains open."
+      "detail": "Cloud task management while user is away is allowed. Private-vault task continuation after Mac goes offline was asked but not answered; native actions need available devices."
     },
     {
       "number": 46,
@@ -288,7 +288,7 @@
       "number": 48,
       "topic": "Budget",
       "status": "Partial",
-      "detail": "Starting target: Cloudflare $5 base plan plus about $20/month AI, flexible with usage. Actual infrastructure usage costs, overage behavior and caps remain unverified/open."
+      "detail": "Cloudflare $5 base-plan target plus $20/month AI soft nudge; ask about higher spend but keep working. Actual usage costs and overrun safeguards need validation."
     },
     {
       "number": 49,
@@ -308,5 +308,14 @@
     "Partial": 20,
     "Open": 0
   },
-  "resume": "Original broad questionnaire reviewed: no fully unanswered items remain; 20 partial items retain scoped follow-ups or explicitly deferred detail. Continue with engineering evaluation and focused architecture choices, without reopening settled product decisions. Consult decision log for latest grant, budget, performance and correction decisions."
+  "resume": "Paused at user request after broad requirements. Do not repeat settled questions. Start focused architecture/GUI evaluation or clarify the explicitly unanswered private-task/offline-Mac question. Deferred engineering details are not absent requirements.",
+  "technicalFollowups": [
+    "Unanswered: if the user approves a private-vault task and the Mac goes offline, may the cloud continue it until completion? This affects availability and encryption-key custody; do not assume an answer.",
+    "Engineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.",
+    "Private grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.",
+    "Sync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.",
+    "Coding bootstrap: Cloudflare execution, April-only GitHub repositories, dev/PR/user approval flow are decided; validate macOS packaging/native tests and exact release evidence.",
+    "Deferred deep dives: plugin contracts/trust, per-integration API versus UI, Codex-inspired computer use and memory systems including Supermemory.",
+    "Operational implementation: accurate cost tracking and non-blocking $20 AI nudge, task retry/cancellation, recovery history and permission enforcement."
+  ]
 }
