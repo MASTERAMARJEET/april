@@ -2,6 +2,22 @@
 
 A proposed sequence of useful vertical slices.
 
+## Current design phase: refine component architecture before implementation
+
+Recovered from the “April’s Cloud-First Architecture” conversation: first define the cloud task runtime and the lightweight client's connection to it, then evaluate the GUI framework. The user explicitly wants the component details refined before starting the first implementation slice.
+
+Work through these designs in order. For each, record responsibilities, authoritative state, interfaces/events, permission boundaries, failure/recovery behavior, unresolved decisions and acceptance criteria. A component remains proposed until its design is resolved; a checklist entry is not an implementation claim.
+
+- [ ] **Cloud runtime and sessions** — Main interaction coordinator, conversation/vault scope, specialist job lifecycle, independent verification, durable progress, cancellation and reconnect-independent execution.
+- [ ] **Client/cloud protocol and voice** — Device identity, resumable connection, voice provider boundary, interruption/tool events, task updates, local capability calls and unavailable-device behavior.
+- [ ] **Vaults, memory and synchronization** — Cloud-backed files, local copies, conflict resolution, encryption/key custody, provenance, quiet memory and sensitive-data exclusions.
+- [ ] **Approval and policy service** — Request routing, trusted overlay decisions, reviewed learned allowances, task-end grant expiry, revocation, audit and enforcement outside the model.
+- [ ] **Plugins and specialist contracts** — App/tool integrations, specialist agents, artifact renderers, compatibility, lifecycle and isolated interactive execution. Detailed plugin deep dive remains planned, not complete.
+- [ ] **Mac client and GUI evaluation** — Voice overlay, focus/display behavior, integrated artifact workspace, accessibility and measured efficiency/fluidity on the recorded Mac baseline. Evaluate frameworks against the earlier contracts rather than assuming a choice.
+- [ ] **Coding/release bootstrap and validation plan** — April-only GitHub repositories, Cloudflare build/test flow, Mac-specific validation, dev preview, PR evidence and user-approved production release.
+
+Then define and implement the smallest end-to-end slice against those contracts. Avoid reopening confirmed product preferences while resolving engineering choices. Research provider-specific capabilities when that component is evaluated; use Exa preferentially and primary sources.
+
 ## User-prioritized bootstrap — voice clarification, 31 October 2026
 
 This sequence takes priority over interpreting the topical sections below as a fixed delivery order.
