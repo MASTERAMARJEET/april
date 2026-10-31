@@ -96,3 +96,5 @@ The user intends self-extension as the development strategy. It is not permissio
 - [ ] **Separate voice and task interruption** — Barge-in stops playback/conversation output; only an explicit task instruction cancels delegated work. Validate that voice dismissal/reconnect does not terminate subagents.
 
 - [ ] **Start with full local vault mirroring** — Sync all initial vault files to cloud and retain a complete local copy. Later add on-demand materialization/cloud-only files without changing cloud authority or private access rules.
+
+- [ ] **Implement recoverable deletion and review** — Sync active-file deletion into a restorable bin; prompt for review every seven days; only permanently clear after the user's explicit review/cleanup, not an automatic seven-day purge.

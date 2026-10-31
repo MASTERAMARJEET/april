@@ -100,3 +100,7 @@ Confirmed user direction: Automatically send requests queued while offline when 
 Confirmed user direction: If connectivity drops during an active voice session, attempt automatic resumption on a best-effort basis. If recovery is not possible, the user can summon April again. Do not revive a session explicitly dismissed during the outage. Preserve visible connection/listening state; do not imply offline voice inference or default audio retention. Recovery deadlines, buffering and failure indicators remain implementation details.
 
 Recovery deadline: approximately five seconds for automatic voice resumption; on timeout transition to manual-resume-needed rather than retrying indefinitely.
+
+## Deletion and review lifecycle
+
+Confirmed final user preference: Deleting a vault file removes it from active use and synchronizes deletion while retaining a restorable bin entry. The user's final preference supersedes the earlier automatic seven-day purge idea: prompt the user to review pending deletions every seven days, and let the user clear them at review. Do not permanently purge solely because seven days elapsed. Preserve recoverability until the user explicitly clears the bin. This is a future April product workflow, not a request to create a real reminder/automation now. Bin permissions, private metadata, restores and replica/backup cleanup remain implementation details.

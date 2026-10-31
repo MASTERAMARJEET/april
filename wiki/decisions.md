@@ -336,3 +336,7 @@ Voice recovery timeout clarified: Bound automatic voice-session recovery to appr
 ## Full local vault copy initially; on-demand files later
 
 Confirmed user direction: Initially keep/copy all vault files locally and synchronize everything to the cloud, simplifying the first version. Cloud remains authoritative and private-file agent access stays task scoped. Future direction: fetch only files being viewed or needed, keeping the rest cloud-only. Selective caching/pinning is not required initially. This describes future product behavior, not authorization to copy/upload the user's current files now.
+
+## Recoverable deletion with seven-day user review
+
+Confirmed final user preference: Deleting a vault file removes it from active use and synchronizes deletion while retaining a restorable bin entry. The user's final preference supersedes the earlier automatic seven-day purge idea: prompt the user to review pending deletions every seven days, and let the user clear them at review. Do not permanently purge solely because seven days elapsed. Preserve recoverability until the user explicitly clears the bin. This is a future April product workflow, not a request to create a real reminder/automation now. Bin permissions, private metadata, restores and replica/backup cleanup remain implementation details.

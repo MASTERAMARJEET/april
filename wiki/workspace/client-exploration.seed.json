@@ -581,6 +581,11 @@
       "title": "Full local copy first; cloud-only on-demand later",
       "status": "Confirmed direction",
       "rationale": "Initially keep/copy all vault files locally and synchronize everything to the cloud, simplifying the first version. Cloud remains authoritative and private-file agent access stays task scoped. Future direction: fetch only files being viewed or needed, keeping the rest cloud-only. Selective caching/pinning is not required initially. This describes future product behavior, not authorization to copy/upload the user's current files now."
+    },
+    {
+      "title": "Restorable bin; user reviews every seven days",
+      "status": "Confirmed direction",
+      "rationale": "Deleting a vault file removes it from active use and synchronizes deletion while retaining a restorable bin entry. The user's final preference supersedes the earlier automatic seven-day purge idea: prompt the user to review pending deletions every seven days, and let the user clear them at review. Do not permanently purge solely because seven days elapsed. Preserve recoverability until the user explicitly clears the bin. This is a future April product workflow, not a request to create a real reminder/automation now. Bin permissions, private metadata, restores and replica/backup cleanup remain implementation details."
     }
   ],
   "questions": "Confirmed: approved cloud tasks, including private-file tasks under existing task-scoped access, continue if the Mac disconnects. Next: specify key custody, revocation and device-unavailable handling; all persistent files are cloud-backed.\nEngineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.\nPrivate grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.\nSync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.\nCoding bootstrap: Cloudflare execution, April-only GitHub repositories, dev/PR/user approval flow are decided; validate macOS packaging/native tests and exact release evidence.\nDeferred deep dives: plugin contracts/trust, per-integration API versus UI, Codex-inspired computer use and memory systems including Supermemory.\nOperational implementation: accurate cost tracking and non-blocking $20 AI nudge, task retry/cancellation, recovery history and permission enforcement.",
@@ -952,5 +957,6 @@
   "offlineAutoSendRevision": 1,
   "voiceRecoveryRevision": 1,
   "voiceRecoveryTimeoutRevision": 1,
-  "vaultMaterializationRevision": 1
+  "vaultMaterializationRevision": 1,
+  "deletionReviewRevision": 1
 }
