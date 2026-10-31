@@ -105,9 +105,9 @@
       "title": "Deployment",
       "category": "April fit",
       "caption": "Provider remains open",
-      "rationale": "Hosted service, non-public self-hosted server binary, or an owned subsystem are alternatives. Cloudflare deployment compatibility is not validated.",
+      "rationale": "Decided: build April\u2019s own memory subsystem. Supermemory remains a strong reference, not a hosted or self-hosted dependency.",
       "source": "https://supermemory.ai/docs/self-hosting/overview",
-      "status": "Research / proposed April fit"
+      "status": "Confirmed direction"
     },
     {
       "title": "Privacy audit",
@@ -148,6 +148,100 @@
       "rationale": "Benchmark English/Hindi, readiness delays, replay, retrieval errors and ingestion costs with synthetic data. No provider benchmark claims are treated as proof.",
       "source": "https://supermemory.ai/pricing/",
       "status": "Research / proposed April fit"
+    },
+    {
+      "title": "Owned memory; credited references",
+      "rationale": "April will build its own memory system. Supermemory is a strong reference, not a dependency. Credit material design influences in the root README.",
+      "status": "Confirmed direction",
+      "category": "April fit",
+      "caption": "Confirmed April decision"
+    },
+    {
+      "title": "Tentative inferences",
+      "rationale": "Use low-risk inferences tentatively and ask before consequential reliance. Keep inference distinct from confirmed fact.",
+      "status": "Confirmed direction",
+      "category": "April fit",
+      "caption": "Confirmed April decision"
+    },
+    {
+      "title": "Temporary memory expiry",
+      "rationale": "Temporary facts expire from current recall while remaining history. Explicit corrections take precedence immediately; clarify ambiguous conflicts.",
+      "status": "Confirmed direction",
+      "category": "April fit",
+      "caption": "Confirmed April decision"
+    },
+    {
+      "title": "Intentional forgetting",
+      "rationale": "Exclude forgotten facts from normal recall and prevent relearning from unchanged sources. Consult them only on specific user request; ask before restoring normal memory. Permanent erasure is separate.",
+      "status": "Confirmed direction",
+      "category": "April fit",
+      "caption": "Confirmed April decision"
+    },
+    {
+      "title": "Shared data standards and profiles",
+      "rationale": "Use Supermemory\u2019s automatic durable/recent profile behavior as reference, without a separate pinning requirement. Memory shares product-wide encryption and data-management standards.",
+      "status": "Confirmed direction",
+      "category": "April fit",
+      "caption": "Confirmed April decision"
+    },
+    {
+      "title": "Background memory readiness",
+      "rationale": "A short extraction delay is acceptable for grouped background learning. Explicit corrections apply immediately in the active conversation; persistent propagation needs design.",
+      "status": "Confirmed direction",
+      "category": "April fit",
+      "caption": "Confirmed April decision"
+    },
+    {
+      "title": "Memory inspection provenance",
+      "rationale": "Show each fact\u2019s source and distinguish stated facts from inferred conclusions.",
+      "status": "Confirmed direction",
+      "category": "April fit",
+      "caption": "Confirmed April decision"
+    },
+    {
+      "title": "Task outcome learning",
+      "rationale": "Remember useful successes and failures. Agent claims remain unverified until evidence supports them; private restrictions still govern reuse.",
+      "status": "Confirmed direction",
+      "category": "April fit",
+      "caption": "Confirmed April decision"
+    },
+    {
+      "title": "User notes versus agent claims",
+      "rationale": "User notes take precedence over conflicting agent claims; nudge the user about discrepancies. Other ambiguous conflicts require clarification.",
+      "status": "Confirmed direction",
+      "category": "April fit",
+      "caption": "Confirmed April decision"
+    },
+    {
+      "title": "No-durable-memory mode",
+      "rationale": "Provide a don\u2019t-remember-this mode excluding the conversation from durable memory. Transcript retention and mode scope remain open.",
+      "status": "Confirmed direction",
+      "category": "April fit",
+      "caption": "Confirmed April decision"
+    },
+    {
+      "title": "No-memory transcript and lifetime",
+      "rationale": "Omit saved transcripts and durable extraction. Persist until explicitly turned off with a visible indicator, including across dismissal/resummoning.",
+      "status": "Confirmed direction",
+      "category": "April fit",
+      "caption": "Confirmed April decision"
+    },
+    {
+      "title": "Cross-device no-memory and artifacts",
+      "rationale": "Apply across devices. Confirm retention of specifically requested saved artifacts. Excluded conversations remain excluded permanently after mode exit; no retroactive learning.",
+      "status": "Confirmed direction",
+      "category": "April fit",
+      "caption": "Confirmed April decision"
+    },
+    {
+      "title": "Memory design paused",
+      "rationale": "The user deferred remaining memory detail. Correction propagation, running-task handling and internal grouping are unanswered. Resume later on request; owned memory and all confirmed decisions remain in force.",
+      "status": "Confirmed direction",
+      "category": "April fit",
+      "caption": "Confirmed April decision"
     }
-  ]
+  ],
+  "memoryPolicyRevision": 1,
+  "memoryInspectionRevision": 1,
+  "memoryPauseRevision": 1
 }

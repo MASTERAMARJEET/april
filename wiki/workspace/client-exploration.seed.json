@@ -671,6 +671,71 @@
       "title": "Memory research checkpoint: Supermemory",
       "status": "Research checkpoint",
       "rationale": "Memory Q&A paused for wiki/research/supermemory.md. The deep dive distinguishes sources, extracted facts and profiles; current versus legacy correction APIs; soft forgetting versus erasure; private-task controls; hosting and costs. Supermemory is a reference, not a selected provider. Resume with deployment choice and unresolved memory semantics after review."
+    },
+    {
+      "title": "Owned memory; credited references",
+      "rationale": "April will build its own memory system. Supermemory is a strong reference, not a dependency. Credit material design influences in the root README.",
+      "status": "Confirmed direction"
+    },
+    {
+      "title": "Tentative inferences",
+      "rationale": "Use low-risk inferences tentatively and ask before consequential reliance. Keep inference distinct from confirmed fact.",
+      "status": "Confirmed direction"
+    },
+    {
+      "title": "Temporary memory expiry",
+      "rationale": "Temporary facts expire from current recall while remaining history. Explicit corrections take precedence immediately; clarify ambiguous conflicts.",
+      "status": "Confirmed direction"
+    },
+    {
+      "title": "Intentional forgetting",
+      "rationale": "Exclude forgotten facts from normal recall and prevent relearning from unchanged sources. Consult them only on specific user request; ask before restoring normal memory. Permanent erasure is separate.",
+      "status": "Confirmed direction"
+    },
+    {
+      "title": "Shared data standards and profiles",
+      "rationale": "Use Supermemory\u2019s automatic durable/recent profile behavior as reference, without a separate pinning requirement. Memory shares product-wide encryption and data-management standards.",
+      "status": "Confirmed direction"
+    },
+    {
+      "title": "Background memory readiness",
+      "rationale": "A short extraction delay is acceptable for grouped background learning. Explicit corrections apply immediately in the active conversation; persistent propagation needs design.",
+      "status": "Confirmed direction"
+    },
+    {
+      "title": "Memory inspection provenance",
+      "rationale": "Show each fact\u2019s source and distinguish stated facts from inferred conclusions.",
+      "status": "Confirmed direction"
+    },
+    {
+      "title": "Task outcome learning",
+      "rationale": "Remember useful successes and failures. Agent claims remain unverified until evidence supports them; private restrictions still govern reuse.",
+      "status": "Confirmed direction"
+    },
+    {
+      "title": "User notes versus agent claims",
+      "rationale": "User notes take precedence over conflicting agent claims; nudge the user about discrepancies. Other ambiguous conflicts require clarification.",
+      "status": "Confirmed direction"
+    },
+    {
+      "title": "No-durable-memory mode",
+      "rationale": "Provide a don\u2019t-remember-this mode excluding the conversation from durable memory. Transcript retention and mode scope remain open.",
+      "status": "Confirmed direction"
+    },
+    {
+      "title": "No-memory transcript and lifetime",
+      "rationale": "Omit saved transcripts and durable extraction. Persist until explicitly turned off with a visible indicator, including across dismissal/resummoning.",
+      "status": "Confirmed direction"
+    },
+    {
+      "title": "Cross-device no-memory and artifacts",
+      "rationale": "Apply across devices. Confirm retention of specifically requested saved artifacts. Excluded conversations remain excluded permanently after mode exit; no retroactive learning.",
+      "status": "Confirmed direction"
+    },
+    {
+      "title": "Memory design paused",
+      "rationale": "The user deferred remaining memory detail. Correction propagation, running-task handling and internal grouping are unanswered. Resume later on request; owned memory and all confirmed decisions remain in force.",
+      "status": "Confirmed direction"
     }
   ],
   "questions": "Confirmed: approved cloud tasks, including private-file tasks under existing task-scoped access, continue if the Mac disconnects. Next: specify key custody, revocation and device-unavailable handling; all persistent files are cloud-backed.\nEngineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.\nPrivate grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.\nSync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.\nCoding bootstrap: Cloudflare execution, April-only GitHub repositories, dev/PR/user approval flow are decided; validate macOS packaging/native tests and exact release evidence.\nDeferred deep dives: plugin contracts/trust, per-integration API versus UI, Codex-inspired computer use and memory systems including Supermemory.\nOperational implementation: accurate cost tracking and non-blocking $20 AI nudge, task retry/cancellation, recovery history and permission enforcement.",
@@ -1056,5 +1121,8 @@
   "pluginRollbackRevision": 1,
   "pluginFailureIsolationRevision": 1,
   "pluginAccessBoundaryRevision": 1,
-  "supermemoryResearchRevision": 1
+  "supermemoryResearchRevision": 1,
+  "memoryPolicyRevision": 1,
+  "memoryInspectionRevision": 1,
+  "memoryPauseRevision": 1
 }

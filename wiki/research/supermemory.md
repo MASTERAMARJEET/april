@@ -1,6 +1,6 @@
 # Supermemory deep dive for April
 
-Research checkpoint: 1 November 2026. Memory Q&A is paused pending review of this section. This is a documentation-based investigation, not an installed integration or a benchmark. Supermemory is a behavioral reference; no provider, deployment or license has been selected.
+Research checkpoint: 1 November 2026. Memory Q&A is paused at the user’s request after the decisions recorded below; remaining detail is deferred. This is a documentation-based investigation, not an installed integration or a benchmark. Supermemory is a behavioral reference. The user has ruled out using it as a hosted or self-hosted dependency; April will build its own memory subsystem.
 
 [Open the interactive memory exploration](../workspace/memory-exploration.html).
 
@@ -89,7 +89,7 @@ The unanswered memory-browser question is parked, not rejected; prior sessions a
 
 First explain the three-layer model and correction/version distinction. Then resolve these architecture choices one at a time:
 
-- Use Supermemory as a service, evaluate its self-hosted binary, or borrow the design for an owned subsystem?
+- Decided: build an owned subsystem, using Supermemory as a strong reference rather than a dependency.
 - How should uncertain inferred facts be presented and used before user review?
 - How should corrections and forgetting propagate across source history, graph facts, profiles and cached context?
 - Which retention and deletion controls are required beyond removing facts from retrieval?
@@ -102,3 +102,84 @@ The existing requirements remain in force. This research does not reopen settled
 A further four-result Exa search examined expiry and invalidation. The legacy direct-create API describes a scheduled expiry time; this is not assumed to be a v5 request field. Current migration docs distinguish forgotten/expired latest records in lists from search that explicitly includes forgotten content. Historical retrieval is not evidence of automatic revival or restoration as current truth. Review undo is documented for declined inferences, not as a universal reversal of erasure. These distinctions are separate branches in the interactive artifact.
 
 Sources: [legacy scheduled forgetting](https://supermemory.ai/docs/api-reference/content-management/create-memories-directly), [current historical visibility](https://supermemory.ai/docs/migration/api-v5-document-reads).
+
+## April decision after research: inferred facts
+
+The user chose tentative use of low-risk inferences, with clarification before consequential reliance. Keep inferred status visible in inspection and correction controls. Private-data policy remains unchanged. This is April’s chosen behavior, not a claim that Supermemory automatically applies the same risk threshold.
+
+
+## Temporary memory expiry
+
+Confirmed user direction: Automatically expire temporary facts from current recall when their relevance ends, while preserving them as history. This does not imply physical deletion or automatic expiry of every inferred preference. Exact expiry inference, uncertain dates and historical retrieval controls remain technical design work.
+
+
+## Explicit memory corrections
+
+Confirmed user direction: An explicit user correction takes precedence immediately without redundant confirmation. Retain the distinction between changing a fact, adding detail and a genuinely ambiguous conflict; ask the user to clarify the latter. Propagation through stored memory, profiles and cached context remains implementation work. Existing private-data policy still applies.
+
+
+## Intentional forgetting and relearning
+
+Confirmed user direction: “Forget this” excludes the targeted fact from normal recall and prevents relearning it from unchanged sources. Permanent deletion is a separate user option. Suppression provenance, behavior for changed sources or renewed user statements, and erasure across derived stores still require design. Do not describe this additional suppression behavior as a verified Supermemory guarantee.
+
+
+## Recall and restoration of intentionally forgotten facts
+
+Confirmed user direction: April consults intentionally forgotten facts only when the user specifically requests them. Historical access does not restore ordinary recall; ask the user before remembering such a fact again. Private-content grants still apply, and permanently erased information cannot be assumed recoverable.
+
+
+## Profile preferences and common data protection
+
+Confirmed user direction: Follow Supermemory’s profile behavior for important preferences: automatically selected durable and recent context is the reference. Manual preference pinning is not a separately confirmed requirement. Memory must use the same product-wide encryption and data-maintenance standards as artifacts, rather than a distinct memory-specific scheme. The cryptosystem, key custody and recovery remain unresolved product-wide; this does not select end-to-end versus server-side encryption. Derived memory, indexes, profiles and caches must respect common policy and private-task boundaries.
+
+
+## Background memory readiness
+
+Confirmed user direction: Accept a short delay for background extraction that groups related material, following Supermemory’s dynamic-processing reference. Explicit corrections apply immediately in the active conversation; persisted extraction, profile and cache propagation still need consistency design. No numeric latency target was chosen.
+
+
+## Owned memory system and reference attribution
+
+Confirmed user direction: Build April’s own memory subsystem. Supermemory is a strong behavioral and architectural reference for further implementation research, not a hosted or self-hosted dependency. Keep project-wide storage, encryption and lifecycle standards. Credit teams whose work materially informs the design in the top-level README, distinguishing inspiration from actual code reuse and dependencies.
+
+
+## Memory provenance inspection
+
+Confirmed user direction: Memory inspection shows where each remembered fact came from and distinguishes explicitly stated information from inferred conclusions. Source access remains subject to the existing user/agent and private-data rules. Root README acknowledgments cover all material external design references, not only Supermemory.
+
+
+## Learning from task outcomes
+
+Confirmed user direction: Remember useful task outcomes, including what worked and failed. Treat an agent’s own claims as unverified until supported by evidence; retain source provenance and stated/inferred distinctions. Existing private-content restrictions and task permissions still govern retention and reuse.
+
+
+## User notes versus agent claims
+
+Confirmed user direction: A user note takes precedence by default over a conflicting agent claim, and April nudges the user about the discrepancy. Do not silently treat the agent claim as verified. Other genuinely ambiguous conflicts still follow the existing clarification requirement. The proposed no-durable-memory conversation mode has not yet been answered.
+
+
+## No-durable-memory mode
+
+Confirmed user direction: Provide a “don’t remember this” mode that excludes the conversation content from durable memory. Transcript retention, mode scope and behavior for task-created artifacts must be clarified separately; do not imply zero logging or zero storage from this choice alone.
+
+
+## Transcript default in no-memory mode
+
+Confirmed user direction: “Don’t remember this” mode omits the saved transcript by default in addition to excluding durable memory extraction. This concerns April’s saved conversation history; transient processing, operational-log minimization and third-party retention still require enforcement design. Artifact creation and mode exit scope remain to be clarified.
+
+
+## No-memory mode persistence
+
+Confirmed user direction: No-memory mode stays active until explicitly turned off, has a visible indicator and persists across dismissing and resummoning April. Cross-device propagation remains to be clarified. The user prefers groups of two or three related questions to reduce conversation time.
+
+
+## Cross-device no-memory controls
+
+Confirmed user direction: Apply no-memory mode across all devices. If the user requests a saved artifact while active, confirm that this particular output will be retained. Turning the mode off never retroactively admits the excluded conversation into memory. Cross-device/offline propagation must fail safely and needs technical design. The separately introduced project/global memory-grouping question was not answered by these three confirmations.
+
+
+## Memory section paused
+
+User requested deferring the remaining memory detail questions to a later session. Preserve the decisions above without inferring answers to the last two questions: correction propagation through derived summaries/profiles, and coordinator notification or dependent-work pausing after a correction. Project/global memory grouping also remains unanswered. Resume only when the user wants to revisit memory.
+
+Confirmed no-memory behavior: omit saved transcripts by default; persist until explicitly turned off with a visible indicator, including across dismissal/resummoning; apply across devices; confirm retention of any specifically requested saved artifact; never retroactively learn from the excluded conversation. Technical enforcement and offline-device propagation remain open.
