@@ -641,6 +641,11 @@
       "title": "Auto-revert failed plugin rollout and notify user",
       "status": "Confirmed direction",
       "rationale": "If a plugin update fails after rollout, automatically revert to the last known working plugin version and notify the user. Record failed and restored versions plus rollback evidence. This is the chosen recovery default, not a requirement to await user permission before reverting. Concrete health criteria, affected in-flight task recovery, compatibility/data-migration handling and irreversible side effects still require design; code rollback must not be assumed to undo external actions."
+    },
+    {
+      "title": "Plugin failure containment",
+      "status": "Confirmed direction",
+      "rationale": "A plugin crash must leave unrelated tasks running. Bring the affected task to the user\u2019s attention. Define isolation boundaries, dependent-task handling and recovery separately; do not assume a shared in-process host provides this guarantee."
     }
   ],
   "questions": "Confirmed: approved cloud tasks, including private-file tasks under existing task-scoped access, continue if the Mac disconnects. Next: specify key custody, revocation and device-unavailable handling; all persistent files are cloud-backed.\nEngineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.\nPrivate grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.\nSync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.\nCoding bootstrap: Cloudflare execution, April-only GitHub repositories, dev/PR/user approval flow are decided; validate macOS packaging/native tests and exact release evidence.\nDeferred deep dives: plugin contracts/trust, per-integration API versus UI, Codex-inspired computer use and memory systems including Supermemory.\nOperational implementation: accurate cost tracking and non-blocking $20 AI nudge, task retry/cancellation, recovery history and permission enforcement.",
@@ -1023,5 +1028,6 @@
   "pluginRolesRevision": 1,
   "pluginVersionPinRevision": 1,
   "independentPluginRevision": 1,
-  "pluginRollbackRevision": 1
+  "pluginRollbackRevision": 1,
+  "pluginFailureIsolationRevision": 1
 }

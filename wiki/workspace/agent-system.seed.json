@@ -828,6 +828,13 @@
       "rationale": "If a plugin update fails after rollout, automatically revert to the last known working plugin version and notify the user. Record failed and restored versions plus rollback evidence. This is the chosen recovery default, not a requirement to await user permission before reverting. Concrete health criteria, affected in-flight task recovery, compatibility/data-migration handling and irreversible side effects still require design; code rollback must not be assumed to undo external actions.",
       "id": "automatic-plugin-rollback",
       "next": "Define health checks, version registry and affected-task/migration recovery."
+    },
+    {
+      "title": "Plugin failure containment",
+      "status": "Chosen direction",
+      "rationale": "A plugin crash must leave unrelated tasks running. Bring the affected task to the user\u2019s attention. Define isolation boundaries, dependent-task handling and recovery separately; do not assume a shared in-process host provides this guarantee.",
+      "id": "plugin-failure-containment",
+      "next": "Design isolation and dependent-task recovery."
     }
   ],
   "roadmap": [
@@ -1389,5 +1396,6 @@
   "pluginRolesRevision": 1,
   "pluginVersionPinRevision": 1,
   "independentPluginRevision": 1,
-  "pluginRollbackRevision": 1
+  "pluginRollbackRevision": 1,
+  "pluginFailureIsolationRevision": 1
 }

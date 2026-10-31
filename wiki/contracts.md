@@ -141,3 +141,8 @@ Plugin lifecycle requirement: independent versioned updates with core/host compa
 Confirmed user direction: If a plugin update fails after rollout, automatically revert to the last known working plugin version and notify the user. Record failed and restored versions plus rollback evidence. This is the chosen recovery default, not a requirement to await user permission before reverting. Concrete health criteria, affected in-flight task recovery, compatibility/data-migration handling and irreversible side effects still require design; code rollback must not be assumed to undo external actions.
 
 Draft plugin lifecycle: candidate built → verified/reviewed → approved version activated for new tasks → monitored. On failed rollout: restore last known working active version → notify and audit → investigate candidate. Running task version bindings remain explicit; do not silently hot-swap their code. Final handling of affected tasks and migrations remains open.
+
+
+## Plugin failure containment
+
+Confirmed user direction: A plugin crash must leave unrelated tasks running. Bring the affected task to the user’s attention. Define isolation boundaries, dependent-task handling and recovery separately; do not assume a shared in-process host provides this guarantee.
