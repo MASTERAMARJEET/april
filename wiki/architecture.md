@@ -200,3 +200,11 @@ Confirmed user clarification: Conversations are not tied to a particular vault. 
 ## User-facing continuity and internal context branches
 
 Confirmed user direction: The user interacts through a single ongoing thread and does not manage separate conversation sessions. April may internally organize, branch and manage task/topic context as needed. Internal context/session boundaries are implementation details, not user-facing vault boundaries. Vaults remain independent storage/access domains. This does not require one ever-growing model prompt or bypass private-data approvals.
+
+## Independent conversation and delegated-task lifecycles
+
+Confirmed user direction: Spoken interruption stops or redirects the conversation, not delegated tasks. Heavy use of specialist/subagent execution is intended; tasks continue independently of the live conversation and require an explicit user instruction to interrupt/cancel them. Task lifecycle must be separate from voice playback/session lifecycle. Existing failure, permission and safety limits still apply; they are not overridden by conversational independence.
+
+## Nested specialist delegation
+
+Confirmed direction: Specialist agents may delegate further to subagents within the original task authority; delegation is not restricted to the main interaction agent. Represent parent/child task relationships and return results through the hierarchy while April remains the single user-facing coordinator. Delegation does not expand private-data access or permissions. Depth/concurrency limits, budget allocation, conflict handling and cancellation propagation remain implementation decisions.

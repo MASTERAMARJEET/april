@@ -526,6 +526,21 @@
       "title": "One ongoing thread; April manages internal context",
       "status": "Confirmed direction",
       "rationale": "The user interacts through a single ongoing thread and does not manage separate conversation sessions. April may internally organize, branch and manage task/topic context as needed. Internal context/session boundaries are implementation details, not user-facing vault boundaries. Vaults remain independent storage/access domains. This does not require one ever-growing model prompt or bypass private-data approvals."
+    },
+    {
+      "title": "Conversation interruption leaves delegated tasks running",
+      "status": "Confirmed direction",
+      "rationale": "Spoken interruption stops or redirects the conversation, not delegated tasks. Heavy use of specialist/subagent execution is intended; tasks continue independently of the live conversation and require an explicit user instruction to interrupt/cancel them. Task lifecycle must be separate from voice playback/session lifecycle. Existing failure, permission and safety limits still apply; they are not overridden by conversational independence."
+    },
+    {
+      "title": "Study internal threading and long-context UX",
+      "status": "Confirmed direction",
+      "rationale": "Study Codex's long-conversation and threading experience as a reference for internal context organization. User sees one ongoing thread; heavy subagent use is intended. Specific mechanisms are to be researched, not assumed."
+    },
+    {
+      "title": "Specialists may delegate further",
+      "status": "Confirmed direction",
+      "rationale": "Specialist agents may delegate further to subagents within the original task authority; delegation is not restricted to the main interaction agent. Represent parent/child task relationships and return results through the hierarchy while April remains the single user-facing coordinator. Delegation does not expand private-data access or permissions. Depth/concurrency limits, budget allocation, conflict handling and cancellation propagation remain implementation decisions."
     }
   ],
   "questions": "Confirmed: approved cloud tasks, including private-file tasks under existing task-scoped access, continue if the Mac disconnects. Next: specify key custody, revocation and device-unavailable handling; all persistent files are cloud-backed.\nEngineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.\nPrivate grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.\nSync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.\nCoding bootstrap: Cloudflare execution, April-only GitHub repositories, dev/PR/user approval flow are decided; validate macOS packaging/native tests and exact release evidence.\nDeferred deep dives: plugin contracts/trust, per-integration API versus UI, Codex-inspired computer use and memory systems including Supermemory.\nOperational implementation: accurate cost tracking and non-blocking $20 AI nudge, task retry/cancellation, recovery history and permission enforcement.",
@@ -887,5 +902,7 @@
   "cloudFirstContinuityRevision": 1,
   "vaultIndependentSessionRevision": 1,
   "personalVaultScopeRevision": 1,
-  "singleThreadRevision": 1
+  "singleThreadRevision": 1,
+  "voiceTaskIsolationRevision": 1,
+  "nestedDelegationRevision": 1
 }

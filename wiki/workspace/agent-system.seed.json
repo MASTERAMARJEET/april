@@ -667,6 +667,27 @@
       "rationale": "The user interacts through a single ongoing thread and does not manage separate conversation sessions. April may internally organize, branch and manage task/topic context as needed. Internal context/session boundaries are implementation details, not user-facing vault boundaries. Vaults remain independent storage/access domains. This does not require one ever-growing model prompt or bypass private-data approvals.",
       "id": "single-thread-internal-context",
       "next": "Specify internal branch routing, interruption and task lifecycle."
+    },
+    {
+      "title": "Conversation interruption leaves delegated tasks running",
+      "status": "Chosen direction",
+      "rationale": "Spoken interruption stops or redirects the conversation, not delegated tasks. Heavy use of specialist/subagent execution is intended; tasks continue independently of the live conversation and require an explicit user instruction to interrupt/cancel them. Task lifecycle must be separate from voice playback/session lifecycle. Existing failure, permission and safety limits still apply; they are not overridden by conversational independence.",
+      "id": "voice-task-isolation-0",
+      "next": "Define explicit task cancellation and internal branch coordination."
+    },
+    {
+      "title": "Study internal threading and long-context UX",
+      "status": "Chosen direction",
+      "rationale": "Study Codex's long-conversation and threading experience as a reference for internal context organization. User sees one ongoing thread; heavy subagent use is intended. Specific mechanisms are to be researched, not assumed.",
+      "id": "voice-task-isolation-1",
+      "next": "Define explicit task cancellation and internal branch coordination."
+    },
+    {
+      "title": "Specialists may delegate further",
+      "status": "Chosen direction",
+      "rationale": "Specialist agents may delegate further to subagents within the original task authority; delegation is not restricted to the main interaction agent. Represent parent/child task relationships and return results through the hierarchy while April remains the single user-facing coordinator. Delegation does not expand private-data access or permissions. Depth/concurrency limits, budget allocation, conflict handling and cancellation propagation remain implementation decisions.",
+      "id": "nested-specialist-delegation",
+      "next": "Specify child-task authority, result and cancellation contracts."
     }
   ],
   "roadmap": [
@@ -1207,5 +1228,7 @@
   "cloudFirstContinuityRevision": 1,
   "vaultIndependentSessionRevision": 1,
   "personalVaultScopeRevision": 1,
-  "singleThreadRevision": 1
+  "singleThreadRevision": 1,
+  "voiceTaskIsolationRevision": 1,
+  "nestedDelegationRevision": 1
 }

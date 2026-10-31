@@ -91,3 +91,6 @@ The user intends self-extension as the development strategy. It is not permissio
 ## Cloud-first continuity validation
 
 - [ ] **Validate approved task continuity after Mac disconnection** — Cloud/public/private-file tasks continue under existing scope and task-end expiry. Local integration steps handle an unavailable device explicitly. All persistent files remain cloud-backed; verify sync recovery without changing the cloud-first requirement.
+
+- [ ] **Study long conversations and internal threading** — Use Codex's experience as a reference for internal branches, context management and subagents while preserving one user-facing thread. Study publicly observable/documented behavior, not assumed proprietary internals.
+- [ ] **Separate voice and task interruption** — Barge-in stops playback/conversation output; only an explicit task instruction cancels delegated work. Validate that voice dismissal/reconnect does not terminate subagents.
