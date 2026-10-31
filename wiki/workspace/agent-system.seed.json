@@ -793,6 +793,20 @@
       "rationale": "User prefers identity/setup and recovery tied to their Cloudflare account, with Access/OAuth-style facilities to be evaluated rather than a separate recovery-key UX chosen now. Official Cloudflare docs confirm Cloudflare-as-identity-provider support in Access and Managed OAuth for supported non-browser clients; evaluate native-client compatibility, policy, token/device lifecycle and account recovery before selecting the flow. Distinguish application sign-in from OAuth permissions to manage Cloudflare resources and from encryption-key recovery. This does not create/configure accounts, grant credentials or settle key custody.",
       "id": "cloudflare-account-identity-direction",
       "next": "Validate Access/Managed OAuth client flow and key-recovery architecture."
+    },
+    {
+      "title": "Reviewed April plugins first; external plugins later",
+      "status": "Chosen direction",
+      "rationale": "Start with plugins built and reviewed as part of April itself. Leave interfaces extensible enough for external plugins later; no marketplace or external-plugin installation system is required initially. Third-party refers to authorship, not multiple users. Reusing reviewed external libraries is not excluded. Existing central approval, private-vault scope and isolated artifact execution rules still apply.",
+      "id": "first-party-plugin-bootstrap",
+      "next": "Specify plugin roles, declarations, host boundaries and lifecycle."
+    },
+    {
+      "title": "Integration, specialist and renderer plugin roles",
+      "status": "Chosen direction",
+      "rationale": "Confirmed plugin roles: integrations perform actions/access external or local capabilities; specialists handle delegated work; renderers display artifact types and interactive content. Plugins declare capabilities and needed access, while permission decisions/enforcement remain centrally controlled. Different roles may need different execution hosts; no universal runtime or packaging format has been selected. Shared identity/version, capability schemas, host declarations and lifecycle/audit contract are drafted in the wiki; runtime mechanisms remain proposed.",
+      "id": "three-plugin-roles",
+      "next": "Validate shared contract and role-specific execution boundaries."
     }
   ],
   "roadmap": [
@@ -1349,5 +1363,7 @@
   "ownedInferenceRevision": 1,
   "derivedPrivacyRevision": 1,
   "summaryDeletionRevision": 1,
-  "cloudflareIdentityRevision": 1
+  "cloudflareIdentityRevision": 1,
+  "pluginTrustRevision": 1,
+  "pluginRolesRevision": 1
 }

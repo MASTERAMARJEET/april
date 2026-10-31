@@ -116,3 +116,16 @@ Confirmed direction: Artifacts derived from private material automatically inher
 ## Source-summary deletion propagation
 
 Confirmed user direction: When a private source file is deleted, its derived summaries are deleted as well and follow the same restorable-bin and user-reviewed permanent-cleanup process. Do not leave the summaries as independently retained private artifacts by default. Maintain source-summary lineage for this behavior. Mixed-source summaries, restore consistency and indexes/embeddings need explicit implementation rules; the user specifically confirmed summaries, not an indiscriminate cascade to every linked document.
+
+## Draft shared plugin contract
+
+Confirmed roles: integration, specialist and renderer. Proposed contract fields, not implemented API:
+
+- Identity/version, supported contract versions and role declarations.
+- Capabilities, typed inputs/results and required execution host (cloud, local endpoint or renderer).
+- Required resource/operation/network access, expressed as requests to the central approval/capability system rather than self-granted authority.
+- Lifecycle and task correlation: initialization, invocation, progress, completion, failure, explicit cancellation, safe pause/resume and cleanup where applicable.
+- Health, provenance and audit events linked to parent/child task lineage.
+- Artifact media/schema support and isolated rendering/messaging boundaries for renderers.
+
+Compatibility, packaging, secrets delivery, isolation mechanism and multi-role package structure remain engineering choices. Stuck specialist work escalates to the user under the confirmed policy.

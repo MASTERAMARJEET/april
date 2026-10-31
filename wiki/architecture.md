@@ -234,3 +234,13 @@ Verified official references via Exa:
 - [Cloudflare as identity provider](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/cloudflare/)
 - [Access Managed OAuth](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/managed-oauth/)
 - [Authorizing access to Cloudflare resources](https://developers.cloudflare.com/fundamentals/oauth/authorizing-an-application/)
+
+## Plugin trust and initial distribution scope
+
+Confirmed direction: Start with plugins built and reviewed as part of April itself. Leave interfaces extensible enough for external plugins later; no marketplace or external-plugin installation system is required initially. Third-party refers to authorship, not multiple users. Reusing reviewed external libraries is not excluded. Existing central approval, private-vault scope and isolated artifact execution rules still apply.
+
+## Plugin roles and proposed execution boundaries
+
+Confirmed plugin roles: integrations perform actions/access external or local capabilities; specialists handle delegated work; renderers display artifact types and interactive content. Plugins declare capabilities and needed access, while permission decisions/enforcement remain centrally controlled. Different roles may need different execution hosts; no universal runtime or packaging format has been selected.
+
+Proposed mapping, not a selected implementation: cloud-first integration/specialist hosts; local capability endpoints only for operations needing a device; client-side artifact renderers in an isolated surface. Rendering a file does not confer filesystem, private-vault or arbitrary network authority. Packages may expose roles through stable contracts without making the core depend on one implementation language. Host/protocol details need validation.

@@ -370,3 +370,13 @@ Verified official references via Exa:
 - [Cloudflare as identity provider](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/cloudflare/)
 - [Access Managed OAuth](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/managed-oauth/)
 - [Authorizing access to Cloudflare resources](https://developers.cloudflare.com/fundamentals/oauth/authorizing-an-application/)
+
+## Reviewed first-party plugins initially
+
+Confirmed direction: Start with plugins built and reviewed as part of April itself. Leave interfaces extensible enough for external plugins later; no marketplace or external-plugin installation system is required initially. Third-party refers to authorship, not multiple users. Reusing reviewed external libraries is not excluded. Existing central approval, private-vault scope and isolated artifact execution rules still apply.
+
+## Three plugin roles
+
+Status: User confirmed
+
+Confirmed plugin roles: integrations perform actions/access external or local capabilities; specialists handle delegated work; renderers display artifact types and interactive content. Plugins declare capabilities and needed access, while permission decisions/enforcement remain centrally controlled. Different roles may need different execution hosts; no universal runtime or packaging format has been selected.
