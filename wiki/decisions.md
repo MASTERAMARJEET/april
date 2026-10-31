@@ -302,3 +302,17 @@ Confirmed user direction: Spoken interruption stops or redirects the conversatio
 ## Specialists can delegate to subagents
 
 Confirmed direction: Specialist agents may delegate further to subagents within the original task authority; delegation is not restricted to the main interaction agent. Represent parent/child task relationships and return results through the hierarchy while April remains the single user-facing coordinator. Delegation does not expand private-data access or permissions. Depth/concurrency limits, budget allocation, conflict handling and cancellation propagation remain implementation decisions.
+
+## Task overview and full delegation audit
+
+Status: Confirmed user requirement
+
+Show top-level task summaries for the ordinary overview. Also expose the full parent/child specialist/subagent tree for monitoring and audit rather than hiding nested execution. Exact fields and presentation remain to be designed; retain task lineage, status and evidence without exposing unrelated private context or credentials.
+
+## Explicit pause and resume controls
+
+Status: Confirmed user preference; execution semantics open
+
+Provide task pause/resume, not only cancellation. The user asks where these controls would be useful; proposed presentation is conversational commands plus controls on task summaries/tree items. Useful cases include reviewing direction, supplying changed information or reprioritizing work. Voice interruption remains separate and does not pause tasks. Define safe checkpoints, in-flight side effects, child-task propagation, progress preservation and permission revalidation before implementing. Pause must not be described as undoing already completed actions or freezing an external operation instantly.
+
+Pause propagation clarified: the user supplies a reason when pausing; the coordinator decides what should happen to relevant subagents based on that reason. Do not impose an unconditional stop-all-descendants rule. Record the reason and coordinator's decision for audit. Scope of a pause must respect the user's expressed intent; if that scope is materially ambiguous, clarification may be required rather than silently continuing the affected action. Safe-checkpoint and in-flight-operation handling remain engineering details.

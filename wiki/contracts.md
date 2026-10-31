@@ -82,3 +82,5 @@ Confirmed user direction: Spoken interruption stops or redirects the conversatio
 ## Parent and child task authority
 
 Confirmed direction: Specialist agents may delegate further to subagents within the original task authority; delegation is not restricted to the main interaction agent. Represent parent/child task relationships and return results through the hierarchy while April remains the single user-facing coordinator. Delegation does not expand private-data access or permissions. Depth/concurrency limits, budget allocation, conflict handling and cancellation propagation remain implementation decisions.
+
+Pause requests include the user's reason. The coordinator resolves which descendants pause or continue from that reason and records the decision; pause does not automatically apply identically to every child. Preserve task lineage, user intent and existing authority when resuming.

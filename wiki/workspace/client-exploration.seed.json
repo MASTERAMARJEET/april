@@ -541,6 +541,21 @@
       "title": "Specialists may delegate further",
       "status": "Confirmed direction",
       "rationale": "Specialist agents may delegate further to subagents within the original task authority; delegation is not restricted to the main interaction agent. Represent parent/child task relationships and return results through the hierarchy while April remains the single user-facing coordinator. Delegation does not expand private-data access or permissions. Depth/concurrency limits, budget allocation, conflict handling and cancellation propagation remain implementation decisions."
+    },
+    {
+      "title": "Summary overview and full subagent audit tree",
+      "status": "Confirmed direction",
+      "rationale": "Use top-level task summaries for the overview, with the full specialist/subagent parent-child tree available for monitoring and audit. Preserve nested execution lineage, status and evidence; exact UI and audit fields remain design work and private data boundaries still apply."
+    },
+    {
+      "title": "Pause and resume delegated tasks",
+      "status": "Confirmed direction",
+      "rationale": "Provide explicit task pause/resume in addition to cancellation. Voice interruption does not pause tasks. Proposed access is conversational commands and task-summary/tree controls; final placement is not selected. Define safe checkpoints, in-flight actions, child propagation, retained progress and permission revalidation; pausing is not undo."
+    },
+    {
+      "title": "Coordinator scopes a pause from the user\u2019s reason",
+      "status": "Confirmed direction",
+      "rationale": "User supplies a reason for pausing. The coordinator decides which subagents should pause or continue based on that reason, rather than applying a fixed stop-all-children rule. Record the reason and decision for audit. Respect the expressed pause intent; clarify material ambiguity. Safe checkpoints/in-flight handling remain implementation work."
     }
   ],
   "questions": "Confirmed: approved cloud tasks, including private-file tasks under existing task-scoped access, continue if the Mac disconnects. Next: specify key custody, revocation and device-unavailable handling; all persistent files are cloud-backed.\nEngineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.\nPrivate grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.\nSync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.\nCoding bootstrap: Cloudflare execution, April-only GitHub repositories, dev/PR/user approval flow are decided; validate macOS packaging/native tests and exact release evidence.\nDeferred deep dives: plugin contracts/trust, per-integration API versus UI, Codex-inspired computer use and memory systems including Supermemory.\nOperational implementation: accurate cost tracking and non-blocking $20 AI nudge, task retry/cancellation, recovery history and permission enforcement.",
@@ -904,5 +919,8 @@
   "personalVaultScopeRevision": 1,
   "singleThreadRevision": 1,
   "voiceTaskIsolationRevision": 1,
-  "nestedDelegationRevision": 1
+  "nestedDelegationRevision": 1,
+  "taskAuditTreeRevision": 1,
+  "pauseResumeRevision": 1,
+  "pauseReasonRevision": 1
 }

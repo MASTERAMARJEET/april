@@ -688,6 +688,27 @@
       "rationale": "Specialist agents may delegate further to subagents within the original task authority; delegation is not restricted to the main interaction agent. Represent parent/child task relationships and return results through the hierarchy while April remains the single user-facing coordinator. Delegation does not expand private-data access or permissions. Depth/concurrency limits, budget allocation, conflict handling and cancellation propagation remain implementation decisions.",
       "id": "nested-specialist-delegation",
       "next": "Specify child-task authority, result and cancellation contracts."
+    },
+    {
+      "title": "Summary overview and full subagent audit tree",
+      "status": "Chosen direction",
+      "rationale": "Use top-level task summaries for the overview, with the full specialist/subagent parent-child tree available for monitoring and audit. Preserve nested execution lineage, status and evidence; exact UI and audit fields remain design work and private data boundaries still apply.",
+      "id": "full-task-audit-tree",
+      "next": "Design summary view and expandable monitoring/audit tree."
+    },
+    {
+      "title": "Pause and resume delegated tasks",
+      "status": "Chosen direction",
+      "rationale": "Provide explicit task pause/resume in addition to cancellation. Voice interruption does not pause tasks. Proposed access is conversational commands and task-summary/tree controls; final placement is not selected. Define safe checkpoints, in-flight actions, child propagation, retained progress and permission revalidation; pausing is not undo.",
+      "id": "pause-resume-task-control",
+      "next": "Specify pause checkpoints and subagent propagation; choose control placement."
+    },
+    {
+      "title": "Coordinator scopes a pause from the user\u2019s reason",
+      "status": "Chosen direction",
+      "rationale": "User supplies a reason for pausing. The coordinator decides which subagents should pause or continue based on that reason, rather than applying a fixed stop-all-children rule. Record the reason and decision for audit. Respect the expressed pause intent; clarify material ambiguity. Safe checkpoints/in-flight handling remain implementation work.",
+      "id": "reasoned-pause-propagation",
+      "next": "Define auditable coordinator pause decisions and safe checkpoints."
     }
   ],
   "roadmap": [
@@ -1230,5 +1251,8 @@
   "personalVaultScopeRevision": 1,
   "singleThreadRevision": 1,
   "voiceTaskIsolationRevision": 1,
-  "nestedDelegationRevision": 1
+  "nestedDelegationRevision": 1,
+  "taskAuditTreeRevision": 1,
+  "pauseResumeRevision": 1,
+  "pauseReasonRevision": 1
 }
