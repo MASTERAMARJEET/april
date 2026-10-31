@@ -40,6 +40,8 @@ Voice clarification: start restrictive and request permissions more often early 
 
 Status: Chosen product direction; execution controls need investigation
 
+Coding bootstrap scope clarified in voice: only April's own repositories initially. The user will add other projects later. Repositories will be hosted on GitHub, and PR review/approval will use GitHub's system. This is a future hosting/review requirement, not a request to create or push a repository now. GitHub remains the review record even when review conversations happen through April.
+
 Bootstrap with conversation, add coding and deployment capabilities for April's own app, harness and supporting services, then use those capabilities to extend the system incrementally. This is the user's intended development strategy. Coding specialist may improve the platform without directly controlling its own guardrails; release scope and approval requirements remain open.
 
 Next validation: Define evaluation suite, protected policy store, staged rollout, versioning, and rollback.
@@ -81,6 +83,16 @@ Offline functionality is not yet specified: distinguish local content, capture a
 Subsequent user clarification: initially, offline interaction falls back to typed chat that queues requests. Live voice/conversation mode is unavailable offline. Local inference and offline autonomous execution are not required for the first version. Queue processing on reconnect, cancellation/editing of queued requests, and offline access to saved artifacts remain to be specified.
 
 Next validation: Design authenticated clients, session merge, offline queue, and channel notification deduplication.
+
+Latest clarification supersedes any proposed private-vault sync exclusion: both public-to-April and private vaults live on Cloudflare and sync eagerly with local artifacts whenever connected. Cloudflare is the source of truth. Encryption and secure defaults are requirements; encryption architecture, key custody, recovery and sync implementation are not selected. Storage/sync does not grant the agent access. Public vaults are easier for agents to access; private vault access requires an explicit permission request each time a new grant is needed, preserving provisional task scope and expiry.
+
+## Central approval agent and explicit overlay confirmation
+
+Status: Chosen direction — voice clarification, 31 October 2026
+
+All approval requests are routed through a central approval agent/model. April and specialists do not bypass it by directly presenting permission requests. The approval service owns the request flow and presents an overlay with details of what the user is authorizing. For private-vault permission, the user clicks an explicit button; spoken agreement must not be interpreted as approval. Log the exact authorization action for auditing.
+
+This centralizes approval across the system. Earlier learned-approver aspirations remain within user-granted policy; they do not override mandatory explicit private-vault consent. Exact grant lifetime, request fields, trusted UI/service boundary, verification of click provenance, enforcement, revocation and audit integrity remain design work. The requirement to store encrypted data does not yet specify end-to-end encryption or model access to decryption keys.
 
 
 ## Platform-agnostic core; macOS integrations first

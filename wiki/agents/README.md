@@ -10,3 +10,4 @@ The main agent owns the interaction. Specialists own scoped outcomes. Verificati
 - [Verification agent](verifier.md) — Quality; concept.
 - [Release service](release.md) — Control; concept.
 - [Personal operations agent](operations.md) — Future; concept.
+- [Approval agent / service](../architecture.md#central-approval-service) — Central approval routing, explicit overlay consent, auditable scoped grants; concept. All requesters use this service. Private-vault consent requires a user button click, not spoken agreement.

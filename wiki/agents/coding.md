@@ -1,5 +1,11 @@
 # Coding agent
 
+## Confirmed initial scope
+
+Access only April's own repositories initially; other user projects will be added explicitly later. Repositories are intended to be hosted on GitHub, with PR review and approval through GitHub. Conversational review should connect to that review record. Repository creation, credentials and access grants are not being configured by this design discussion.
+
+Execution direction explicitly reaffirmed: coding builds and tests run on Cloudflare, consistent with the existing cloud specialist architecture. Do not reopen Mac-versus-cloud execution as an undecided preference. Platform-specific macOS build/signing and native testing support still need an implementation plan; choosing Cloudflare does not establish those capabilities in a Linux sandbox.
+
 Status: Concept
 
 Category: Builder

@@ -54,3 +54,9 @@ Confirmed user preference: financial and medical information is excluded from or
 ## Cross-vault access
 
 Confirmed semantics: public-to-April vaults can be consulted from other active contexts; private vaults require explicit, temporary permission for specific information. These labels do not describe public internet sharing. Proposed grant fields include source/active vault, target vault and item references, task/purpose, permitted operations, user authorization, expiry and revocation. Expired grants must not allow continued access through cached context; the exact context/derived-data cleanup mechanism remains to be designed.
+
+Storage clarification: both classes are cloud-hosted, encrypted by requirement and eagerly synchronized. Private status limits agent use, not whether data may sync to Cloudflare.
+
+## Approval requests and audit
+
+Confirmed: all requests route through the central approval agent. Private-vault access uses an overlay describing the scope and an explicit user button click; voice assent is insufficient. Proposed record fields: request and task identity, requesting specialist, vault/item references, operations, purpose, expiry, policy version, displayed scope, click/denial event, granted scope, revocation and execution evidence. Bind the recorded decision to the exact request and enforce grants outside the model. Final schema and trust mechanisms remain open.

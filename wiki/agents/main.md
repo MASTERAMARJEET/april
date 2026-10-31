@@ -26,7 +26,7 @@ Answers, plans, delegated jobs, concise progress reports, exception requests, du
 
 ## Confirmed interaction direction — 31 October 2026
 
-Voice-first interaction on phone and laptop, with cross-device continuity. Entry may be a button or wake word; activation details and initial phone platform remain open. Background specialist work surfaces as artifacts, websites and interactive interfaces. Use those interfaces to collect input or support user actions. Chat is secondary rather than the main product surface.
+Voice-first interaction on phone and laptop, with cross-device continuity. Entry may be a button or wake word; activation uses a configurable held key initially; Android follows Mac and web. Background specialist work surfaces as artifacts, websites and interactive interfaces. Use those interfaces to collect input or support user actions. Chat is secondary rather than the main product surface.
 
 The intended experience spans the user's day. Continuous recording, desktop observation and proactive interruption have not been authorized or selected by this preference.
 
@@ -80,9 +80,11 @@ How do I revoke or correct a remembered preference?
 
 ## First useful milestone
 
-A web conversation that submits one coding task, survives a disconnect, and reports the result.
+A Mac voice-first conversation that submits an April coding task to Cloudflare, survives a disconnect, and reports the result; GitHub holds the review record.
 
 
 ## Mac interaction clarification
 
 Unified April app with Obsidian-inspired vault browser; no required separate Obsidian host. Hold a configurable key to activate an ongoing session; dismiss by voice or double-press. Preserve current-app focus. Show distinct listening/speaking states on the active monitor, from the notch where available or a top-center overlay when not. Private-vault grants are explicit and temporary; public-to-April vaults allow cross-context consultation. Unread artifacts do not block authorized progress. Start with OpenAI realtime voice and natural interruption behind a replaceable provider boundary.
+
+Approval routing clarified: all permission requests go to the central approval agent/service. April cannot bypass that service by sending its own prompt. Private-vault access is approved by an explicit button in an overlay showing the scope, with an audit record; spoken confirmation is not sufficient. Both public/private vaults sync eagerly to encrypted cloud storage; syncing is separate from granting access.

@@ -157,6 +157,8 @@ Chosen direction: platform-agnostic core, with macOS native integration first. T
 
 The shared domain core owns conversation/task state, tool contracts, capability routing, cancellation, result provenance and policy decisions. Cloudflare-specific hosting code belongs behind service boundaries; the existing cloud direction remains unchanged. Local-versus-cloud placement is still open.
 
+User clarification: agent coordination and specialist coding builds/tests belong on Cloudflare. The Mac provides the native interaction/device integration. Remaining placement questions concern particular capabilities and data boundaries, not whether the coding specialist should primarily execute on the Mac.
+
 Native adapters implement accessibility inspection/actions/events, screen capture, input, audio devices and desktop integration. Begin with macOS; later add Windows and Linux implementations. The shared core must not depend on native element objects, framework widgets or OS permission APIs.
 
 Expose capability availability and permission state explicitly. Use scoped, short-lived element references and distinguish unsupported operations, denied permissions, stale references and transient errors. Preserve platform-specific semantics rather than promising identical behavior. Recheck authorization at the local execution boundary.
@@ -168,3 +170,9 @@ Keep real-time audio work independent of UI repainting. A separate native helper
 Confirmed in voice: clients should remain usable without internet, with cloud state as the source of truth and eager synchronization when connected. Local persistence, pending operations and reconnection handling are required design areas. Exact offline capabilities, local inference, reconciliation/conflict rules and data upload scope remain open. Distinguish provisional local changes from cloud-accepted state; do not silently discard offline work.
 
 Initial offline scope clarified: typed chat as a request queue; no live voice conversation or local-model requirement. Show queued work distinctly from executing or completed work. Reconnect behavior and saved-artifact availability remain open.
+
+Both public-to-April and private vaults sync eagerly between local devices and Cloudflare, which is authoritative. Require encryption and secure defaults for all vault storage. Keep sync/storage authorization separate from task execution access: synchronized private data still requires a temporary explicit grant before agents can use it. Key custody, encryption boundaries and recovery remain to be designed; do not assume an encryption scheme is already chosen.
+
+## Central approval service
+
+April / specialist → central approval agent → scoped request shown in trusted overlay → explicit user button click → auditable grant → capability enforcement. Private-vault approvals cannot be inferred from voice. April does not directly issue permission prompts outside this flow. User-facing approval coordination is centralized; enforcement must occur at the resource/capability boundary rather than relying only on a model decision. Learned approval behavior is bounded by the user's policy and explicit-consent requirements.

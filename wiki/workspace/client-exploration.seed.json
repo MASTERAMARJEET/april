@@ -381,11 +381,346 @@
       "title": "Replaceable realtime voice provider",
       "status": "Confirmed direction",
       "rationale": "Start with OpenAI realtime voice, with natural spoken interruption and a replaceable provider layer preserving required behaviors. Review official capabilities before design; cross-provider feature equivalence is unproven. Wake-word investigation is deferred."
+    },
+    {
+      "title": "Initial coding scope and GitHub review",
+      "status": "Confirmed direction",
+      "rationale": "Start with April's own repositories only; the user adds other projects later. Host repositories on GitHub and use GitHub PRs and reviews as the review record, including when discussions happen through April. No repository creation, push or credential setup is requested by this design discussion."
+    },
+    {
+      "title": "Cloudflare specialist execution",
+      "rationale": "Confirmed: agent coordination and coding builds/tests run on Cloudflare, following the existing specialist architecture. Mac supplies native interaction and device integrations. A platform-specific macOS build/signing/testing plan remains an engineering question, not a preference to reopen.",
+      "status": "Confirmed direction"
+    },
+    {
+      "title": "Cloud-hosted vault sync and access separation",
+      "rationale": "Both public-to-April and private vaults live on Cloudflare and sync eagerly with local artifacts whenever connected. Cloudflare is authoritative; encryption and secure defaults are required. Sync does not grant agent use of private data. Key custody, encryption scheme, recovery and sync details remain open.",
+      "status": "Confirmed direction"
+    },
+    {
+      "title": "Centralized explicit approval flow",
+      "rationale": "Every approval request routes through a central approval agent/service. It shows an overlay with the scope and records a user button click in an audit log. Private-vault approval cannot be inferred from speech; April cannot bypass the approval service. Mandatory private consent remains distinct from learned approvals within policy. Grant lifetime, revocation and enforcement implementation remain open.",
+      "status": "Confirmed direction"
     }
   ],
-  "questions": "What hold and double-press thresholds feel right?\nHow does an active session move when work changes monitors?\nWhat is the precise vault workspace layout and library stack?\nHow are private grants scoped, expired, revoked and removed from derived context?\nHow do local vault files reconcile with cloud-authoritative state?\nWhich realtime voice behaviors are mandatory versus optional?\nWhat is the smallest coding bootstrap and first native capability?",
+  "questions": "2. Top three tasks [Partial]: Coding/self-extension is first. Other first-priority tasks beyond the bootstrap are not ranked.\n3. Products to replace [Open]: Obsidian is a UX reference, but the products/workflows April should replace are unspecified.\n6. Audience [Open]: Personal-only initially versus accommodating other users is not explicitly decided.\n8. Platform-specific shells [Partial]: Unified April experience confirmed; allowable UI differences between operating systems remain open.\n9. Windows/Linux timing [Partial]: Core portability is required; client timing and supported Linux environments remain unspecified.\n11. Headless core [Open]: CLI/API/background-only use as a product interface is not decided.\n12. Third-party extensibility [Open]: Other people building clients, integrations or specialists is not decided.\n13. First accessibility tasks [Partial]: Deep native integration required; exact first read/control workflows are unspecified.\n14. First target applications [Partial]: Coding targets April repos on GitHub; native apps to inspect/control are not named.\n15. Desktop observation scope [Open]: Selected app/task context versus ongoing wider desktop observation is not decided.\n16. API versus visible UI [Open]: Prefer direct service API or visible interaction when both are available is not decided.\n17. Screenshot/input fallback [Open]: Fallback when accessibility information is missing is not decided.\n18. Concurrent desktop control [Partial]: Summoning voice preserves focus; whether automation may take foreground control while user works is open.\n19. Uncertain targets [Partial]: Approval is centralized; behavior for ambiguous UI targets still needs definition.\n20. Remembering application context [Partial]: Quiet inspectable memory chosen; what app content can be captured and retained is not defined.\n24. Audio capture scope [Open]: Microphone only versus meeting/system audio in initial recording scope is not chosen.\n25. Capture with UI closed [Open]: Recording/transcription when the window closes is not decided.\n26. Languages and accents [Open]: Speech languages, accents and mixed-language requirements are unspecified.\n28. Voice quality priorities [Open]: Acceptable latency, dropouts, transcription quality and responsiveness targets are not set.\n29. Wiki content priorities [Partial]: Research/learning wiki and personal artifacts are envisioned; initial content mix is not prioritized.\n30. Autonomous wiki updates [Partial]: Background autonomy desired; rules for maintaining versus proposing wiki edits are not specified.\n34. Knowledge corrections and conflicts [Open]: Handling conflicting sources, outdated claims and user corrections is not specified.\n36. Automatic action scope [Partial]: Maximum useful autonomy inside adjustable guardrails; concrete allowed action classes remain open.\n37. Mandatory human involvement [Partial]: Explicit overlay click for private access and initial PR approval before production; other mandatory categories remain open.\n38. Permission model granularity [Partial]: Central approver, task-scoped private grants and public cross-vault access; exact domain/task/default rules open.\n39. Activity visibility [Partial]: Artifact update indicators and context-aware notification chosen; live execution visibility not defined.\n41. Excluded information [Partial]: Financial/medical excluded from ordinary memory with provisional task access; any other exclusions not specified.\n42. Mistake recovery [Open]: User-facing undo, history, rollback and action-log expectations are not chosen.\n43. Cross-device continuity [Partial]: Seamless continuity desired; same versus separate sessions and conflict behavior remain open.\n44. Remote device capabilities [Open]: Phone task using the Mac, consent and device-selection rules not decided.\n45. Mac asleep/offline [Partial]: Cloudflare background execution chosen; device-dependent task handling during sleep/offline remains open.\n46. Technology preferences [Open]: Core language and GUI framework not chosen; Exa preferred for research.\n47. Resource/development tradeoffs [Open]: Memory, startup, battery and platform-specific effort priorities are not set.\n48. Budget [Open]: Comfortable monthly spend, caps and per-task limits not set.\n50. Explicit deferrals [Partial]: Wake word, memory-provider research, other repos, web/Android later. Complete v1 scope boundary still needs refinement.",
   "notes": "Exploration snapshot, not a benchmark or implementation audit. Framework positioning records the discussion as of 31 October 2026. Most alternatives received only high-level review. Preserve rationale when changing status. Export saved edits before reconciling them into the repository.\nDirection revision 2: platform-agnostic core, macOS native integration first. Later Windows/Linux support is architectural scope, not simultaneous delivery. Specific GUI, implementation language and process layout remain open.\nVoice clarification complete for this pass. Next discussion: Mac experience. Financial and medical information is excluded from ordinary memory; task-scoped access only.\nMac clarification: unified April app. Obsidian separate host is ruled out; use as a UX reference. Configurable held-key ongoing voice, no focus theft, active-monitor overlay, user-owned vault folders, temporary private grants and non-blocking artifact updates. Next: evaluate GUI/libraries against the whole integrated experience.",
   "directionRevision": 2,
   "voiceRevision": 1,
-  "macRevision": 1
+  "macRevision": 1,
+  "codingScopeRevision": 1,
+  "cloudExecutionRevision": 1,
+  "approvalVaultRevision": 1,
+  "clarificationReview": {
+    "reviewed": "2026-10-31",
+    "basis": "Original 50-question discussion reconciled with subsequent voice answers and project wiki. Partial means direction established but an explicit detail remains unresolved. No new answers inferred from proposed architecture alone.",
+    "questions": [
+      {
+        "number": 1,
+        "topic": "Daily experience",
+        "status": "Answered",
+        "detail": "Voice-first agent throughout the day; background work surfaces artifacts and interactive interfaces."
+      },
+      {
+        "number": 2,
+        "topic": "Top three tasks",
+        "status": "Partial",
+        "detail": "Coding/self-extension is first. Other first-priority tasks beyond the bootstrap are not ranked."
+      },
+      {
+        "number": 3,
+        "topic": "Products to replace",
+        "status": "Open",
+        "detail": "Obsidian is a UX reference, but the products/workflows April should replace are unspecified."
+      },
+      {
+        "number": 4,
+        "topic": "Primary product form",
+        "status": "Answered",
+        "detail": "Voice-first unified application; chat is secondary; artifact workspace alongside voice."
+      },
+      {
+        "number": 5,
+        "topic": "Proactivity",
+        "status": "Answered",
+        "detail": "Background responsibilities and context-aware surfacing, based on priority and need for action."
+      },
+      {
+        "number": 6,
+        "topic": "Audience",
+        "status": "Open",
+        "detail": "Personal-only initially versus accommodating other users is not explicitly decided."
+      },
+      {
+        "number": 7,
+        "topic": "Cross-platform scope",
+        "status": "Answered",
+        "detail": "Platform-agnostic core; native adapters start on Mac. Web then native Android; Windows/Linux later."
+      },
+      {
+        "number": 8,
+        "topic": "Platform-specific shells",
+        "status": "Partial",
+        "detail": "Unified April experience confirmed; allowable UI differences between operating systems remain open."
+      },
+      {
+        "number": 9,
+        "topic": "Windows/Linux timing",
+        "status": "Partial",
+        "detail": "Core portability is required; client timing and supported Linux environments remain unspecified."
+      },
+      {
+        "number": 10,
+        "topic": "Offline requirement",
+        "status": "Answered",
+        "detail": "Offline typed chat queues requests; no initial offline voice or local intelligence. Eager sync to authoritative Cloudflare."
+      },
+      {
+        "number": 11,
+        "topic": "Headless core",
+        "status": "Open",
+        "detail": "CLI/API/background-only use as a product interface is not decided."
+      },
+      {
+        "number": 12,
+        "topic": "Third-party extensibility",
+        "status": "Open",
+        "detail": "Other people building clients, integrations or specialists is not decided."
+      },
+      {
+        "number": 13,
+        "topic": "First accessibility tasks",
+        "status": "Partial",
+        "detail": "Deep native integration required; exact first read/control workflows are unspecified."
+      },
+      {
+        "number": 14,
+        "topic": "First target applications",
+        "status": "Partial",
+        "detail": "Coding targets April repos on GitHub; native apps to inspect/control are not named."
+      },
+      {
+        "number": 15,
+        "topic": "Desktop observation scope",
+        "status": "Open",
+        "detail": "Selected app/task context versus ongoing wider desktop observation is not decided."
+      },
+      {
+        "number": 16,
+        "topic": "API versus visible UI",
+        "status": "Open",
+        "detail": "Prefer direct service API or visible interaction when both are available is not decided."
+      },
+      {
+        "number": 17,
+        "topic": "Screenshot/input fallback",
+        "status": "Open",
+        "detail": "Fallback when accessibility information is missing is not decided."
+      },
+      {
+        "number": 18,
+        "topic": "Concurrent desktop control",
+        "status": "Partial",
+        "detail": "Summoning voice preserves focus; whether automation may take foreground control while user works is open."
+      },
+      {
+        "number": 19,
+        "topic": "Uncertain targets",
+        "status": "Partial",
+        "detail": "Approval is centralized; behavior for ambiguous UI targets still needs definition."
+      },
+      {
+        "number": 20,
+        "topic": "Remembering application context",
+        "status": "Partial",
+        "detail": "Quiet inspectable memory chosen; what app content can be captured and retained is not defined."
+      },
+      {
+        "number": 21,
+        "topic": "Role of voice",
+        "status": "Answered",
+        "detail": "Primary interaction modality."
+      },
+      {
+        "number": 22,
+        "topic": "Voice activation",
+        "status": "Answered",
+        "detail": "Configurable held key starts persistent session; dismiss by speech or double-press. Wake word later."
+      },
+      {
+        "number": 23,
+        "topic": "Spoken interruption",
+        "status": "Answered",
+        "detail": "Natural barge-in required; initial OpenAI realtime direction, provider-portable behavior."
+      },
+      {
+        "number": 24,
+        "topic": "Audio capture scope",
+        "status": "Open",
+        "detail": "Microphone only versus meeting/system audio in initial recording scope is not chosen."
+      },
+      {
+        "number": 25,
+        "topic": "Capture with UI closed",
+        "status": "Open",
+        "detail": "Recording/transcription when the window closes is not decided."
+      },
+      {
+        "number": 26,
+        "topic": "Languages and accents",
+        "status": "Open",
+        "detail": "Speech languages, accents and mixed-language requirements are unspecified."
+      },
+      {
+        "number": 27,
+        "topic": "Offline voice",
+        "status": "Answered",
+        "detail": "Not initially available."
+      },
+      {
+        "number": 28,
+        "topic": "Voice quality priorities",
+        "status": "Open",
+        "detail": "Acceptable latency, dropouts, transcription quality and responsiveness targets are not set."
+      },
+      {
+        "number": 29,
+        "topic": "Wiki content priorities",
+        "status": "Partial",
+        "detail": "Research/learning wiki and personal artifacts are envisioned; initial content mix is not prioritized."
+      },
+      {
+        "number": 30,
+        "topic": "Autonomous wiki updates",
+        "status": "Partial",
+        "detail": "Background autonomy desired; rules for maintaining versus proposing wiki edits are not specified."
+      },
+      {
+        "number": 31,
+        "topic": "Document editing depth",
+        "status": "Answered",
+        "detail": "Obsidian-inspired unified workspace; DOCX preview is sufficient initially, not full Word editing."
+      },
+      {
+        "number": 32,
+        "topic": "Essential content types",
+        "status": "Answered",
+        "detail": "Markdown, DOCX preview, JavaScript source and interactive artifacts requested; other types can be phased."
+      },
+      {
+        "number": 33,
+        "topic": "Generated interactive interfaces",
+        "status": "Answered",
+        "detail": "Yes, inside unified April; no required separate Obsidian app."
+      },
+      {
+        "number": 34,
+        "topic": "Knowledge corrections and conflicts",
+        "status": "Open",
+        "detail": "Handling conflicting sources, outdated claims and user corrections is not specified."
+      },
+      {
+        "number": 35,
+        "topic": "Knowledge storage",
+        "status": "Answered",
+        "detail": "User-chosen local vault folders synced eagerly with encrypted Cloudflare-authoritative storage, including private vaults."
+      },
+      {
+        "number": 36,
+        "topic": "Automatic action scope",
+        "status": "Partial",
+        "detail": "Maximum useful autonomy inside adjustable guardrails; concrete allowed action classes remain open."
+      },
+      {
+        "number": 37,
+        "topic": "Mandatory human involvement",
+        "status": "Partial",
+        "detail": "Explicit overlay click for private access and initial PR approval before production; other mandatory categories remain open."
+      },
+      {
+        "number": 38,
+        "topic": "Permission model granularity",
+        "status": "Partial",
+        "detail": "Central approver, task-scoped private grants and public cross-vault access; exact domain/task/default rules open."
+      },
+      {
+        "number": 39,
+        "topic": "Activity visibility",
+        "status": "Partial",
+        "detail": "Artifact update indicators and context-aware notification chosen; live execution visibility not defined."
+      },
+      {
+        "number": 40,
+        "topic": "Automatic memory",
+        "status": "Answered",
+        "detail": "Quiet storage/use with inspection and tuning; query engine plus parallel memory model; research deferred."
+      },
+      {
+        "number": 41,
+        "topic": "Excluded information",
+        "status": "Partial",
+        "detail": "Financial/medical excluded from ordinary memory with provisional task access; any other exclusions not specified."
+      },
+      {
+        "number": 42,
+        "topic": "Mistake recovery",
+        "status": "Open",
+        "detail": "User-facing undo, history, rollback and action-log expectations are not chosen."
+      },
+      {
+        "number": 43,
+        "topic": "Cross-device continuity",
+        "status": "Partial",
+        "detail": "Seamless continuity desired; same versus separate sessions and conflict behavior remain open."
+      },
+      {
+        "number": 44,
+        "topic": "Remote device capabilities",
+        "status": "Open",
+        "detail": "Phone task using the Mac, consent and device-selection rules not decided."
+      },
+      {
+        "number": 45,
+        "topic": "Mac asleep/offline",
+        "status": "Partial",
+        "detail": "Cloudflare background execution chosen; device-dependent task handling during sleep/offline remains open."
+      },
+      {
+        "number": 46,
+        "topic": "Technology preferences",
+        "status": "Open",
+        "detail": "Core language and GUI framework not chosen; Exa preferred for research."
+      },
+      {
+        "number": 47,
+        "topic": "Resource/development tradeoffs",
+        "status": "Open",
+        "detail": "Memory, startup, battery and platform-specific effort priorities are not set."
+      },
+      {
+        "number": 48,
+        "topic": "Budget",
+        "status": "Open",
+        "detail": "Comfortable monthly spend, caps and per-task limits not set."
+      },
+      {
+        "number": 49,
+        "topic": "First useful version",
+        "status": "Answered",
+        "detail": "Mac conversation, then coding April itself, dev deployments and GitHub PRs; discuss big features before implementation."
+      },
+      {
+        "number": 50,
+        "topic": "Explicit deferrals",
+        "status": "Partial",
+        "detail": "Wake word, memory-provider research, other repos, web/Android later. Complete v1 scope boundary still needs refinement."
+      }
+    ],
+    "counts": {
+      "Answered": 15,
+      "Partial": 18,
+      "Open": 17
+    }
+  },
+  "questionReviewRevision": 1
 }
