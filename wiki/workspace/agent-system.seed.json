@@ -835,6 +835,34 @@
       "rationale": "A plugin crash must leave unrelated tasks running. Bring the affected task to the user\u2019s attention. Define isolation boundaries, dependent-task handling and recovery separately; do not assume a shared in-process host provides this guarantee.",
       "id": "plugin-failure-containment",
       "next": "Design isolation and dependent-task recovery."
+    },
+    {
+      "title": "Plugin update permissions",
+      "status": "Chosen direction",
+      "rationale": "Updates retain current permissions until additions are explicitly approved through the central approval system. If an update needs unapproved permissions, keep the previous version running.",
+      "id": "plugin-update-permissions",
+      "next": "Specify enforcement and failure semantics in the technical design."
+    },
+    {
+      "title": "Interactive artifact access",
+      "status": "Chosen direction",
+      "rationale": "JavaScript artifacts start without file or network access. Opening displays only; side effects require separate interaction or an existing explicit grant, with clear scope shown when granting.",
+      "id": "interactive-artifact-access",
+      "next": "Specify enforcement and failure semantics in the technical design."
+    },
+    {
+      "title": "Capability revocation",
+      "status": "Chosen direction",
+      "rationale": "Immediately block further use of revoked capabilities, pause dependent work and continue independent authorized work. Already-dispatched external actions may complete.",
+      "id": "capability-revocation",
+      "next": "Specify enforcement and failure semantics in the technical design."
+    },
+    {
+      "title": "Private artifact scope and user viewing",
+      "status": "Chosen direction",
+      "rationale": "Agents receive only task-approved private content, with fresh approval for each new task. The user can view all public and private files anytime, independently of agent grants.",
+      "id": "private-artifact-scope-and-user-viewing",
+      "next": "Specify enforcement and failure semantics in the technical design."
     }
   ],
   "roadmap": [
@@ -1397,5 +1425,6 @@
   "pluginVersionPinRevision": 1,
   "independentPluginRevision": 1,
   "pluginRollbackRevision": 1,
-  "pluginFailureIsolationRevision": 1
+  "pluginFailureIsolationRevision": 1,
+  "pluginAccessBoundaryRevision": 1
 }

@@ -397,3 +397,33 @@ Confirmed user direction: If a plugin update fails after rollout, automatically 
 ## Plugin failure containment
 
 Confirmed user direction: A plugin crash must leave unrelated tasks running. Bring the affected task to the user’s attention. Define isolation boundaries, dependent-task handling and recovery separately; do not assume a shared in-process host provides this guarantee.
+
+
+## Permission changes in plugin updates
+
+Confirmed user direction: A plugin update keeps its existing permissions until the user explicitly approves any additional permissions through the central approval flow. An update does not grant itself broader authority. Behavior when a new version cannot function with existing permissions remains to be defined.
+
+## Design-session commit cadence
+
+User preference: Record decisions during a section, then commit and push when that section is complete, rather than committing after every answer.
+
+Confirmed update behavior: If a new plugin version cannot operate under existing permissions, keep the previous version running until the user approves the required additions. Pending approval must not interrupt existing authorized work.
+
+
+## Interactive artifact access defaults
+
+Confirmed user direction: Interactive artifacts containing JavaScript run without file or network access by default. They request specific access through April and the central approval system when needed. Concrete sandbox enforcement and broker interfaces remain to be designed.
+
+Confirmed artifact activation rule: Opening an interactive artifact displays it only. File changes, task creation and external service calls require a separate interaction or an existing explicit grant. Permission UI must clearly explain the actions being authorized. The user clarified that informed granting supplies this awareness; a separate notification for every already-authorized action has not been required.
+
+
+## Permission revocation during execution
+
+Confirmed user direction: Revoking a capability immediately blocks further use of it. Pause work that requires the revoked capability while allowing independent authorized work to continue. An external action already dispatched may still complete; revocation does not imply rollback of prior effects. Enforcement, in-flight cancellation and dependent-task propagation require technical design.
+
+Confirmed private artifact scope: Provide only the specific content approved for the artifact’s task, rather than access to the entire private vault. Existing task-bound expiry and private classification rules apply.
+
+
+## User viewing versus agent access
+
+Confirmed user direction: The user can view all public and private files at any time, independently of agent task grants. Expiry of an agent grant must not lock the user out of saved files or artifacts. Each new agent task accessing private content requires fresh approval; public-to-April content remains available under its existing policy. Viewing must not silently authorize new agent work or renderer side effects.

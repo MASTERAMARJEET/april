@@ -646,6 +646,26 @@
       "title": "Plugin failure containment",
       "status": "Confirmed direction",
       "rationale": "A plugin crash must leave unrelated tasks running. Bring the affected task to the user\u2019s attention. Define isolation boundaries, dependent-task handling and recovery separately; do not assume a shared in-process host provides this guarantee."
+    },
+    {
+      "title": "Plugin update permissions",
+      "status": "Confirmed direction",
+      "rationale": "Updates retain current permissions until additions are explicitly approved through the central approval system. If an update needs unapproved permissions, keep the previous version running."
+    },
+    {
+      "title": "Interactive artifact access",
+      "status": "Confirmed direction",
+      "rationale": "JavaScript artifacts start without file or network access. Opening displays only; side effects require separate interaction or an existing explicit grant, with clear scope shown when granting."
+    },
+    {
+      "title": "Capability revocation",
+      "status": "Confirmed direction",
+      "rationale": "Immediately block further use of revoked capabilities, pause dependent work and continue independent authorized work. Already-dispatched external actions may complete."
+    },
+    {
+      "title": "Private artifact scope and user viewing",
+      "status": "Confirmed direction",
+      "rationale": "Agents receive only task-approved private content, with fresh approval for each new task. The user can view all public and private files anytime, independently of agent grants."
     }
   ],
   "questions": "Confirmed: approved cloud tasks, including private-file tasks under existing task-scoped access, continue if the Mac disconnects. Next: specify key custody, revocation and device-unavailable handling; all persistent files are cloud-backed.\nEngineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.\nPrivate grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.\nSync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.\nCoding bootstrap: Cloudflare execution, April-only GitHub repositories, dev/PR/user approval flow are decided; validate macOS packaging/native tests and exact release evidence.\nDeferred deep dives: plugin contracts/trust, per-integration API versus UI, Codex-inspired computer use and memory systems including Supermemory.\nOperational implementation: accurate cost tracking and non-blocking $20 AI nudge, task retry/cancellation, recovery history and permission enforcement.",
@@ -1029,5 +1049,6 @@
   "pluginVersionPinRevision": 1,
   "independentPluginRevision": 1,
   "pluginRollbackRevision": 1,
-  "pluginFailureIsolationRevision": 1
+  "pluginFailureIsolationRevision": 1,
+  "pluginAccessBoundaryRevision": 1
 }
