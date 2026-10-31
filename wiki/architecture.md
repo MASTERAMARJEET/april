@@ -212,3 +212,15 @@ Confirmed direction: Specialist agents may delegate further to subagents within 
 ## Phased local file availability
 
 Confirmed user direction: Initially keep/copy all vault files locally and synchronize everything to the cloud, simplifying the first version. Cloud remains authoritative and private-file agent access stays task scoped. Future direction: fetch only files being viewed or needed, keeping the rest cloud-only. Selective caching/pinning is not required initially. This describes future product behavior, not authorization to copy/upload the user's current files now.
+
+## External processing and data minimization
+
+Confirmed user direction: Process as much data as possible within the user-controlled cloud environment. Send external AI providers, search tools and document-processing services only the minimum necessary content. Heavily audit services and select only those meeting the user's zero-data-retention requirement for the relevant service/endpoint and account configuration. This applies beyond model providers to external tools. No vendor or endpoint is verified or approved by this note; contractual promises, eligibility, exceptions, logging and actual configuration need validation. Private-file access grants do not imply unrestricted downstream disclosure.
+
+## Future inference ownership
+
+Confirmed long-term user goal: Far-future direction: own/control the AI inference layer so private data processing no longer requires sending content to external AI providers. This is not an initial-release requirement and does not establish that a chosen Cloudflare product can host the required models. Preserve a replaceable inference/provider boundary now. Hardware, model quality, operating cost and any remaining external-tool dependencies need later evaluation; the user's goal is to keep data private under their control.
+
+## Privacy propagation
+
+Confirmed direction: Artifacts derived from private material automatically inherit its private classification, including summaries. Do not place them in ordinary/public-to-April memory or expose them through less-restricted artifact views. Existing private-task approval boundaries still apply. Mixed-source classification, explicit declassification and retention/derived-context cleanup remain implementation details; no automatic declassification is selected.

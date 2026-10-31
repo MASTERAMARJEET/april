@@ -340,3 +340,19 @@ Confirmed user direction: Initially keep/copy all vault files locally and synchr
 ## Recoverable deletion with seven-day user review
 
 Confirmed final user preference: Deleting a vault file removes it from active use and synchronizes deletion while retaining a restorable bin entry. The user's final preference supersedes the earlier automatic seven-day purge idea: prompt the user to review pending deletions every seven days, and let the user clear them at review. Do not permanently purge solely because seven days elapsed. Preserve recoverability until the user explicitly clears the bin. This is a future April product workflow, not a request to create a real reminder/automation now. Bin permissions, private metadata, restores and replica/backup cleanup remain implementation details.
+
+## Own-cloud processing and audited minimal disclosure
+
+Confirmed user direction: Process as much data as possible within the user-controlled cloud environment. Send external AI providers, search tools and document-processing services only the minimum necessary content. Heavily audit services and select only those meeting the user's zero-data-retention requirement for the relevant service/endpoint and account configuration. This applies beyond model providers to external tools. No vendor or endpoint is verified or approved by this note; contractual promises, eligibility, exceptions, logging and actual configuration need validation. Private-file access grants do not imply unrestricted downstream disclosure.
+
+## Quiet reconnection feedback
+
+Confirmed user direction: After voice reconnection, do not give a spoken announcement. An optional brief chime may signal recovery; chime choice/settings are not finalized. Preserve the existing approximately five-second automatic recovery window and manual fallback.
+
+## Long-term owned inference
+
+Confirmed long-term user goal: Far-future direction: own/control the AI inference layer so private data processing no longer requires sending content to external AI providers. This is not an initial-release requirement and does not establish that a chosen Cloudflare product can host the required models. Preserve a replaceable inference/provider boundary now. Hardware, model quality, operating cost and any remaining external-tool dependencies need later evaluation; the user's goal is to keep data private under their control.
+
+## Private classification follows derived artifacts
+
+Confirmed direction: Artifacts derived from private material automatically inherit its private classification, including summaries. Do not place them in ordinary/public-to-April memory or expose them through less-restricted artifact views. Existing private-task approval boundaries still apply. Mixed-source classification, explicit declassification and retention/derived-context cleanup remain implementation details; no automatic declassification is selected.

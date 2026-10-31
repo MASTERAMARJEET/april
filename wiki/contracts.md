@@ -104,3 +104,11 @@ Recovery deadline: approximately five seconds for automatic voice resumption; on
 ## Deletion and review lifecycle
 
 Confirmed final user preference: Deleting a vault file removes it from active use and synchronizes deletion while retaining a restorable bin entry. The user's final preference supersedes the earlier automatic seven-day purge idea: prompt the user to review pending deletions every seven days, and let the user clear them at review. Do not permanently purge solely because seven days elapsed. Preserve recoverability until the user explicitly clears the bin. This is a future April product workflow, not a request to create a real reminder/automation now. Bin permissions, private metadata, restores and replica/backup cleanup remain implementation details.
+
+## Downstream data handling
+
+Confirmed user direction: Process as much data as possible within the user-controlled cloud environment. Send external AI providers, search tools and document-processing services only the minimum necessary content. Heavily audit services and select only those meeting the user's zero-data-retention requirement for the relevant service/endpoint and account configuration. This applies beyond model providers to external tools. No vendor or endpoint is verified or approved by this note; contractual promises, eligibility, exceptions, logging and actual configuration need validation. Private-file access grants do not imply unrestricted downstream disclosure.
+
+## Derived-artifact privacy
+
+Confirmed direction: Artifacts derived from private material automatically inherit its private classification, including summaries. Do not place them in ordinary/public-to-April memory or expose them through less-restricted artifact views. Existing private-task approval boundaries still apply. Mixed-source classification, explicit declassification and retention/derived-context cleanup remain implementation details; no automatic declassification is selected.
