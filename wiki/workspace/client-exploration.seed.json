@@ -666,6 +666,11 @@
       "title": "Private artifact scope and user viewing",
       "status": "Confirmed direction",
       "rationale": "Agents receive only task-approved private content, with fresh approval for each new task. The user can view all public and private files anytime, independently of agent grants."
+    },
+    {
+      "title": "Memory research checkpoint: Supermemory",
+      "status": "Research checkpoint",
+      "rationale": "Memory Q&A paused for wiki/research/supermemory.md. The deep dive distinguishes sources, extracted facts and profiles; current versus legacy correction APIs; soft forgetting versus erasure; private-task controls; hosting and costs. Supermemory is a reference, not a selected provider. Resume with deployment choice and unresolved memory semantics after review."
     }
   ],
   "questions": "Confirmed: approved cloud tasks, including private-file tasks under existing task-scoped access, continue if the Mac disconnects. Next: specify key custody, revocation and device-unavailable handling; all persistent files are cloud-backed.\nEngineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.\nPrivate grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.\nSync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.\nCoding bootstrap: Cloudflare execution, April-only GitHub repositories, dev/PR/user approval flow are decided; validate macOS packaging/native tests and exact release evidence.\nDeferred deep dives: plugin contracts/trust, per-integration API versus UI, Codex-inspired computer use and memory systems including Supermemory.\nOperational implementation: accurate cost tracking and non-blocking $20 AI nudge, task retry/cancellation, recovery history and permission enforcement.",
@@ -1050,5 +1055,6 @@
   "independentPluginRevision": 1,
   "pluginRollbackRevision": 1,
   "pluginFailureIsolationRevision": 1,
-  "pluginAccessBoundaryRevision": 1
+  "pluginAccessBoundaryRevision": 1,
+  "supermemoryResearchRevision": 1
 }

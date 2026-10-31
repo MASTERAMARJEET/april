@@ -104,3 +104,8 @@ The user intends self-extension as the development strategy. It is not permissio
 - [ ] **Far future: evaluate owned AI inference** — Keep provider interfaces replaceable now; later assess user-controlled inference and reduced external data disclosure. Not required for the initial release.
 
 - [ ] **Evaluate Cloudflare-account sign-in** — Access Cloudflare IdP plus Managed OAuth is a documented candidate; validate Mac flow and separate user sign-in, deployment privileges and encrypted-data key recovery. No infrastructure setup is authorized by this design note.
+
+
+## Memory research checkpoint
+
+Memory Q&A is paused for the [Supermemory deep dive](research/supermemory.md). Review the documented behavior and API-version differences before resuming. Provider selection, private-grant enforcement and deletion propagation remain open; no memory integration is installed.

@@ -10,6 +10,7 @@ A living design for a personal agent system: one interaction agent across device
 - [Shared task and result contracts](contracts.md)
 - [Decision log](decisions.md)
 - [Roadmap](roadmap.md)
+- [Memory research: Supermemory deep dive](research/supermemory.md) — processing, retrieval, corrections, privacy, deployment and a resumption checklist.
 - [Ideas and working notes](ideas.md)
 - [Interactive design workspace](workspace/agent-system-workspace.html)
 - [Interactive concept demo](workspace/april-experience-demo.html) — a scripted local simulation of voice activation, research artifacts, feature review and private-task approval. No actual microphone, accounts, repository or cloud services are connected.

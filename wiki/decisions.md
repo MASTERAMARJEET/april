@@ -427,3 +427,10 @@ Confirmed private artifact scope: Provide only the specific content approved for
 ## User viewing versus agent access
 
 Confirmed user direction: The user can view all public and private files at any time, independently of agent task grants. Expiry of an agent grant must not lock the user out of saved files or artifacts. Each new agent task accessing private content requires fresh approval; public-to-April content remains available under its existing policy. Viewing must not silently authorize new agent work or renderer side effects.
+
+
+## Memory corrections: Supermemory reference
+
+User direction: Follow Supermemory’s behavior for corrected memories. Official documentation checked: updates create a new version, preserve the original as non-current, and support listing history; retrieval favors the current fact. Adopt this correction behavior as the design reference, without selecting Supermemory as the provider or adopting unrelated defaults. Existing private-data and deletion requirements remain applicable.
+
+Sources: https://supermemory.ai/docs/concepts/graph-memory ; https://supermemory.ai/docs/api-reference/content-management/update-a-memory-creates-new-version ; https://supermemory.ai/docs/api-reference/content-management/list-memory-entries-with-history
