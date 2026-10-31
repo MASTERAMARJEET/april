@@ -50,4 +50,4 @@ Seeded from the design conversation on 30 October 2026. This documents a propose
 
 ## Latest checkpoint
 
-Broad product clarification is complete enough for architecture evaluation. Both maps include Decisions → Next technical session and Original Q&A review. The wiki resumption notes distinguish confirmed requirements, deliberately deferred engineering details and the unanswered private-task/offline-Mac question. Preview PNGs and original TSX are historical snapshots; the maintained interactive HTML and seed JSON contain the current decisions.
+Broad product clarification is complete enough for architecture evaluation. Both maps include Decisions → Next technical session and Original Q&A review. The wiki resumption notes distinguish confirmed requirements, deliberately deferred engineering details and the now-confirmed cloud-first execution/continued private-task behavior. Preview PNGs and original TSX are historical snapshots; the maintained interactive HTML and seed JSON contain the current decisions.

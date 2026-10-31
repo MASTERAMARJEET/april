@@ -639,6 +639,13 @@
       "status": "Chosen direction",
       "id": "existing-tool-orchestration",
       "next": "Evaluate integration adapters later; do not rebuild these tools initially."
+    },
+    {
+      "title": "Cloud-first tasks continue when the Mac disconnects",
+      "status": "Chosen direction",
+      "rationale": "All tasks are cloud-first and most work runs in Cloudflare. All files, including public and private vault contents, have cloud storage as their persistent home and source of truth at all times. The Mac is a lightweight client for voice, visuals and local device integrations; local copies and offline pending changes synchronize with cloud state. Approved cloud tasks, including private-file tasks, continue if the Mac disconnects, within the existing task-scoped grant. Disconnection neither revokes the grant nor expands its scope; private access still expires when the task ends. Operations needing a local integration require that device to be reachable. Encryption-key custody, revocation and enforcement remain implementation work.",
+      "id": "cloud-first-disconnect-continuity",
+      "next": "Specify cloud grant enforcement, keys and unavailable local integrations."
     }
   ],
   "roadmap": [
@@ -796,7 +803,7 @@
     "result": "jobId / status / outputArtifacts / exactRevision\nsummary / evidence / checks / uncertainty\nsideEffects / resourceUsage / followUpQuestions\nprovenance / retention / nextRecommendedAction",
     "lifecycle": "Requested \u2192 Authorized \u2192 Queued \u2192 Running \u2192 Verifying \u2192 Completed\nAlternative outcomes: Needs attention / Failed / Cancelled / Expired\nA completed worker turn is not necessarily a verified task outcome.\nCheckpoint before retries; make external side effects idempotent."
   },
-  "notes": "This is a living design workspace, not a deployed agent system. Seeded from the conversation on 30 October 2026. Agent responsibilities and architecture choices are proposals unless marked as a chosen direction.\n\nNext design conversation: pick one vertical slice and define its job contract, permission boundary, persistence, and success checks.\nVoice clarifications on 31 October 2026 are recorded in the decision register. Next conversation: Mac experience and concrete bootstrap scope. No implementation or deployment has been performed.\nMac decisions updated: separate Obsidian host ruled out. See Mac decision entries. Earlier conflicting proposals are superseded. Next: GUI and library evaluation for unified voice and artifact experience.\nSession paused by user. Resume unresolved questions one at a time; see Original Q&A review and wiki resumption log. No audio retention by default; explicit opt-in to save recordings. Transcript may lag.\nPaused after broad requirements. Next: technical architecture/GUI evaluation. Private-task continuation when Mac goes offline is explicitly unanswered. See Next technical session branch.",
+  "notes": "This is a living design workspace, not a deployed agent system. Seeded from the conversation on 30 October 2026. Agent responsibilities and architecture choices are proposals unless marked as a chosen direction.\n\nNext design conversation: pick one vertical slice and define its job contract, permission boundary, persistence, and success checks.\nVoice clarifications on 31 October 2026 are recorded in the decision register. Next conversation: Mac experience and concrete bootstrap scope. No implementation or deployment has been performed.\nMac decisions updated: separate Obsidian host ruled out. See Mac decision entries. Earlier conflicting proposals are superseded. Next: GUI and library evaluation for unified voice and artifact experience.\nSession paused by user. Resume unresolved questions one at a time; see Original Q&A review and wiki resumption log. No audio retention by default; explicit opt-in to save recordings. Transcript may lag.\nPaused after broad requirements. Next: technical architecture/GUI evaluation. Approved cloud/private tasks continue when the Mac disconnects within task-scoped access. See Next technical session branch.",
   "sources": [
     {
       "title": "Cloudflare Agents",
@@ -1040,7 +1047,7 @@
         "number": 35,
         "topic": "Knowledge storage",
         "status": "Answered",
-        "detail": "User-chosen local vault folders synced eagerly with encrypted Cloudflare-authoritative storage, including private vaults."
+        "detail": "All persistent files and both public/private vaults live in cloud storage as source of truth. Local folders/copies synchronize eagerly; offline pending edits reconcile later. Storage does not grant private agent access."
       },
       {
         "number": 36,
@@ -1099,8 +1106,8 @@
       {
         "number": 45,
         "topic": "Mac asleep/offline",
-        "status": "Partial",
-        "detail": "Cloud task management while user is away is allowed. Private-vault task continuation after Mac goes offline was asked but not answered; native actions need available devices."
+        "status": "Answered",
+        "detail": "Approved cloud tasks continue if the Mac disconnects, including private-file tasks within the existing task-scoped grant. Most work is cloud-first; local integration steps need a reachable device. Key custody/enforcement details remain design work."
       },
       {
         "number": 46,
@@ -1134,13 +1141,13 @@
       }
     ],
     "counts": {
-      "Answered": 30,
-      "Partial": 20,
+      "Answered": 31,
+      "Partial": 19,
       "Open": 0
     },
-    "resume": "Paused at user request after broad requirements. Do not repeat settled questions. Start focused architecture/GUI evaluation or clarify the explicitly unanswered private-task/offline-Mac question. Deferred engineering details are not absent requirements.",
+    "resume": "Continue architecture refinement. Cloud-first tasks, cloud storage for all files, lightweight Mac client and approved task continuation after disconnect are confirmed. Do not reopen the offline-Mac/private-task question. Key custody, revocation and local-device availability handling remain implementation work.",
     "technicalFollowups": [
-      "Unanswered: if the user approves a private-vault task and the Mac goes offline, may the cloud continue it until completion? This affects availability and encryption-key custody; do not assume an answer.",
+      "Confirmed: approved cloud tasks, including private-file tasks under existing task-scoped access, continue if the Mac disconnects. Next: specify key custody, revocation and device-unavailable handling; all persistent files are cloud-backed.",
       "Engineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.",
       "Private grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.",
       "Sync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.",
@@ -1167,7 +1174,7 @@
   "approvalLanguageRevision": 1,
   "replacementRevision": 1,
   "technicalFollowups": [
-    "Unanswered: if the user approves a private-vault task and the Mac goes offline, may the cloud continue it until completion? This affects availability and encryption-key custody; do not assume an answer.",
+    "Confirmed: approved cloud tasks, including private-file tasks under existing task-scoped access, continue if the Mac disconnects. Next: specify key custody, revocation and device-unavailable handling; all persistent files are cloud-backed.",
     "Engineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.",
     "Private grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.",
     "Sync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.",
@@ -1175,5 +1182,6 @@
     "Deferred deep dives: plugin contracts/trust, per-integration API versus UI, Codex-inspired computer use and memory systems including Supermemory.",
     "Operational implementation: accurate cost tracking and non-blocking $20 AI nudge, task retry/cancellation, recovery history and permission enforcement."
   ],
-  "pauseCheckpointRevision": 1
+  "pauseCheckpointRevision": 1,
+  "cloudFirstContinuityRevision": 1
 }

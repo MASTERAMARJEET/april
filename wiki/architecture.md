@@ -155,7 +155,7 @@ Caveat: Client continuity, notifications, offline capture, and app permissions r
 
 Chosen direction: platform-agnostic core, with macOS native integration first. Target macOS, Windows and Linux over time.
 
-The shared domain core owns conversation/task state, tool contracts, capability routing, cancellation, result provenance and policy decisions. Cloudflare-specific hosting code belongs behind service boundaries; the existing cloud direction remains unchanged. Local-versus-cloud placement is still open.
+The shared domain core owns conversation/task state, tool contracts, capability routing, cancellation, result provenance and policy decisions. Cloudflare-specific hosting code belongs behind service boundaries; the existing cloud direction remains unchanged. Tasks are cloud-first; most work executes in Cloudflare. The Mac is a lightweight voice/visual client and native integration endpoint.
 
 User clarification: agent coordination and specialist coding builds/tests belong on Cloudflare. The Mac provides the native interaction/device integration. Remaining placement questions concern particular capabilities and data boundaries, not whether the coding specialist should primarily execute on the Mac.
 
@@ -167,7 +167,7 @@ Keep real-time audio work independent of UI repainting. A separate native helper
 
 ## Offline-first clients and cloud authority
 
-Confirmed in voice: clients should remain usable without internet, with cloud state as the source of truth and eager synchronization when connected. Local persistence, pending operations and reconnection handling are required design areas. Exact offline capabilities, local inference, reconciliation/conflict rules and data upload scope remain open. Distinguish provisional local changes from cloud-accepted state; do not silently discard offline work.
+Confirmed in voice: clients should remain usable without internet, with cloud state as the source of truth and eager synchronization when connected. Local persistence, pending operations and reconnection handling are required design areas. Initial offline interaction is queued typed input; local inference is not required. Reconciliation, deletion and sync implementation remain design work. Distinguish provisional local changes from cloud-accepted state; do not silently discard offline work.
 
 Initial offline scope clarified: typed chat as a request queue; no live voice conversation or local-model requirement. Show queued work distinctly from executing or completed work. Reconnect behavior and saved-artifact availability remain open.
 
@@ -186,3 +186,9 @@ Confirmed user direction: build around a plugin architecture across three areas:
 - Vault artifact support, including Markdown, PDFs, Word documents, interactive HTML and JavaScript.
 
 Treat extensibility as an architectural requirement rather than an assumption that every artifact renderer or specialist is built into the core. Return later to plugin contracts, discovery, packaging, lifecycle, compatibility, isolation, permissions and distribution. The user has not selected those mechanisms or requested plugin implementation now. Plugins must fit the central approval and vault-access boundaries; these requirements do not grant arbitrary execution or data access.
+
+## Cloud-first execution and disconnected clients — confirmed clarification
+
+All tasks are cloud-first and most work runs in Cloudflare. All files, including public and private vault contents, have cloud storage as their persistent home and source of truth at all times. The Mac is a lightweight client for voice, visuals and local device integrations; local copies and offline pending changes synchronize with cloud state. Approved cloud tasks, including private-file tasks, continue if the Mac disconnects, within the existing task-scoped grant. Disconnection neither revokes the grant nor expands its scope; private access still expires when the task ends. Operations needing a local integration require that device to be reachable. Encryption-key custody, revocation and enforcement remain implementation work.
+
+This closes the previously unanswered private-task/offline-Mac question. Cloud task execution must not rely on a live Mac session to remain authorized; device-specific work still depends on the relevant endpoint. This is a documented requirement, not implemented infrastructure or a chosen key-management design.

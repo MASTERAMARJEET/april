@@ -210,7 +210,7 @@
       "number": 35,
       "topic": "Knowledge storage",
       "status": "Answered",
-      "detail": "User-chosen local vault folders synced eagerly with encrypted Cloudflare-authoritative storage, including private vaults."
+      "detail": "All persistent files and both public/private vaults live in cloud storage as source of truth. Local folders/copies synchronize eagerly; offline pending edits reconcile later. Storage does not grant private agent access."
     },
     {
       "number": 36,
@@ -269,8 +269,8 @@
     {
       "number": 45,
       "topic": "Mac asleep/offline",
-      "status": "Partial",
-      "detail": "Cloud task management while user is away is allowed. Private-vault task continuation after Mac goes offline was asked but not answered; native actions need available devices."
+      "status": "Answered",
+      "detail": "Approved cloud tasks continue if the Mac disconnects, including private-file tasks within the existing task-scoped grant. Most work is cloud-first; local integration steps need a reachable device. Key custody/enforcement details remain design work."
     },
     {
       "number": 46,
@@ -304,13 +304,13 @@
     }
   ],
   "counts": {
-    "Answered": 30,
-    "Partial": 20,
+    "Answered": 31,
+    "Partial": 19,
     "Open": 0
   },
-  "resume": "Paused at user request after broad requirements. Do not repeat settled questions. Start focused architecture/GUI evaluation or clarify the explicitly unanswered private-task/offline-Mac question. Deferred engineering details are not absent requirements.",
+  "resume": "Continue architecture refinement. Cloud-first tasks, cloud storage for all files, lightweight Mac client and approved task continuation after disconnect are confirmed. Do not reopen the offline-Mac/private-task question. Key custody, revocation and local-device availability handling remain implementation work.",
   "technicalFollowups": [
-    "Unanswered: if the user approves a private-vault task and the Mac goes offline, may the cloud continue it until completion? This affects availability and encryption-key custody; do not assume an answer.",
+    "Confirmed: approved cloud tasks, including private-file tasks under existing task-scoped access, continue if the Mac disconnects. Next: specify key custody, revocation and device-unavailable handling; all persistent files are cloud-backed.",
     "Engineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.",
     "Private grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.",
     "Sync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.",

@@ -71,3 +71,7 @@ The user intends self-extension as the development strategy. It is not permissio
 
 - [ ] **Validate against the user's current Mac** — MacBook Pro, M2 Pro, 10-core CPU, 16 GB memory; current macOS 26.7.1. Measure idle resources and fluid voice/artifact interactions before claiming minimum support.
 - [ ] **Support authorized remote Mac capabilities later** — Phone requests may use an online, authorized Mac; design scoped routing and unavailable-device behavior.
+
+## Cloud-first continuity validation
+
+- [ ] **Validate approved task continuity after Mac disconnection** — Cloud/public/private-file tasks continue under existing scope and task-end expiry. Local integration steps handle an unavailable device explicitly. All persistent files remain cloud-backed; verify sync recovery without changing the cloud-first requirement.

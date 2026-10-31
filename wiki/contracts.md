@@ -64,3 +64,7 @@ Confirmed: all requests route through the central approval agent. Private-vault 
 Private-grant lifetime clarified: bind access to the approved task and expire it when that task ends. Do not carry the grant into subsequent tasks. Implement terminal-state and cleanup semantics explicitly.
 
 Sync conflict requirement: preserve both conflicting local/cloud versions and request user resolution before discarding either. Cloud-authoritative state must not silently overwrite unresolved local changes.
+
+## Cloud execution continuity
+
+An approved cloud task continues after the Mac disconnects, including a private-file task under its existing grant. Bind authorization to task identity and scope, not client connectivity. Expire private access at task end; preserve explicit revocation and scope enforcement. Local integration steps report device unavailability separately from cloud task authorization. All persistent files are cloud-backed; offline edits are pending synchronization rather than a separate authoritative store.

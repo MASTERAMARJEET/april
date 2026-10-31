@@ -14,13 +14,13 @@ User instruction: whenever changes are committed in April, push them to the conf
 
 ## Resume the clarification session
 
-Paused at the user's request after the broad product pass. The original 50-question ledger has 30 answered and 20 scoped/deferred follow-ups, not 20 missing product directions. Do not restart the questionnaire or repeat confirmed choices. See [question ledger and technical follow-ups](workspace/clarification-status.json).
+Paused at the user's request after the broad product pass. The original 50-question ledger has 31 answered and 19 scoped/deferred follow-ups, not 19 missing product directions. Do not restart the questionnaire or repeat confirmed choices. See [question ledger and technical follow-ups](workspace/clarification-status.json).
 
-Next session: compare architecture/GUI options against the recorded workflows and measured constraints. One explicitly unanswered question: may an approved private-vault task continue in the cloud if the Mac goes offline? Do not infer an answer; it affects key custody and task availability.
+Next session: compare architecture/GUI options against the recorded workflows and measured constraints. That question is now closed: approved cloud tasks, including private-vault tasks under their existing task-scoped grant, continue if the Mac disconnects. All files live in cloud storage; the Mac is a lightweight client.
 
 Settled in the latest pass: private grants end with tasks; additional approval categories evolve through use; dedicated learned approver and reviewed default allowances; conversational mistake correction; Cloudflare $5 base-plan target (usage unverified), AI $20 soft nudge with work continuing; efficiency and fluidity over shipping speed; M2 Pro/10-core/16 GB Mac baseline; phone requests may use authorized online Mac; preserve both sync conflicts and ask; ask/correct wiki conflicts; proactive simpler work and discuss larger features; inform/add missing capabilities then resume; no language preference; replace ChatGPT workflows and manual Cursor prompting while retaining underlying tools.
 
-- Unanswered: if the user approves a private-vault task and the Mac goes offline, may the cloud continue it until completion? This affects availability and encryption-key custody; do not assume an answer.
+- Confirmed: approved cloud/private-vault tasks continue when the Mac disconnects. Next: design key custody, revocation and device-unavailable handling without reopening that preference.
 - Engineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.
 - Private grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.
 - Sync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.
@@ -40,8 +40,8 @@ Next design conversation: pick one vertical slice and define its job contract, p
 
 ## Clarification review — original 50 questions
 
-30 answered, 20 partial, 0 entirely open. The partial items include explicitly deferred design details; this does not mean implementation decisions are complete. Partial means the direction is known but a detail remains unresolved. See [question-by-question review](workspace/clarification-status.json).
+31 answered, 19 partial, 0 entirely open. The partial items include explicitly deferred design details; this does not mean implementation decisions are complete. Partial means the direction is known but a detail remains unresolved. See [question-by-question review](workspace/clarification-status.json).
 
 Next priorities are the technical follow-ups above. Languages, initial recording scope, grant expiry, conflict behavior and starting budget already have recorded answers; do not ask those preferences again.
 
-Latest pass: original broad questionnaire is covered, with 20 scoped/deferred follow-ups. Confirmed task-end private grant expiry, soft $20 AI nudge, efficiency/fluidity over shipping speed, verified M2 Pro/16 GB Mac baseline, phone-to-Mac capabilities, preserve both sync conflicts, clarify/correct wiki conflicts, reviewed learned approval, proactive simple work and missing-capability task resumption. Next: evaluate architecture/GUI against these requirements; do not repeat settled preference questions.
+Latest pass: original broad questionnaire is covered, with 19 scoped/deferred follow-ups. Confirmed task-end private grant expiry, soft $20 AI nudge, efficiency/fluidity over shipping speed, verified M2 Pro/16 GB Mac baseline, phone-to-Mac capabilities, preserve both sync conflicts, clarify/correct wiki conflicts, reviewed learned approval, proactive simple work and missing-capability task resumption. Next: evaluate architecture/GUI against these requirements; do not repeat settled preference questions.

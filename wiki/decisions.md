@@ -274,3 +274,11 @@ User confirms that a request from the phone may use capabilities on an online, a
 Status: Confirmed user preference
 
 If local and cloud edits conflict, preserve both versions and ask the user which to keep. Cloud authority does not justify silently discarding local work. Conflict detection, version lineage, merge choices and propagation of the resolved version remain implementation details.
+
+## Cloud-first tasks; approved work survives Mac disconnect
+
+Status: Confirmed user architecture clarification
+
+All tasks are cloud-first and most work runs in Cloudflare. All files, including public and private vault contents, have cloud storage as their persistent home and source of truth at all times. The Mac is a lightweight client for voice, visuals and local device integrations; local copies and offline pending changes synchronize with cloud state. Approved cloud tasks, including private-file tasks, continue if the Mac disconnects, within the existing task-scoped grant. Disconnection neither revokes the grant nor expands its scope; private access still expires when the task ends. Operations needing a local integration require that device to be reachable. Encryption-key custody, revocation and enforcement remain implementation work.
+
+Supersedes resumption notes that described private-task continuation after Mac disconnection as unanswered. No additional authorization is required merely because the client disconnects; new scope still follows the central approval flow.
