@@ -8,6 +8,10 @@ User preference: use Exa rather than the Context7 MCP wherever possible for rese
 
 Treat a natural pause as completion of the current answer and move to the next useful question without waiting for repeated confirmation. Review the existing wiki before asking architectural questions. Build on settled directions (Cloudflare execution, specialist agents, GitHub review, Mac-first client) rather than asking the user to restate them. Ask one focused question at a time and keep recording answers.
 
+## Git delivery preference
+
+User instruction: whenever changes are committed in April, push them to the configured `origin` as well. Complete the push and verify synchronization before reporting delivery complete. Report a blocked or failed push explicitly; do not claim a local-only commit has reached origin. Do not force-push to satisfy this preference.
+
 ## Resume the clarification session
 
 Paused at the user's request after the broad product pass. The original 50-question ledger has 30 answered and 20 scoped/deferred follow-ups, not 20 missing product directions. Do not restart the questionnaire or repeat confirmed choices. See [question ledger and technical follow-ups](workspace/clarification-status.json).
