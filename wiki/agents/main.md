@@ -94,3 +94,7 @@ Cloud-first clarification: most work executes in Cloudflare; all persistent file
 ## Conversation organization
 
 Confirmed user direction: The user interacts through a single ongoing thread and does not manage separate conversation sessions. April may internally organize, branch and manage task/topic context as needed. Internal context/session boundaries are implementation details, not user-facing vault boundaries. Vaults remain independent storage/access domains. This does not require one ever-growing model prompt or bypass private-data approvals.
+
+## User involvement when a specialist is stuck
+
+Confirmed user direction: When a specialist is genuinely stuck, bring the blocker to the user and work through it together. The user sees this as a possible sign that requirements need clarification or the specialist scope is too large. Do not silently substitute specialists, expand scope or run an autonomous repair loop as the default response to being stuck. Preserve task state and resume or rescope after clarification. The definition/detection of a blocker and handling of routine transient errors remain implementation details.

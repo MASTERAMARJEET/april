@@ -316,3 +316,9 @@ Status: Confirmed user preference; execution semantics open
 Provide task pause/resume, not only cancellation. The user asks where these controls would be useful; proposed presentation is conversational commands plus controls on task summaries/tree items. Useful cases include reviewing direction, supplying changed information or reprioritizing work. Voice interruption remains separate and does not pause tasks. Define safe checkpoints, in-flight side effects, child-task propagation, progress preservation and permission revalidation before implementing. Pause must not be described as undoing already completed actions or freezing an external operation instantly.
 
 Pause propagation clarified: the user supplies a reason when pausing; the coordinator decides what should happen to relevant subagents based on that reason. Do not impose an unconditional stop-all-descendants rule. Record the reason and coordinator's decision for audit. Scope of a pause must respect the user's expressed intent; if that scope is materially ambiguous, clarification may be required rather than silently continuing the affected action. Safe-checkpoint and in-flight-operation handling remain engineering details.
+
+## Escalate stuck specialists to the user
+
+Confirmed user direction: When a specialist is genuinely stuck, bring the blocker to the user and work through it together. The user sees this as a possible sign that requirements need clarification or the specialist scope is too large. Do not silently substitute specialists, expand scope or run an autonomous repair loop as the default response to being stuck. Preserve task state and resume or rescope after clarification. The definition/detection of a blocker and handling of routine transient errors remain implementation details.
+
+Pause reason taxonomy is explicitly deferred: the user supplies the reason at the time, and the coordinator interprets it. Do not require an exhaustive list during this design pass.

@@ -84,3 +84,9 @@ Confirmed user direction: Spoken interruption stops or redirects the conversatio
 Confirmed direction: Specialist agents may delegate further to subagents within the original task authority; delegation is not restricted to the main interaction agent. Represent parent/child task relationships and return results through the hierarchy while April remains the single user-facing coordinator. Delegation does not expand private-data access or permissions. Depth/concurrency limits, budget allocation, conflict handling and cancellation propagation remain implementation decisions.
 
 Pause requests include the user's reason. The coordinator resolves which descendants pause or continue from that reason and records the decision; pause does not automatically apply identically to every child. Preserve task lineage, user intent and existing authority when resuming.
+
+## Blocked specialist transition
+
+Confirmed user direction: When a specialist is genuinely stuck, bring the blocker to the user and work through it together. The user sees this as a possible sign that requirements need clarification or the specialist scope is too large. Do not silently substitute specialists, expand scope or run an autonomous repair loop as the default response to being stuck. Preserve task state and resume or rescope after clarification. The definition/detection of a blocker and handling of routine transient errors remain implementation details.
+
+Proposed runtime mapping of confirmed behavior: Running → Needs user input when stuck → Clarified/rescoped → Queued/Running. Keep the original objective, blocker, relevant task branch and changed scope linked for audit. This is a draft state mapping, not implemented execution.

@@ -709,6 +709,13 @@
       "rationale": "User supplies a reason for pausing. The coordinator decides which subagents should pause or continue based on that reason, rather than applying a fixed stop-all-children rule. Record the reason and decision for audit. Respect the expressed pause intent; clarify material ambiguity. Safe checkpoints/in-flight handling remain implementation work.",
       "id": "reasoned-pause-propagation",
       "next": "Define auditable coordinator pause decisions and safe checkpoints."
+    },
+    {
+      "title": "Bring stuck specialist work to the user",
+      "status": "Chosen direction",
+      "rationale": "When a specialist is genuinely stuck, bring the blocker to the user and work through it together. The user sees this as a possible sign that requirements need clarification or the specialist scope is too large. Do not silently substitute specialists, expand scope or run an autonomous repair loop as the default response to being stuck. Preserve task state and resume or rescope after clarification. The definition/detection of a blocker and handling of routine transient errors remain implementation details. Pause reason taxonomy is deferred; user provides a reason when needed.",
+      "id": "stuck-specialist-human-escalation",
+      "next": "Define blocker evidence, clarification and rescoping transitions."
     }
   ],
   "roadmap": [
@@ -1254,5 +1261,6 @@
   "nestedDelegationRevision": 1,
   "taskAuditTreeRevision": 1,
   "pauseResumeRevision": 1,
-  "pauseReasonRevision": 1
+  "pauseReasonRevision": 1,
+  "blockedSpecialistRevision": 1
 }
