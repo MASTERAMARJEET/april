@@ -129,3 +129,9 @@ Confirmed roles: integration, specialist and renderer. Proposed contract fields,
 - Artifact media/schema support and isolated rendering/messaging boundaries for renderers.
 
 Compatibility, packaging, secrets delivery, isolation mechanism and multi-role package structure remain engineering choices. Stuck specialist work escalates to the user under the confirmed policy.
+
+## Plugin version binding
+
+Confirmed default: Default plugin update behavior: tasks already running finish on the plugin version they started with; new tasks use the approved updated version. Do not hot-swap plugin behavior inside an in-flight task by default. Record the version with task/audit data. Retention of old versions, dependency resolution, resume behavior and exceptional migration handling remain engineering work.
+
+Plugin lifecycle requirement: independent versioned updates with core/host compatibility checks. Bind task execution to an approved plugin version. Installation/update must not silently expand authority; approval policy and release verification still apply. Rollback, package integrity and old-version retention need concrete design.

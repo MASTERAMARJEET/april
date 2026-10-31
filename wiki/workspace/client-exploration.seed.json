@@ -626,6 +626,16 @@
       "title": "Integration, specialist and renderer plugin roles",
       "status": "Confirmed direction",
       "rationale": "Confirmed plugin roles: integrations perform actions/access external or local capabilities; specialists handle delegated work; renderers display artifact types and interactive content. Plugins declare capabilities and needed access, while permission decisions/enforcement remain centrally controlled. Different roles may need different execution hosts; no universal runtime or packaging format has been selected. Shared identity/version, capability schemas, host declarations and lifecycle/audit contract are drafted in the wiki; runtime mechanisms remain proposed."
+    },
+    {
+      "title": "Running tasks stay on their original plugin version",
+      "status": "Confirmed direction",
+      "rationale": "Default plugin update behavior: tasks already running finish on the plugin version they started with; new tasks use the approved updated version. Do not hot-swap plugin behavior inside an in-flight task by default. Record the version with task/audit data. Retention of old versions, dependency resolution, resume behavior and exceptional migration handling remain engineering work."
+    },
+    {
+      "title": "Plugins update independently of April releases",
+      "status": "Confirmed direction",
+      "rationale": "Plugins should be independently installable/updatable rather than requiring a whole April release for every change. Bundled releases would be simpler initially, but independent lifecycle fits incremental self-extension. Use reviewed, versioned releases and compatibility checks; running tasks keep original versions. Cloud/client/runtime host distinctions and native packaging/signing constraints must be evaluated: changes to native client capabilities may still require a client release. No plugin packaging/runtime product has been selected."
     }
   ],
   "questions": "Confirmed: approved cloud tasks, including private-file tasks under existing task-scoped access, continue if the Mac disconnects. Next: specify key custody, revocation and device-unavailable handling; all persistent files are cloud-backed.\nEngineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.\nPrivate grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.\nSync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.\nCoding bootstrap: Cloudflare execution, April-only GitHub repositories, dev/PR/user approval flow are decided; validate macOS packaging/native tests and exact release evidence.\nDeferred deep dives: plugin contracts/trust, per-integration API versus UI, Codex-inspired computer use and memory systems including Supermemory.\nOperational implementation: accurate cost tracking and non-blocking $20 AI nudge, task retry/cancellation, recovery history and permission enforcement.",
@@ -1005,5 +1015,7 @@
   "summaryDeletionRevision": 1,
   "cloudflareIdentityRevision": 1,
   "pluginTrustRevision": 1,
-  "pluginRolesRevision": 1
+  "pluginRolesRevision": 1,
+  "pluginVersionPinRevision": 1,
+  "independentPluginRevision": 1
 }

@@ -380,3 +380,11 @@ Confirmed direction: Start with plugins built and reviewed as part of April itse
 Status: User confirmed
 
 Confirmed plugin roles: integrations perform actions/access external or local capabilities; specialists handle delegated work; renderers display artifact types and interactive content. Plugins declare capabilities and needed access, while permission decisions/enforcement remain centrally controlled. Different roles may need different execution hosts; no universal runtime or packaging format has been selected.
+
+## Pin running tasks to their plugin version
+
+Confirmed default: Default plugin update behavior: tasks already running finish on the plugin version they started with; new tasks use the approved updated version. Do not hot-swap plugin behavior inside an in-flight task by default. Record the version with task/audit data. Retention of old versions, dependency resolution, resume behavior and exceptional migration handling remain engineering work.
+
+## Independent plugin releases
+
+Confirmed direction: Plugins should be independently installable/updatable rather than requiring a whole April release for every change. Bundled releases would be simpler initially, but independent lifecycle fits incremental self-extension. Use reviewed, versioned releases and compatibility checks; running tasks keep original versions. Cloud/client/runtime host distinctions and native packaging/signing constraints must be evaluated: changes to native client capabilities may still require a client release. No plugin packaging/runtime product has been selected.

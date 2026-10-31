@@ -244,3 +244,7 @@ Confirmed direction: Start with plugins built and reviewed as part of April itse
 Confirmed plugin roles: integrations perform actions/access external or local capabilities; specialists handle delegated work; renderers display artifact types and interactive content. Plugins declare capabilities and needed access, while permission decisions/enforcement remain centrally controlled. Different roles may need different execution hosts; no universal runtime or packaging format has been selected.
 
 Proposed mapping, not a selected implementation: cloud-first integration/specialist hosts; local capability endpoints only for operations needing a device; client-side artifact renderers in an isolated surface. Rendering a file does not confer filesystem, private-vault or arbitrary network authority. Packages may expose roles through stable contracts without making the core depend on one implementation language. Host/protocol details need validation.
+
+## Plugin lifecycle separate from core releases
+
+Confirmed direction: Plugins should be independently installable/updatable rather than requiring a whole April release for every change. Bundled releases would be simpler initially, but independent lifecycle fits incremental self-extension. Use reviewed, versioned releases and compatibility checks; running tasks keep original versions. Cloud/client/runtime host distinctions and native packaging/signing constraints must be evaluated: changes to native client capabilities may still require a client release. No plugin packaging/runtime product has been selected.

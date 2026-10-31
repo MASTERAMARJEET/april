@@ -807,6 +807,20 @@
       "rationale": "Confirmed plugin roles: integrations perform actions/access external or local capabilities; specialists handle delegated work; renderers display artifact types and interactive content. Plugins declare capabilities and needed access, while permission decisions/enforcement remain centrally controlled. Different roles may need different execution hosts; no universal runtime or packaging format has been selected. Shared identity/version, capability schemas, host declarations and lifecycle/audit contract are drafted in the wiki; runtime mechanisms remain proposed.",
       "id": "three-plugin-roles",
       "next": "Validate shared contract and role-specific execution boundaries."
+    },
+    {
+      "title": "Running tasks stay on their original plugin version",
+      "status": "Chosen direction",
+      "rationale": "Default plugin update behavior: tasks already running finish on the plugin version they started with; new tasks use the approved updated version. Do not hot-swap plugin behavior inside an in-flight task by default. Record the version with task/audit data. Retention of old versions, dependency resolution, resume behavior and exceptional migration handling remain engineering work.",
+      "id": "task-plugin-version-pin",
+      "next": "Specify version retention, resume and dependency resolution."
+    },
+    {
+      "title": "Plugins update independently of April releases",
+      "status": "Chosen direction",
+      "rationale": "Plugins should be independently installable/updatable rather than requiring a whole April release for every change. Bundled releases would be simpler initially, but independent lifecycle fits incremental self-extension. Use reviewed, versioned releases and compatibility checks; running tasks keep original versions. Cloud/client/runtime host distinctions and native packaging/signing constraints must be evaluated: changes to native client capabilities may still require a client release. No plugin packaging/runtime product has been selected.",
+      "id": "independent-plugin-updates",
+      "next": "Design reviewed version registry, compatibility and rollback; assess native release constraints."
     }
   ],
   "roadmap": [
@@ -1365,5 +1379,7 @@
   "summaryDeletionRevision": 1,
   "cloudflareIdentityRevision": 1,
   "pluginTrustRevision": 1,
-  "pluginRolesRevision": 1
+  "pluginRolesRevision": 1,
+  "pluginVersionPinRevision": 1,
+  "independentPluginRevision": 1
 }
