@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-10-31",
+  "title": "April client exploration",
+  "candidates": [
+    {
+      "id": "swift",
+      "name": "Swift / AppKit + WKWebView",
+      "language": "Swift",
+      "status": "Explore",
+      "basis": "macOS adapter and optional shell candidate; a Swift-only shared core is no longer the direction.",
+      "strength": "Direct platform APIs and familiar macOS interaction; web engine for rich documents.",
+      "risk": "Platform-specific UI; shared core adds bridging and packaging work.",
+      "next": "Build one native panel, a long wiki and an AX observer; compare effort with Tauri.",
+      "source": "https://developer.apple.com/documentation/webkit/wkwebview",
+      "notes": ""
+    },
+    {
+      "id": "tauri",
+      "name": "Tauri + Rust core",
+      "language": "Rust / web",
+      "status": "Explore",
+      "basis": "Explore as a shared desktop UI around a platform-agnostic core; framework remains undecided.",
+      "strength": "Web content flexibility with a native core and system webviews.",
+      "risk": "macOS integrations need native code; webview differences and IPC require testing.",
+      "next": "Implement the same wiki, voice controls and AX operation as the Swift slice.",
+      "source": "https://v2.tauri.app/concept/architecture/",
+      "notes": ""
+    },
+    {
+      "id": "gpui",
+      "name": "GPUI",
+      "language": "Rust",
+      "status": "Explore",
+      "basis": "Conditional candidate for an editor-like workspace.",
+      "strength": "GPU-rendered custom workspace; real editor use through Zed.",
+      "risk": "Document, accessibility and platform behavior need validation; tied to Zed development.",
+      "next": "Test long selectable text, input methods, VoiceOver and native overlay integration.",
+      "source": "https://gpui.rs/",
+      "notes": ""
+    },
+    {
+      "id": "wails",
+      "name": "Wails",
+      "language": "Go / web",
+      "status": "Explore",
+      "basis": "Alternative if Go is preferred; no language preference confirmed.",
+      "strength": "Go services plus flexible web documents using OS webview.",
+      "risk": "Deep macOS integration still needs bridging; evaluate native audio integration.",
+      "next": "Compare developer effort and lifecycle behavior with the Tauri slice.",
+      "source": "https://wails.io/",
+      "notes": ""
+    },
+    {
+      "id": "raven",
+      "name": "Raven",
+      "language": "C / bindings",
+      "status": "Defer",
+      "basis": "Assistant recommendation to deprioritize; user has not ruled it out.",
+      "strength": "Small C core; XML designer, editor widgets, GPU rendering and multiple bindings.",
+      "risk": "Changing 0.2 API; document depth and accessibility need independent validation.",
+      "next": "Revisit after a representative document and accessibility prototype succeeds.",
+      "source": "https://github.com/oscar-soirey/Raven",
+      "notes": ""
+    },
+    {
+      "id": "iced",
+      "name": "Iced",
+      "language": "Rust",
+      "status": "Defer",
+      "basis": "Mentioned and positioned; no detailed evaluation performed.",
+      "strength": "Cross-platform Rust GUI focused on simplicity and type safety.",
+      "risk": "Document-heavy product fit and native integrations remain untested.",
+      "next": "Revisit if Rust-only UI becomes a requirement.",
+      "source": "https://iced.rs/",
+      "notes": ""
+    },
+    {
+      "id": "slint",
+      "name": "Slint",
+      "language": "Rust / C++ / others",
+      "status": "Defer",
+      "basis": "Mentioned; no detailed product-fit or licensing evaluation performed.",
+      "strength": "Declarative custom interfaces; AccessKit integration is documented.",
+      "risk": "Rich document workflow, licensing fit and platform details need review.",
+      "next": "Validate document editing requirements before investing in a prototype.",
+      "source": "https://slint.dev/",
+      "notes": ""
+    },
+    {
+      "id": "egui",
+      "name": "egui / Dear ImGui",
+      "language": "Rust / C++",
+      "status": "Defer",
+      "basis": "Recommended for inspectors rather than primary document workspace.",
+      "strength": "Immediate-mode tools, debugging and application inspectors.",
+      "risk": "Wiki and rich application UX would require more product-specific work.",
+      "next": "Consider as an embedded diagnostics surface.",
+      "source": "https://github.com/emilk/egui",
+      "notes": ""
+    },
+    {
+      "id": "fyne",
+      "name": "Fyne",
+      "language": "Go",
+      "status": "Defer",
+      "basis": "Mentioned; no detailed evaluation performed.",
+      "strength": "Cross-platform Go UI without a web runtime.",
+      "risk": "Rich editable documents and deep macOS behavior remain untested.",
+      "next": "Revisit if Go-only UI and simpler content become priorities.",
+      "source": "https://fyne.io/",
+      "notes": ""
+    },
+    {
+      "id": "gio",
+      "name": "Gio",
+      "language": "Go",
+      "status": "Defer",
+      "basis": "Mentioned; no detailed evaluation performed.",
+      "strength": "Custom immediate-mode GPU UI with broad platform coverage.",
+      "risk": "More document infrastructure expected than a webview approach.",
+      "next": "Prototype text selection, IME and VoiceOver if reconsidered.",
+      "source": "https://gioui.org/",
+      "notes": ""
+    },
+    {
+      "id": "qt",
+      "name": "Qt / PySide",
+      "language": "C++ / Python",
+      "status": "Defer",
+      "basis": "Established desktop baseline, not rejected.",
+      "strength": "Mature desktop controls and model/view architecture.",
+      "risk": "Deployment, licensing fit and document/native UX should be weighed against macOS focus.",
+      "next": "Revisit for complex traditional data views or an existing Qt team.",
+      "source": "https://doc.qt.io/qt-6/topics-ui.html",
+      "notes": ""
+    },
+    {
+      "id": "flutter",
+      "name": "Flutter",
+      "language": "Dart",
+      "status": "Defer",
+      "basis": "Broader cross-platform baseline; no mobile-first requirement.",
+      "strength": "Shared custom UI across desktop, mobile and web.",
+      "risk": "Native automation remains separate; document UX needs a representative test.",
+      "next": "Revisit if mobile parity becomes an immediate requirement.",
+      "source": "https://docs.flutter.dev/resources/architectural-overview",
+      "notes": ""
+    },
+    {
+      "id": "avalonia",
+      "name": "Avalonia / WPF-style UI",
+      "language": "C#",
+      "status": "Defer",
+      "basis": "Mentioned as an alternative; WPF itself is Windows-specific.",
+      "strength": "Avalonia offers cross-platform XAML, binding and MVVM tooling.",
+      "risk": "No .NET preference; macOS automation and document surfaces remain to be evaluated.",
+      "next": "Revisit if a C# core or team makes it compelling.",
+      "source": "https://docs.avaloniaui.net/docs/welcome",
+      "notes": ""
+    },
+    {
+      "id": "electron",
+      "name": "Electron",
+      "language": "Web / native modules",
+      "status": "Explore",
+      "basis": "Reopened as a shared UI baseline after confirming cross-platform core direction; measure footprint rather than assuming.",
+      "strength": "Consistent bundled Chromium and broad web UI ecosystem.",
+      "risk": "Measure idle resource use and native module packaging against system webviews.",
+      "next": "Compare the identical document/audio workload if webview compatibility becomes costly.",
+      "source": "https://www.electronjs.org/docs/latest/tutorial/process-model",
+      "notes": ""
+    },
+    {
+      "id": "obsidian-host",
+      "name": "Obsidian as required vault host",
+      "language": "Separate app / plugin",
+      "status": "Ruled out",
+      "basis": "User chose a unified April app without app hopping. This is a confirmed product decision.",
+      "strength": "Existing Markdown workspace, file navigation and tabs.",
+      "risk": "Separate required host conflicts with the chosen unified experience; plugin permissions are not vault isolation.",
+      "next": "Keep Obsidian as a UX reference; use reusable components inside April instead.",
+      "source": "https://obsidian.md/",
+      "notes": "DOCX preview is sufficient; full Word editing is not initially required."
+    }
+  ],
+  "experiments": [
+    {
+      "id": "ax",
+      "title": "Native accessibility spike",
+      "procedure": "Read a window tree, subscribe to changes and perform one scoped action across several real apps. Exercise denied/revoked permission, stale elements and missing semantics.",
+      "evidence": "Record coverage, failures and recovery; define screenshot/OCR fallback boundaries.",
+      "status": "Planned",
+      "notes": ""
+    },
+    {
+      "id": "docs",
+      "title": "Rich document workload",
+      "procedure": "Render and edit a representative long wiki with tables, links, code, citations and a streaming conversation. Exercise selection, search, IME, copying and scroll anchoring.",
+      "evidence": "Measure UI stalls and memory with the same fixture in each candidate.",
+      "status": "Planned",
+      "notes": ""
+    },
+    {
+      "id": "voice",
+      "title": "Interruptible voice under load",
+      "procedure": "Run capture/playback while streaming text and scrolling the wiki; interrupt speech and switch audio devices.",
+      "evidence": "Measure interruption-to-playback-stop time, dropouts and recovery; set targets before comparing.",
+      "status": "Planned",
+      "notes": ""
+    },
+    {
+      "id": "accessible",
+      "title": "Accessible agent interface",
+      "procedure": "Navigate shell, document and conversation with keyboard and VoiceOver, including focus changes and streaming announcements.",
+      "evidence": "Verify names, roles, reading order, text navigation and non-disruptive updates.",
+      "status": "Planned",
+      "notes": ""
+    },
+    {
+      "id": "lifecycle",
+      "title": "macOS lifecycle and distribution",
+      "procedure": "Test menu bar, overlay focus, multiple windows, sleep/wake, permission prompts and signed application behavior.",
+      "evidence": "Record packaging effort and behavior on supported macOS versions.",
+      "status": "Planned",
+      "notes": ""
+    },
+    {
+      "id": "cloud",
+      "title": "Cloud coordinator boundary",
+      "procedure": "Connect a local interaction to a mock specialist task with reconnect, cancellation, retry and result provenance.",
+      "evidence": "Verify duplicate suppression and that local permissions are not implicitly granted to cloud jobs.",
+      "status": "Planned",
+      "notes": ""
+    },
+    {
+      "id": "bootstrap-review",
+      "title": "Self-extension review slice",
+      "procedure": "Conversation \u2192 scoped feature \u2192 implementation/test \u2192 dev preview \u2192 PR and artifacts \u2192 user review \u2192 approved release. Discuss substantial scope before implementation.",
+      "evidence": "Demonstrate approval associated with reviewed scope and candidate; define rollback.",
+      "status": "Planned",
+      "notes": ""
+    },
+    {
+      "id": "offline-queue",
+      "title": "Offline queue and reconnection",
+      "procedure": "Disconnect, submit typed request, show pending state, reconnect and reconcile. No offline voice is promised.",
+      "evidence": "No lost or duplicated requests; define edit/cancel and conflict behavior.",
+      "status": "Planned",
+      "notes": ""
+    },
+    {
+      "id": "mac-shell",
+      "title": "Mac activation, focus and display prototype",
+      "procedure": "Held-key activation persists after release; double-press/voice dismisses. Test notch and non-notch displays, current-app focus and external active monitor.",
+      "evidence": "No focus theft; visible listening/speaking states; verify device and failure behavior.",
+      "status": "Planned",
+      "notes": ""
+    },
+    {
+      "id": "vault-boundary",
+      "title": "Unified vault and artifact slice",
+      "procedure": "In April, browse Markdown, DOCX preview and isolated interactive content. Indicate new/edited/action-required items. Exercise cross-context accessible vault and expiring private grant.",
+      "evidence": "No app hopping for core workflow; unread artifacts do not block tasks; private access expires without ordinary-memory retention.",
+      "status": "Planned",
+      "notes": ""
+    }
+  ],
+  "decisions": [
+    {
+      "title": "Platform-agnostic core; macOS integration first",
+      "status": "Confirmed preference",
+      "rationale": "Confirmed by user: design the core for macOS, Linux and Windows. Implement accessibility and other native capabilities on macOS first; Windows and Linux adapters follow. This does not require simultaneous feature parity."
+    },
+    {
+      "title": "One interaction agent with specialists",
+      "status": "Confirmed direction",
+      "rationale": "Prior chat and wiki: coding, research/wiki, artifacts and recording specialists behind one relationship."
+    },
+    {
+      "title": "Cloudflare cloud platform",
+      "status": "Confirmed direction",
+      "rationale": "Prior chat preference. Specific services, current limits and implementation choices require revalidation."
+    },
+    {
+      "title": "GUI framework and document surface",
+      "status": "Open",
+      "rationale": "Reassess shared UI options against a platform-agnostic core. Tauri, Electron, Wails and custom-rendered options remain candidates; no framework or language is selected."
+    },
+    {
+      "title": "Separate UI, automation and audio responsibilities",
+      "status": "Confirmed direction",
+      "rationale": "Use a shared core with platform adapters, starting on macOS. Specific interfaces, audio execution model and process boundaries remain proposed until validated."
+    },
+    {
+      "title": "Final GUI framework and core language",
+      "status": "Open",
+      "rationale": "No final framework or language has been selected. No candidate is user-confirmed as ruled out."
+    },
+    {
+      "title": "Voice-first surfaces",
+      "status": "Confirmed direction",
+      "rationale": "Voice is primary, activated by a button or wake word; exact activation defaults remain open. Chat is secondary. Surface background results as artifacts, websites and interactive interfaces for input and action."
+    },
+    {
+      "title": "Client rollout",
+      "status": "Confirmed direction",
+      "rationale": "Mac alone first, then web, then native Android. Core remains portable across macOS, Windows and Linux; later desktop and iOS timing is open."
+    },
+    {
+      "title": "Context-aware notifications",
+      "status": "Confirmed direction",
+      "rationale": "Choose delivery using priority, need for user action, active device and work/social context exposed by devices. Signal sources, permissions and interruption thresholds remain open; continuous surveillance is not implied."
+    },
+    {
+      "title": "Adjustable autonomy and learned approval",
+      "status": "Confirmed direction",
+      "rationale": "Start restrictive and ask more often early. User can tighten or relax guardrails. Explore an approver model learning from approvals and denials, approving suitable actions within delegated authority and flagging exceptions. Rule promotion and fixed boundaries remain open."
+    },
+    {
+      "title": "Queryable and parallel memory",
+      "status": "Confirmed direction",
+      "rationale": "Provide agent-queryable retrieval and a parallel model maintaining memory and enriching conversations. Store/use ordinary memory quietly, with inspection and controls over retention. Research Supermemory and alternatives later; no provider selected."
+    },
+    {
+      "title": "Sensitive memory exception",
+      "status": "Confirmed direction",
+      "rationale": "Keep financial and medical information separate from ordinary memory. Explicit user tagging or requests grant provisional access for a specific task. General retention and unrelated reuse are not authorized. Storage, expiry, revocation and derived-data cleanup remain open."
+    },
+    {
+      "title": "Self-extension bootstrap",
+      "status": "Confirmed direction",
+      "rationale": "Begin with conversation, add coding for April itself and development deployments, then grow capabilities incrementally. Initial flow: tested feature and dev preview, PR with artifacts, user review/approval, then merge and production. No deployment is being performed now."
+    },
+    {
+      "title": "User-led feature readiness",
+      "status": "Confirmed direction",
+      "rationale": "Discuss substantial features before implementation; April may arrange a discussion or user may initiate one. User decides when the plan is ready. Conversational PR reviews are desired over time; scheduling and approval-recording mechanics remain open."
+    },
+    {
+      "title": "Offline-first and eager sync",
+      "status": "Confirmed direction",
+      "rationale": "Cloud is the source of truth. Persist locally and sync eagerly when online. Initially offline typed chat queues requests; live voice is unavailable. Local inference is not required; reconnect dispatch, conflicts and offline artifact availability remain open."
+    },
+    {
+      "title": "Unified April application",
+      "status": "Confirmed direction",
+      "rationale": "Keep voice, vault browser, previews and interactive artifacts in one April application. Obsidian is a UX reference; a required separate Obsidian host is ruled out. Reuse libraries; GUI framework and core language remain open."
+    },
+    {
+      "title": "Mac voice activation and focus",
+      "status": "Confirmed direction",
+      "rationale": "Hold a configurable key to activate an ongoing voice session; release does not end it. Dismiss by spoken request or double-press. Preserve keyboard focus in the current app. Timing and failure behavior remain open."
+    },
+    {
+      "title": "Notch and multi-monitor presence",
+      "status": "Confirmed direction",
+      "rationale": "Listening and speaking have distinct wave/blob states. On notched displays emerge from the notch. On non-notched displays stay invisible until activated, then show a top-center indicator below the menu bar. Appear on the screen the user is actively working on, including external monitors."
+    },
+    {
+      "title": "User-owned multi-vault artifacts",
+      "status": "Confirmed direction",
+      "rationale": "User chooses artifact folder locations. Provide a default vault and additional vaults, with an Obsidian-style file/folder browser and tabbed artifacts. Cross-context accessible vaults may be consulted from other active vaults; this is not internet publication."
+    },
+    {
+      "title": "Private vault grants",
+      "status": "Confirmed direction",
+      "rationale": "Private-vault information requires explicit, specific, temporary access that expires. Financial/medical information remains excluded from ordinary memory. Grant duration, operations, revocation and derived-context cleanup remain open."
+    },
+    {
+      "title": "Non-blocking artifact browsing",
+      "status": "Confirmed direction",
+      "rationale": "Indicate new and edited artifacts in the vault browser. User can inspect now or later; unread items do not block subsequent work. Actual required user input or approval may block dependent work."
+    },
+    {
+      "title": "Artifact types and preview scope",
+      "status": "Confirmed direction",
+      "rationale": "Support Markdown, DOCX previews, JavaScript source and interactive artifacts within April. Full Word editing is not initially required. Interactive execution needs an isolated surface; library and rendering choices remain open."
+    },
+    {
+      "title": "Replaceable realtime voice provider",
+      "status": "Confirmed direction",
+      "rationale": "Start with OpenAI realtime voice, with natural spoken interruption and a replaceable provider layer preserving required behaviors. Review official capabilities before design; cross-provider feature equivalence is unproven. Wake-word investigation is deferred."
+    }
+  ],
+  "questions": "What hold and double-press thresholds feel right?\nHow does an active session move when work changes monitors?\nWhat is the precise vault workspace layout and library stack?\nHow are private grants scoped, expired, revoked and removed from derived context?\nHow do local vault files reconcile with cloud-authoritative state?\nWhich realtime voice behaviors are mandatory versus optional?\nWhat is the smallest coding bootstrap and first native capability?",
+  "notes": "Exploration snapshot, not a benchmark or implementation audit. Framework positioning records the discussion as of 31 October 2026. Most alternatives received only high-level review. Preserve rationale when changing status. Export saved edits before reconciling them into the repository.\nDirection revision 2: platform-agnostic core, macOS native integration first. Later Windows/Linux support is architectural scope, not simultaneous delivery. Specific GUI, implementation language and process layout remain open.\nVoice clarification complete for this pass. Next discussion: Mac experience. Financial and medical information is excluded from ordinary memory; task-scoped access only.\nMac clarification: unified April app. Obsidian separate host is ruled out; use as a UX reference. Configurable held-key ongoing voice, no focus theft, active-monitor overlay, user-owned vault folders, temporary private grants and non-blocking artifact updates. Next: evaluate GUI/libraries against the whole integrated experience.",
+  "directionRevision": 2,
+  "voiceRevision": 1,
+  "macRevision": 1
+}

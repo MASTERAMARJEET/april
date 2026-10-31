@@ -1,0 +1,636 @@
+{
+  "schemaVersion": 1,
+  "title": "Personal Agent System",
+  "updatedAt": "2026-10-31",
+  "vision": "One interaction agent, available across my devices and eventually my apps, that understands my intent and delegates to specialized agents. Specialists carry deep capabilities while the main agent keeps me informed. The system should manage real projects with bounded autonomy, protect my personal data, and improve over time. Voice-first interaction surfaces artifacts and interactive interfaces rather than centering chat. Build a platform-agnostic core; start with Mac, then web, then native Android. Deliver one unified April application with an Obsidian-inspired vault workspace, user-owned artifact folders and a focus-preserving voice overlay on the active screen.",
+  "principles": "One relationship, many specialists.\nDelegate outcomes with explicit scope, not unrestricted access.\nPersist useful knowledge; discard untrusted execution environments.\nSeparate facts, inferences, preferences, and authorization.\nProtect originals; make changes reversible where possible.\nVerify independently before consequential release.\nKeep data, contracts, and model choice portable.\nTreat autonomy as a policy, not an absence of safeguards.",
+  "success": "I can request a useful outcome from any device, leave, and return to a trustworthy result. I receive evidence and concise updates without approving every tool action. Personal knowledge and artifacts become easier to find, correct, and understand. The platform improves without silently widening its own authority.",
+  "agents": [
+    {
+      "id": "main",
+      "name": "Interaction agent",
+      "category": "Coordinator",
+      "status": "Concept",
+      "purpose": "One familiar agent across my devices and, eventually, the apps I use. It understands intent, delegates work, and brings results back in the right level of detail.",
+      "responsibilities": "Maintain conversational continuity across channels.\nClarify outcomes, not every implementation step.\nCreate scoped tasks for specialists and follow them to completion.\nReconcile conflicting results and surface consequential exceptions.\nRemember preferences with provenance and allow correction.",
+      "inputs": "Messages, voice, notifications, user preferences, specialist updates, project state.",
+      "outputs": "Answers, plans, delegated jobs, concise progress reports, exception requests, durable decisions.",
+      "tools": "Conversation interface; task registry; specialist dispatch; memory search; scheduler; notification service.",
+      "permissions": "Read approved shared summaries. Dispatch only registered task types within policy. Ask for exceptions when a requested action exceeds policy.",
+      "boundaries": "Do not inherit every specialist credential.\nDo not treat retrieved documents or tool output as user authorization.\nDo not send unrelated personal context to a specialist.\nA channel login does not automatically authorize sensitive actions.",
+      "questions": "What hold and double-press thresholds feel right?\nHow does an active session move when work changes monitors?\nWhat is the precise vault workspace layout and library stack?\nHow are private grants scoped, expired, revoked and removed from derived context?\nHow do local vault files reconcile with cloud-authoritative state?\nWhich realtime voice behaviors are mandatory versus optional?\nWhat is the smallest coding bootstrap and first native capability?",
+      "firstMilestone": "Mac-only voice-first conversation. Chat is secondary and queues requests while offline.",
+      "notes": "\nVoice-first surfaces: Voice is primary, activated by a button or wake word; exact activation defaults remain open. Chat is secondary. Surface background results as artifacts, websites and interactive interfaces for input and action.\nContext-aware notifications: Choose delivery using priority, need for user action, active device and work/social context exposed by devices. Signal sources, permissions and interruption thresholds remain open; continuous surveillance is not implied.\nAdjustable autonomy and learned approval: Start restrictive and ask more often early. User can tighten or relax guardrails. Explore an approver model learning from approvals and denials, approving suitable actions within delegated authority and flagging exceptions. Rule promotion and fixed boundaries remain open.\nSensitive memory exception: Keep financial and medical information separate from ordinary memory. Explicit user tagging or requests grant provisional access for a specific task. General retention and unrelated reuse are not authorized. Storage, expiry, revocation and derived-data cleanup remain open.\nUnified April application: Keep voice, vault browser, previews and interactive artifacts in one April application. Obsidian is a UX reference; a required separate Obsidian host is ruled out. Reuse libraries; GUI framework and core language remain open.\nMac voice activation and focus: Hold a configurable key to activate an ongoing voice session; release does not end it. Dismiss by spoken request or double-press. Preserve keyboard focus in the current app. Timing and failure behavior remain open.\nNotch and multi-monitor presence: Listening and speaking have distinct wave/blob states. On notched displays emerge from the notch. On non-notched displays stay invisible until activated, then show a top-center indicator below the menu bar. Appear on the screen the user is actively working on, including external monitors.\nUser-owned multi-vault artifacts: User chooses artifact folder locations. Provide a default vault and additional vaults, with an Obsidian-style file/folder browser and tabbed artifacts. Cross-context accessible vaults may be consulted from other active vaults; this is not internet publication.\nPrivate vault grants: Private-vault information requires explicit, specific, temporary access that expires. Financial/medical information remains excluded from ordinary memory. Grant duration, operations, revocation and derived-context cleanup remain open.\nNon-blocking artifact browsing: Indicate new and edited artifacts in the vault browser. User can inspect now or later; unread items do not block subsequent work. Actual required user input or approval may block dependent work.\nArtifact types and preview scope: Support Markdown, DOCX previews, JavaScript source and interactive artifacts within April. Full Word editing is not initially required. Interactive execution needs an isolated surface; library and rendering choices remain open.\nReplaceable realtime voice provider: Start with OpenAI realtime voice, with natural spoken interruption and a replaceable provider layer preserving required behaviors. Review official capabilities before design; cross-provider feature equivalence is unproven. Wake-word investigation is deferred.",
+      "dependencies": "Shared identity, job protocol, scoped permissions, audit trail"
+    },
+    {
+      "id": "coding",
+      "name": "Coding agent",
+      "category": "Builder",
+      "status": "Concept",
+      "purpose": "Improve my coding projects and the agent system itself with substantial autonomy inside a disposable development environment.",
+      "responsibilities": "Turn scoped objectives into patches.\nBuild, test, debug, and inspect browser behavior.\nMaintain project knowledge and dependency hygiene.\nReturn evidence, limitations, and a reproducible change.\nPropose improvements to the agent platform without controlling its release policy.",
+      "inputs": "Repository + exact commit; selected work-in-progress patch; task brief; acceptance criteria; allowed services; budget.",
+      "outputs": "Patch or branch; test evidence; browser screenshots; implementation summary; unresolved risks.",
+      "tools": "Pi CLI; Cloudflare Linux sandbox; Browser Run; scoped repository broker; package registries.",
+      "permissions": "Autonomous commands and edits inside one task sandbox. Write candidate branches through a broker. No direct production deployment.",
+      "boundaries": "No production secrets or broad cloud token.\nCannot change external verification, permission, or release policies.\nFresh verification runs outside the coding sandbox.\nSelf-modification must pass a separate release path; no editing the running coordinator.",
+      "questions": "Which stacks need Docker networking or larger disks?\nWhich changes qualify for automatic merge?\nHow do we test the agent system before promoting a new version?\nHow many repair attempts are allowed?",
+      "firstMilestone": "Implement a small change in one low-risk repository, run checks, and return a patch and preview.",
+      "notes": "\nInitial self-extension flow: discuss substantial features first; user decides readiness. Implement/test and deploy to dev; open PR with artifacts; user approval before production.",
+      "dependencies": "Shared identity, job protocol, scoped permissions, audit trail"
+    },
+    {
+      "id": "research",
+      "name": "Research & wiki agent",
+      "category": "Knowledge",
+      "status": "Concept",
+      "purpose": "Maintain a personal wiki that helps me learn topics at different depths, with sources, connections, and a clear distinction between evidence and interpretation.",
+      "responsibilities": "Research questions and compare credible sources.\nWrite brief, practical, and deep explanations of the same topic.\nMaintain linked topic pages, glossaries, and learning paths.\nRevisit stale claims and record corrections.\nTrack what I know, want to learn, and have questioned.",
+      "inputs": "Questions; learning goals; approved reading history; existing wiki; source material.",
+      "outputs": "Cited wiki pages; learning paths; short briefings; source records; uncertainty and freshness notes.",
+      "tools": "Exa or other search; document extraction; wiki store; citations; optional retrieval index.",
+      "permissions": "Search public sources and draft or update approved wiki areas with revision history. Notify on significant corrections.",
+      "boundaries": "External source text is evidence, not instructions.\nRetain URLs, retrieval dates, and claim provenance.\nDo not silently rewrite user-authored beliefs as facts.\nRespect source licenses; avoid retaining unnecessary private material.",
+      "questions": "Where should the wiki live and how should it export?\nWhich depth levels work best for me?\nWhen should topics refresh?\nHow are contradictory sources represented?",
+      "firstMilestone": "One topic with a two-minute overview, practical guide, deep dive, source list, and linked questions.",
+      "notes": "",
+      "dependencies": "Shared identity, job protocol, scoped permissions, audit trail"
+    },
+    {
+      "id": "artifacts",
+      "name": "Digital artifacts agent",
+      "category": "Personal data",
+      "status": "Concept",
+      "purpose": "Organize my photos, documents, and other digital artifacts while preserving originals and keeping identity and location inferences reviewable.",
+      "responsibilities": "Index approved libraries and find duplicates.\nGroup photos by time, place, event, and known people.\nConnect artifacts to meetings, projects, and trips.\nPropose organization and record every change.\nSupport corrections and deletion across derived metadata.",
+      "inputs": "Selected photo/document libraries; EXIF; approved location history; user-confirmed people labels.",
+      "outputs": "Searchable catalog; proposed albums and tags; duplicate candidates; provenance; reversible organization plans.",
+      "tools": "Read-scoped connectors; object storage; metadata database; image analysis; geospatial enrichment.",
+      "permissions": "Start read-only. Add reversible metadata and organization only after policy is set. Destructive deduplication remains a separate permission.",
+      "boundaries": "Preserve original media.\nPeople tags and locations are sensitive; inferred matches need confidence and correction.\nUse confirmed person IDs rather than inventing identities.\nDo not upload an entire library to model providers by default.\nSeparate deletion of originals from deletion of indexes.",
+      "questions": "Where are originals today?\nMay image content leave my storage boundary?\nWhat retention applies to embeddings and face-derived data?\nWhat can be automatically tagged versus confirmed?",
+      "firstMilestone": "Read-only index of a small chosen album, with duplicate suggestions and reversible event tags.",
+      "notes": "",
+      "dependencies": "Shared identity, job protocol, scoped permissions, audit trail"
+    },
+    {
+      "id": "recording",
+      "name": "Recording & notes agent",
+      "category": "Capture",
+      "status": "Concept",
+      "purpose": "Capture meetings, talks, and selected in-person conversations, turning them into useful notes and follow-ups with clear recording controls.",
+      "responsibilities": "Start and stop only through explicit authorized capture.\nTranscribe, label speakers provisionally, and summarize.\nExtract decisions, action items, and unresolved questions.\nLink approved notes to people, projects, and wiki topics.\nLet me correct transcripts and delete recordings.",
+      "inputs": "Explicitly selected microphone stream, meeting recording, video, or audio file; event context.",
+      "outputs": "Transcript with timestamps; summary; action items; references; retention and consent record.",
+      "tools": "Device capture client; upload/streaming; speech-to-text; diarization; notes store; notification tools.",
+      "permissions": "Capture only authorized sessions. Draft action items; creating calendar events or sending messages uses separate permissions.",
+      "boundaries": "Visible recording state and immediate stop control.\nDefine consent and applicable recording requirements for each setting.\nNo silent always-listening default.\nSpeaker labels are provisional until confirmed.\nDo not store audio indefinitely without a chosen retention policy.",
+      "questions": "Which device performs capture?\nWhich meeting apps and languages matter?\nCan transcription be local?\nHow long do raw audio and transcripts persist?\nWhen can notes be shared?",
+      "firstMilestone": "Upload one authorized recording and return timestamped notes with editable actions.",
+      "notes": "",
+      "dependencies": "Shared identity, job protocol, scoped permissions, audit trail"
+    },
+    {
+      "id": "verifier",
+      "name": "Verification agent",
+      "category": "Quality",
+      "status": "Concept",
+      "purpose": "Independently evaluate whether a specialist output meets the requested outcome, using evidence rather than the worker\u2019s success claim.",
+      "responsibilities": "Run trusted acceptance checks in a fresh environment.\nInspect protected changes, regressions, and source quality.\nCompare outputs against task criteria.\nReturn an evidence-based pass, fail, or needs-attention result.",
+      "inputs": "Immutable candidate artifact; original task contract; trusted check definitions; scoped test data.",
+      "outputs": "Verification report tied to exact artifact/commit; failures; evidence; recommendation.",
+      "tools": "Fresh sandbox; browser checks; policy engine; trusted check store; optional separate model.",
+      "permissions": "Read candidate artifacts and execute checks. Cannot grant itself release authority or rewrite mandatory checks.",
+      "boundaries": "Candidate code remains untrusted during verification.\nNo production secrets in test processes.\nModel review is a signal, not a correctness guarantee.\nChecks and policy must be outside candidate-editable scope.",
+      "questions": "What checks are mandatory for each project?\nWhen do we use a second model?\nWhat failures warrant repair versus escalation?",
+      "firstMilestone": "Verify the first coding patch independently and reject a deliberately failing fixture.",
+      "notes": "",
+      "dependencies": "Shared identity, job protocol, scoped permissions, audit trail"
+    },
+    {
+      "id": "release",
+      "name": "Release service",
+      "category": "Control",
+      "status": "Concept",
+      "purpose": "Promote verified changes under explicit project policy, with staged deployment, health checks, and recovery.",
+      "responsibilities": "Match approval evidence to the exact artifact.\nMerge eligible changes and deploy through scoped APIs.\nMonitor rollout health and trigger defined rollback.\nKeep release and policy-change records.",
+      "inputs": "Verified artifact; signed/authoritative job record; project release policy; environment.",
+      "outputs": "Release record; deployment link; health outcome; rollback result.",
+      "tools": "Trusted deterministic service; deployment APIs; monitoring; backups.",
+      "permissions": "Only narrowly defined release operations. Prefer deterministic policy evaluation over open-ended model authority.",
+      "boundaries": "Not a general-purpose agent with a production shell.\nNo untrusted build script executes with deployment credentials.\nDatabase rollback requires a separate plan.\nPolicy edits require an external authorization path.",
+      "questions": "Which environments can deploy automatically?\nWhat is the rollback trigger?\nHow do we promote updates to the agent system itself?",
+      "firstMilestone": "Deploy one verified low-risk artifact to preview and record health evidence.",
+      "notes": "",
+      "dependencies": "Shared identity, job protocol, scoped permissions, audit trail"
+    },
+    {
+      "id": "operations",
+      "name": "Personal operations agent",
+      "category": "Future",
+      "status": "Concept",
+      "purpose": "Help with calendars, reminders, inbox triage, and routine personal administration after a permission model exists.",
+      "responsibilities": "Summarize commitments.\nDraft scheduling and communication actions.\nTrack follow-ups and recurring tasks.",
+      "inputs": "Explicitly connected calendar, email, tasks, and user instructions.",
+      "outputs": "Draft actions; reminders; schedules; completion reports.",
+      "tools": "Scoped connectors; scheduler; notification channels.",
+      "permissions": "Start with read and draft. Separate sending, booking, buying, deleting, and sharing permissions.",
+      "boundaries": "No blanket permission to contact people or spend money.\nPreview consequential actions and record authorization.",
+      "questions": "Which apps first?\nWhich actions can be delegated permanently?\nHow are conflicting calendars reconciled?",
+      "firstMilestone": "Read one approved calendar and produce a private daily briefing.",
+      "notes": "",
+      "dependencies": "Shared identity, job protocol, scoped permissions, audit trail"
+    }
+  ],
+  "platform": [
+    {
+      "id": "runtime",
+      "name": "Workers + Durable Objects",
+      "layer": "Trusted runtime",
+      "purpose": "Main-agent identity, durable state, request routing, scheduling, and coordination.",
+      "status": "Candidate",
+      "caveat": "Do not equate durable availability with a continuously running process.",
+      "source": "https://developers.cloudflare.com/agents/",
+      "notes": ""
+    },
+    {
+      "id": "harness",
+      "name": "Agents SDK + Pi Durable",
+      "layer": "Agent loop",
+      "purpose": "Evaluate as the main-agent harness. Keep the CLI coding worker a distinct integration.",
+      "status": "Evaluate",
+      "caveat": "Pi Durable is experimental; pin compatible package versions and test recovery.",
+      "source": "https://developers.cloudflare.com/agents/harnesses/pi/",
+      "notes": ""
+    },
+    {
+      "id": "computer",
+      "name": "Cloudflare Computer",
+      "layer": "Durable workspace",
+      "purpose": "Plans, notes, small working files, task briefs, and filesystem tools for the coordinator.",
+      "status": "Candidate",
+      "caveat": "Core and JavaScript backend are stable in current repository docs; ContainerBackend and sync remain experimental.",
+      "source": "https://github.com/cloudflare/computer/blob/main/packages/computer/README.md",
+      "notes": ""
+    },
+    {
+      "id": "sandbox",
+      "name": "Container-backed Sandboxes",
+      "layer": "Untrusted execution",
+      "purpose": "Fresh Linux environment per coding or verification job; native checkout and temporary dependencies.",
+      "status": "Candidate",
+      "caveat": "MicroVM boundary; everything inside a sandbox shares its trust zone. Check beta limits and task compatibility.",
+      "source": "https://developers.cloudflare.com/sandbox/",
+      "notes": ""
+    },
+    {
+      "id": "browser",
+      "name": "Browser Run",
+      "layer": "Browser automation",
+      "purpose": "Task-scoped Chrome, screenshots, user-journey tests, optional live inspection.",
+      "status": "Candidate",
+      "caveat": "Separate environment; route app access deliberately. Fresh sessions and synthetic accounts.",
+      "source": "https://developers.cloudflare.com/agents/tools/browser/",
+      "notes": ""
+    },
+    {
+      "id": "workflow",
+      "name": "Workflows",
+      "layer": "Deterministic process",
+      "purpose": "Durable execution \u2192 verification \u2192 release sequence with bounded retries and waits.",
+      "status": "Candidate",
+      "caveat": "Use idempotency keys for side effects; model output must not rewrite policy.",
+      "source": "https://developers.cloudflare.com/workflows/",
+      "notes": ""
+    },
+    {
+      "id": "gateway",
+      "name": "AI Gateway / model APIs",
+      "layer": "Model access",
+      "purpose": "Route provider requests and isolate credentials in trusted services.",
+      "status": "Evaluate",
+      "caveat": "Choose provider data policies, retention, spend limits, and logging settings explicitly.",
+      "source": "https://developers.cloudflare.com/ai-gateway/",
+      "notes": ""
+    },
+    {
+      "id": "storage",
+      "name": "R2 + metadata database",
+      "layer": "Artifacts & catalog",
+      "purpose": "Patches, screenshots, recordings, documents, and indexable metadata with retention rules.",
+      "status": "Evaluate",
+      "caveat": "R2 is object storage, not by itself an access policy, backup plan, or searchable personal memory.",
+      "source": "https://developers.cloudflare.com/r2/",
+      "notes": ""
+    },
+    {
+      "id": "retrieval",
+      "name": "AI Search / Vectorize",
+      "layer": "Optional retrieval",
+      "purpose": "Add when a growing wiki or artifact catalog requires semantic search.",
+      "status": "Later",
+      "caveat": "Begin with explicit records and provenance; retrieval is not an authorization boundary.",
+      "source": "https://developers.cloudflare.com/ai-search/",
+      "notes": ""
+    },
+    {
+      "id": "access",
+      "name": "Access + scoped secrets + outbound handlers",
+      "layer": "Security",
+      "purpose": "Authenticate devices and services; keep credentials outside untrusted jobs.",
+      "status": "Required",
+      "caveat": "Every broker checks user, task, resource, operation, and expiry.",
+      "source": "https://developers.cloudflare.com/sandbox/concepts/security/",
+      "notes": ""
+    },
+    {
+      "id": "queues",
+      "name": "Queues",
+      "layer": "Optional dispatch",
+      "purpose": "Buffer asynchronous work and control dispatch as scale grows.",
+      "status": "Later",
+      "caveat": "Consumers must tolerate duplicate delivery and enforce concurrency limits.",
+      "source": "https://developers.cloudflare.com/queues/",
+      "notes": ""
+    },
+    {
+      "id": "interface",
+      "name": "Web / mobile / app integrations",
+      "layer": "User surface",
+      "purpose": "One interaction identity across clients; T3 optional for coding-oriented supervision.",
+      "status": "Open",
+      "caveat": "Client continuity, notifications, offline capture, and app permissions require product design.",
+      "source": "https://developers.cloudflare.com/agents/",
+      "notes": ""
+    }
+  ],
+  "decisions": [
+    {
+      "id": "dec-0",
+      "title": "Cloudflare as platform",
+      "status": "Chosen direction",
+      "rationale": "User preference: use Cloudflare as the platform. Specific products and limits still need validation.",
+      "next": "Keep job contracts and data export portable; avoid requiring every component on day one."
+    },
+    {
+      "id": "dec-1",
+      "title": "One interaction agent",
+      "status": "Chosen direction",
+      "rationale": "One main agent communicates with me and delegates to specialists across devices and future apps.",
+      "next": "Define user identity, channel identities, sessions, and notification behavior."
+    },
+    {
+      "id": "dec-2",
+      "title": "Pi as agent harness",
+      "status": "Proposed",
+      "rationale": "Pi is the preferred open agent direction from the conversation, but CLI and Pi Durable are separate choices.",
+      "next": "Compare a minimal durable coordinator with a Pi CLI sandbox worker; test version compatibility."
+    },
+    {
+      "id": "dec-3",
+      "title": "Autonomy through policy",
+      "status": "Chosen direction",
+      "rationale": "Start restrictive, with user-adjustable guardrails and a learned approver to explore. See the voice-session decision for unresolved delegation boundaries.",
+      "next": "Write per-domain action classes: read, draft, modify, share, delete, spend, deploy."
+    },
+    {
+      "id": "dec-4",
+      "title": "Self-improving system",
+      "status": "Chosen direction",
+      "rationale": "Bootstrap conversation, then coding and dev deployments; PR and artifacts reviewed by the user before production. Discuss substantial features before implementation.",
+      "next": "Define evaluation suite, protected policy store, staged rollout, versioning, and rollback."
+    },
+    {
+      "id": "dec-5",
+      "title": "Canonical memory and wiki",
+      "status": "Chosen direction",
+      "rationale": "Queryable retrieval plus parallel memory enrichment. Quiet ordinary memory with inspection/tuning. Financial and medical context stays separate with provisional task-scoped access. Research providers later.",
+      "next": "Choose formats, entity IDs, conflict handling, retention, and deletion propagation."
+    },
+    {
+      "id": "dec-6",
+      "title": "Recordings and media processing",
+      "status": "Open",
+      "rationale": "Device capture, speech processing, and sensitive identity/location enrichment are not yet designed.",
+      "next": "Validate consent flow, provider data handling, on-device options, and storage costs."
+    },
+    {
+      "id": "dec-7",
+      "title": "Cross-device synchronization",
+      "status": "Chosen direction",
+      "rationale": "Offline-first clients, cloud-authoritative state and eager sync. Initially typed requests queue offline; live voice requires connectivity. Mac \u2192 web \u2192 native Android.",
+      "next": "Design authenticated clients, session merge, offline queue, and channel notification deduplication."
+    },
+    {
+      "id": "voice-0",
+      "title": "Voice-first surfaces",
+      "status": "Chosen direction",
+      "rationale": "Voice is primary, activated by a button or wake word; exact activation defaults remain open. Chat is secondary. Surface background results as artifacts, websites and interactive interfaces for input and action.",
+      "next": "Resolve implementation details without changing the confirmed preference."
+    },
+    {
+      "id": "voice-1",
+      "title": "Client rollout",
+      "status": "Chosen direction",
+      "rationale": "Mac alone first, then web, then native Android. Core remains portable across macOS, Windows and Linux; later desktop and iOS timing is open.",
+      "next": "Resolve implementation details without changing the confirmed preference."
+    },
+    {
+      "id": "voice-2",
+      "title": "Context-aware notifications",
+      "status": "Chosen direction",
+      "rationale": "Choose delivery using priority, need for user action, active device and work/social context exposed by devices. Signal sources, permissions and interruption thresholds remain open; continuous surveillance is not implied.",
+      "next": "Resolve implementation details without changing the confirmed preference."
+    },
+    {
+      "id": "voice-3",
+      "title": "Adjustable autonomy and learned approval",
+      "status": "Chosen direction",
+      "rationale": "Start restrictive and ask more often early. User can tighten or relax guardrails. Explore an approver model learning from approvals and denials, approving suitable actions within delegated authority and flagging exceptions. Rule promotion and fixed boundaries remain open.",
+      "next": "Resolve implementation details without changing the confirmed preference."
+    },
+    {
+      "id": "voice-4",
+      "title": "Queryable and parallel memory",
+      "status": "Chosen direction",
+      "rationale": "Provide agent-queryable retrieval and a parallel model maintaining memory and enriching conversations. Store/use ordinary memory quietly, with inspection and controls over retention. Research Supermemory and alternatives later; no provider selected.",
+      "next": "Resolve implementation details without changing the confirmed preference."
+    },
+    {
+      "id": "voice-5",
+      "title": "Sensitive memory exception",
+      "status": "Chosen direction",
+      "rationale": "Keep financial and medical information separate from ordinary memory. Explicit user tagging or requests grant provisional access for a specific task. General retention and unrelated reuse are not authorized. Storage, expiry, revocation and derived-data cleanup remain open.",
+      "next": "Resolve implementation details without changing the confirmed preference."
+    },
+    {
+      "id": "voice-6",
+      "title": "Self-extension bootstrap",
+      "status": "Chosen direction",
+      "rationale": "Begin with conversation, add coding for April itself and development deployments, then grow capabilities incrementally. Initial flow: tested feature and dev preview, PR with artifacts, user review/approval, then merge and production. No deployment is being performed now.",
+      "next": "Resolve implementation details without changing the confirmed preference."
+    },
+    {
+      "id": "voice-7",
+      "title": "User-led feature readiness",
+      "status": "Chosen direction",
+      "rationale": "Discuss substantial features before implementation; April may arrange a discussion or user may initiate one. User decides when the plan is ready. Conversational PR reviews are desired over time; scheduling and approval-recording mechanics remain open.",
+      "next": "Resolve implementation details without changing the confirmed preference."
+    },
+    {
+      "id": "voice-8",
+      "title": "Offline-first and eager sync",
+      "status": "Chosen direction",
+      "rationale": "Cloud is the source of truth. Persist locally and sync eagerly when online. Initially offline typed chat queues requests; live voice is unavailable. Local inference is not required; reconnect dispatch, conflicts and offline artifact availability remain open.",
+      "next": "Resolve implementation details without changing the confirmed preference."
+    },
+    {
+      "id": "portable-core",
+      "title": "Platform-agnostic core; Mac adapters first",
+      "status": "Chosen direction",
+      "rationale": "Shared core targets macOS, Windows and Linux; native capability adapters start on macOS. GUI and language remain open.",
+      "next": "Define capability boundary and fake adapter."
+    },
+    {
+      "id": "mac-0",
+      "title": "Unified April application",
+      "status": "Chosen direction",
+      "rationale": "Keep voice, vault browser, previews and interactive artifacts in one April application. Obsidian is a UX reference; a required separate Obsidian host is ruled out. Reuse libraries; GUI framework and core language remain open.",
+      "next": "Validate the integrated Mac experience; details explicitly marked open remain unresolved."
+    },
+    {
+      "id": "mac-1",
+      "title": "Mac voice activation and focus",
+      "status": "Chosen direction",
+      "rationale": "Hold a configurable key to activate an ongoing voice session; release does not end it. Dismiss by spoken request or double-press. Preserve keyboard focus in the current app. Timing and failure behavior remain open.",
+      "next": "Validate the integrated Mac experience; details explicitly marked open remain unresolved."
+    },
+    {
+      "id": "mac-2",
+      "title": "Notch and multi-monitor presence",
+      "status": "Chosen direction",
+      "rationale": "Listening and speaking have distinct wave/blob states. On notched displays emerge from the notch. On non-notched displays stay invisible until activated, then show a top-center indicator below the menu bar. Appear on the screen the user is actively working on, including external monitors.",
+      "next": "Validate the integrated Mac experience; details explicitly marked open remain unresolved."
+    },
+    {
+      "id": "mac-3",
+      "title": "User-owned multi-vault artifacts",
+      "status": "Chosen direction",
+      "rationale": "User chooses artifact folder locations. Provide a default vault and additional vaults, with an Obsidian-style file/folder browser and tabbed artifacts. Cross-context accessible vaults may be consulted from other active vaults; this is not internet publication.",
+      "next": "Validate the integrated Mac experience; details explicitly marked open remain unresolved."
+    },
+    {
+      "id": "mac-4",
+      "title": "Private vault grants",
+      "status": "Chosen direction",
+      "rationale": "Private-vault information requires explicit, specific, temporary access that expires. Financial/medical information remains excluded from ordinary memory. Grant duration, operations, revocation and derived-context cleanup remain open.",
+      "next": "Validate the integrated Mac experience; details explicitly marked open remain unresolved."
+    },
+    {
+      "id": "mac-5",
+      "title": "Non-blocking artifact browsing",
+      "status": "Chosen direction",
+      "rationale": "Indicate new and edited artifacts in the vault browser. User can inspect now or later; unread items do not block subsequent work. Actual required user input or approval may block dependent work.",
+      "next": "Validate the integrated Mac experience; details explicitly marked open remain unresolved."
+    },
+    {
+      "id": "mac-6",
+      "title": "Artifact types and preview scope",
+      "status": "Chosen direction",
+      "rationale": "Support Markdown, DOCX previews, JavaScript source and interactive artifacts within April. Full Word editing is not initially required. Interactive execution needs an isolated surface; library and rendering choices remain open.",
+      "next": "Validate the integrated Mac experience; details explicitly marked open remain unresolved."
+    },
+    {
+      "id": "mac-7",
+      "title": "Replaceable realtime voice provider",
+      "status": "Chosen direction",
+      "rationale": "Start with OpenAI realtime voice, with natural spoken interruption and a replaceable provider layer preserving required behaviors. Review official capabilities before design; cross-provider feature equivalence is unproven. Wake-word investigation is deferred.",
+      "next": "Validate the integrated Mac experience; details explicitly marked open remain unresolved."
+    }
+  ],
+  "roadmap": [
+    {
+      "id": "voice-bootstrap",
+      "phase": "Bootstrap priority",
+      "title": "Mac conversation \u2192 coding \u2192 development preview and PR",
+      "status": "Planned",
+      "notes": "Voice-first; discuss big features before implementation, user decides readiness; review and approval before production. Then web and native Android."
+    },
+    {
+      "id": "task-0",
+      "phase": "Foundation",
+      "title": "Write the identity and permission model",
+      "status": "Planned",
+      "notes": "Who can request what, for which data, on which device?"
+    },
+    {
+      "id": "task-1",
+      "phase": "Foundation",
+      "title": "Define the shared job and result contract",
+      "status": "Planned",
+      "notes": "IDs, acceptance criteria, scope, budget, state transitions, evidence, cancellation."
+    },
+    {
+      "id": "task-2",
+      "phase": "Foundation",
+      "title": "Select the canonical state and export formats",
+      "status": "Planned",
+      "notes": "Keep ownership portable and separate originals from derived records."
+    },
+    {
+      "id": "task-3",
+      "phase": "First vertical slice",
+      "title": "Build main-agent chat \u2192 one coding job \u2192 result",
+      "status": "Planned",
+      "notes": "One authenticated web client, one low-risk repository, fresh sandbox, patch output."
+    },
+    {
+      "id": "task-4",
+      "phase": "First vertical slice",
+      "title": "Test crash recovery, cancellation, and cost ceilings",
+      "status": "Planned",
+      "notes": "Deliberately disconnect clients, restart workers, and fail provider requests."
+    },
+    {
+      "id": "task-5",
+      "phase": "First vertical slice",
+      "title": "Add independent checks and a preview",
+      "status": "Planned",
+      "notes": "Verify the exact candidate in a fresh environment; show evidence."
+    },
+    {
+      "id": "task-6",
+      "phase": "Knowledge",
+      "title": "Build the first wiki learning path",
+      "status": "Planned",
+      "notes": "One topic, three depths, citations, freshness, corrections."
+    },
+    {
+      "id": "task-7",
+      "phase": "Capture & artifacts",
+      "title": "Pilot an authorized recording upload",
+      "status": "Planned",
+      "notes": "Timestamped transcript, notes, corrections, and retention."
+    },
+    {
+      "id": "task-8",
+      "phase": "Capture & artifacts",
+      "title": "Index a chosen small media collection read-only",
+      "status": "Planned",
+      "notes": "Original preservation, metadata provenance, reversible labels."
+    },
+    {
+      "id": "task-9",
+      "phase": "Controlled autonomy",
+      "title": "Define and test automatic release policies",
+      "status": "Planned",
+      "notes": "Low-risk project first; exact-artifact checks, health monitoring, rollback."
+    },
+    {
+      "id": "task-10",
+      "phase": "Controlled autonomy",
+      "title": "Enable staged platform self-improvement",
+      "status": "Planned",
+      "notes": "Separate candidate, evaluator, and release authority."
+    },
+    {
+      "id": "task-11",
+      "phase": "Expansion",
+      "title": "Add second-device access and notification preferences",
+      "status": "Planned",
+      "notes": "Resume context safely and avoid duplicate interruptions."
+    },
+    {
+      "id": "memory-research",
+      "phase": "Knowledge",
+      "title": "Deep dive Supermemory and alternatives",
+      "status": "Planned",
+      "notes": "Queryable retrieval, parallel memory enrichment, inspectable quiet memory, financial/medical exclusions and scoped access. Research deferred."
+    },
+    {
+      "id": "mac-task-0",
+      "phase": "Mac experience",
+      "title": "Unified April application",
+      "status": "Planned",
+      "notes": "Keep voice, vault browser, previews and interactive artifacts in one April application. Obsidian is a UX reference; a required separate Obsidian host is ruled out. Reuse libraries; GUI framework and core language remain open."
+    },
+    {
+      "id": "mac-task-1",
+      "phase": "Mac experience",
+      "title": "Mac voice activation and focus",
+      "status": "Planned",
+      "notes": "Hold a configurable key to activate an ongoing voice session; release does not end it. Dismiss by spoken request or double-press. Preserve keyboard focus in the current app. Timing and failure behavior remain open."
+    },
+    {
+      "id": "mac-task-3",
+      "phase": "Mac experience",
+      "title": "User-owned multi-vault artifacts",
+      "status": "Planned",
+      "notes": "User chooses artifact folder locations. Provide a default vault and additional vaults, with an Obsidian-style file/folder browser and tabbed artifacts. Cross-context accessible vaults may be consulted from other active vaults; this is not internet publication."
+    },
+    {
+      "id": "mac-task-4",
+      "phase": "Mac experience",
+      "title": "Private vault grants",
+      "status": "Planned",
+      "notes": "Private-vault information requires explicit, specific, temporary access that expires. Financial/medical information remains excluded from ordinary memory. Grant duration, operations, revocation and derived-context cleanup remain open."
+    },
+    {
+      "id": "mac-task-6",
+      "phase": "Mac experience",
+      "title": "Artifact types and preview scope",
+      "status": "Planned",
+      "notes": "Support Markdown, DOCX previews, JavaScript source and interactive artifacts within April. Full Word editing is not initially required. Interactive execution needs an isolated surface; library and rendering choices remain open."
+    },
+    {
+      "id": "mac-task-7",
+      "phase": "Mac experience",
+      "title": "Replaceable realtime voice provider",
+      "status": "Planned",
+      "notes": "Start with OpenAI realtime voice, with natural spoken interruption and a replaceable provider layer preserving required behaviors. Review official capabilities before design; cross-provider feature equivalence is unproven. Wake-word investigation is deferred."
+    }
+  ],
+  "ideas": [
+    {
+      "id": "idea-1",
+      "title": "Future specialist ideas",
+      "body": "Travel planning, health information organization, learning coach, household administration, finance summaries, and creative projects. Each needs its own data scope and action policy.",
+      "status": "Inbox"
+    }
+  ],
+  "contracts": {
+    "job": "jobId / parentJobId / userId / specialist / repository or resource IDs\nobjective / acceptanceCriteria / inputArtifacts / baseRevision\nallowedOperations / networkPolicy / credentialScopes\nmodelBudget / wallClockLimit / retryLimit / cancellation\npolicyVersion / requestedBy / authorizationReference",
+    "result": "jobId / status / outputArtifacts / exactRevision\nsummary / evidence / checks / uncertainty\nsideEffects / resourceUsage / followUpQuestions\nprovenance / retention / nextRecommendedAction",
+    "lifecycle": "Requested \u2192 Authorized \u2192 Queued \u2192 Running \u2192 Verifying \u2192 Completed\nAlternative outcomes: Needs attention / Failed / Cancelled / Expired\nA completed worker turn is not necessarily a verified task outcome.\nCheckpoint before retries; make external side effects idempotent."
+  },
+  "notes": "This is a living design workspace, not a deployed agent system. Seeded from the conversation on 30 October 2026. Agent responsibilities and architecture choices are proposals unless marked as a chosen direction.\n\nNext design conversation: pick one vertical slice and define its job contract, permission boundary, persistence, and success checks.\nVoice clarifications on 31 October 2026 are recorded in the decision register. Next conversation: Mac experience and concrete bootstrap scope. No implementation or deployment has been performed.\nMac decisions updated: separate Obsidian host ruled out. See Mac decision entries. Earlier conflicting proposals are superseded. Next: GUI and library evaluation for unified voice and artifact experience.",
+  "sources": [
+    {
+      "title": "Cloudflare Agents",
+      "url": "https://developers.cloudflare.com/agents/"
+    },
+    {
+      "title": "Pi Durable harness",
+      "url": "https://developers.cloudflare.com/agents/harnesses/pi/"
+    },
+    {
+      "title": "Pi in a Linux sandbox",
+      "url": "https://developers.cloudflare.com/sandbox/coding-agents/pi/"
+    },
+    {
+      "title": "Sandbox security",
+      "url": "https://developers.cloudflare.com/sandbox/concepts/security/"
+    },
+    {
+      "title": "Cloudflare Computer component status",
+      "url": "https://github.com/cloudflare/computer/blob/main/packages/computer/README.md"
+    },
+    {
+      "title": "Agent browser tools",
+      "url": "https://developers.cloudflare.com/agents/tools/browser/"
+    }
+  ],
+  "voiceRevision": 1,
+  "macRevision": 1
+}

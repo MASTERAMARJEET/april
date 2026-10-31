@@ -1,0 +1,49 @@
+PERSONAL AGENT SYSTEM — LIVING DESIGN WORKSPACE
+
+Open agent-system-workspace.html in a modern desktop browser.
+The file is self-contained and needs no server, subscription, or installation.
+
+WHAT IS INCLUDED
+  Overview: editable vision, principles, success criteria, and clickable system map.
+  Agent registry: main interaction agent; coding; research/wiki; digital artifacts;
+    recording/notes; verification; release service; future personal operations.
+  Shared contracts: job, result, lifecycle, retries, and recovery design.
+  Platform map: proposed Cloudflare components, caveats, and source links.
+  Decisions: rationale, status, and next validation.
+  Roadmap: phased milestones and status.
+  Idea inbox: add ideas and convert them into new specialist briefs.
+  Notes and sources: working context and research starting points.
+
+HOW TO KEEP IMPROVING IT
+  1. Edit fields directly. The workspace saves changes in this browser's local storage.
+  2. Select an agent and use Copy design prompt to discuss that piece in a new chat.
+  3. Use Export JSON regularly. This is the editable portable backup.
+  4. Use Export brief for a readable document to attach to future conversations.
+  5. On another device, open the HTML and Import your latest JSON export.
+
+IMPORTANT LIMITS
+  This is a design artifact, not a deployed agent or connected service.
+  There is no automatic cloud synchronization or collaboration.
+  Changes do not modify the HTML or companion seed JSON on disk.
+  Local storage can be unavailable, cleared, or scoped differently after moving files.
+  If local saving fails, the interface says so; export before closing.
+  Import validates the schema and then replaces the current browser copy after confirmation.
+  Do not store API keys, recordings, or other sensitive source material in this planner.
+  Documentation links do not refresh automatically. Revalidate product status before building.
+
+FILES
+  agent-system-workspace.html   Interactive application and initial content.
+  agent-system.seed.json        Initial version-1 workspace; import to restore starting content.
+  START-HERE.txt                These instructions.
+
+HOW TO CONTINUE WITH AN ASSISTANT
+  Attach your latest exported JSON and say:
+  "Continue my Personal Agent System design. Preserve existing IDs and notes.
+   Work on [agent / decision / milestone]. Return updated version-1 workspace JSON."
+
+VERIFICATION
+  JavaScript syntax and interaction logic checked: eight views, local save/reload,
+  additions, readable export, JSON round trip, schema validation, and safe link/HTML handling.
+  Live visual browser verification was unavailable because the browser blocked local-file URLs.
+
+Seeded from the design conversation on 30 October 2026.
