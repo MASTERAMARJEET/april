@@ -20,6 +20,12 @@ Let me correct transcripts and delete recordings.
 
 Explicitly selected microphone stream, meeting recording, video, or audio file; event context.
 
+Confirmed audio requirements: English and Hindi, including mixed-language conversation. Support system audio as well as the microphone, with music identification as one example task. Exact capture/session controls and implementation remain open; no continuous capture default is selected.
+
+Explicitly started sessions may continue with the workspace window closed, including meeting recordings. Require a visible listening/capture indicator near the notch or equivalent on non-notch displays whenever capture is active. Closing the workspace does not stop a session by itself; dismissal, stop controls, sleep handling and retention must be defined separately. This is not automatic permission to record all meetings.
+
+Final retention clarification: transcription may lag and is mainly for later reference. Do not retain original audio by default after processing. Retain a recording only on explicit user request, including as a meeting/conversation backup. Distinguish delayed reference transcription from responsive live voice. Saved-recording duration, temporary buffers, provider handling and deletion remain open.
+
 ## Outputs and evidence
 
 Transcript with timestamps; summary; action items; references; retention and consent record.

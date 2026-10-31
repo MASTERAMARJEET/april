@@ -492,6 +492,48 @@
       "status": "Chosen direction",
       "id": "approval-vault-1",
       "next": "Define grant lifetime, encryption keys, explicit consent and enforcement contract."
+    },
+    {
+      "title": "Audience and distribution",
+      "status": "Chosen direction",
+      "rationale": "Personal use first; later, anyone with a Cloudflare account and a MacBook should be able to use April. Initial multi-user service is not required.",
+      "id": "audience-distribution",
+      "next": "Define later install/provisioning workflow."
+    },
+    {
+      "title": "Plugin architecture across integrations, specialists and artifacts",
+      "rationale": "Confirmed major direction: plugin architecture for app/tool integrations (initially Cursor, Slack and browser), specialist subagents and vault artifact support (Markdown, PDFs, Word, interactive HTML and JavaScript). Detailed contracts, packaging, isolation, authority and lifecycle will be discussed later; no implementation chosen.",
+      "status": "Chosen direction",
+      "id": "plugin-architecture",
+      "next": "Return to detailed plugin architecture in a later discussion."
+    },
+    {
+      "title": "Staged desktop awareness and computer use",
+      "status": "Chosen direction",
+      "rationale": "Initially see only content explicitly shared by the user. Later add broader desktop-app awareness and delegated interaction under the central permission model. Codex computer-use experience is the north star; deep dive deferred to a separate session. No initial ambient desktop monitoring or control.",
+      "id": "staged-desktop-awareness",
+      "next": "Separate computer-use deep dive."
+    },
+    {
+      "title": "English/Hindi voice and system audio",
+      "status": "Chosen direction",
+      "rationale": "Initially English and Hindi, including primarily English conversations with occasional Hindi. Support microphone and system audio; music identification is an example task. Capture activation, permissions, retention and implementation remain open; continuous capture is not selected.",
+      "id": "initial-audio-requirements",
+      "next": "Define capture/session controls and evaluate bilingual voice behavior."
+    },
+    {
+      "title": "Background capture with visible listening indicator",
+      "status": "Chosen direction",
+      "rationale": "Explicitly started listening/recording sessions continue when the workspace window closes, including meetings. Show a listening/capture indicator near the notch or equivalent whenever audio is captured. Inactive can stay invisible; active capture cannot. Closing workspace differs from dismissing the session. Retention, sleep behavior and start/stop details remain open; no automatic meeting recording is selected.",
+      "id": "background-audio-indicator",
+      "next": "Define retention and session lifecycle."
+    },
+    {
+      "title": "Reference transcription and opt-in audio retention",
+      "status": "Chosen direction",
+      "rationale": "Reference transcription may lag. Do not retain audio by default after processing; user may explicitly request a saved recording for meetings/conversations as a backup. This supersedes earlier blanket no-audio remarks. Live voice responsiveness remains separate. Provider retention, temporary buffers and saved-recording expiry/deletion remain open.",
+      "id": "final-audio-retention",
+      "next": "Define provider/temporary-buffer handling and expiry for opted-in recordings."
     }
   ],
   "roadmap": [
@@ -649,7 +691,7 @@
     "result": "jobId / status / outputArtifacts / exactRevision\nsummary / evidence / checks / uncertainty\nsideEffects / resourceUsage / followUpQuestions\nprovenance / retention / nextRecommendedAction",
     "lifecycle": "Requested \u2192 Authorized \u2192 Queued \u2192 Running \u2192 Verifying \u2192 Completed\nAlternative outcomes: Needs attention / Failed / Cancelled / Expired\nA completed worker turn is not necessarily a verified task outcome.\nCheckpoint before retries; make external side effects idempotent."
   },
-  "notes": "This is a living design workspace, not a deployed agent system. Seeded from the conversation on 30 October 2026. Agent responsibilities and architecture choices are proposals unless marked as a chosen direction.\n\nNext design conversation: pick one vertical slice and define its job contract, permission boundary, persistence, and success checks.\nVoice clarifications on 31 October 2026 are recorded in the decision register. Next conversation: Mac experience and concrete bootstrap scope. No implementation or deployment has been performed.\nMac decisions updated: separate Obsidian host ruled out. See Mac decision entries. Earlier conflicting proposals are superseded. Next: GUI and library evaluation for unified voice and artifact experience.",
+  "notes": "This is a living design workspace, not a deployed agent system. Seeded from the conversation on 30 October 2026. Agent responsibilities and architecture choices are proposals unless marked as a chosen direction.\n\nNext design conversation: pick one vertical slice and define its job contract, permission boundary, persistence, and success checks.\nVoice clarifications on 31 October 2026 are recorded in the decision register. Next conversation: Mac experience and concrete bootstrap scope. No implementation or deployment has been performed.\nMac decisions updated: separate Obsidian host ruled out. See Mac decision entries. Earlier conflicting proposals are superseded. Next: GUI and library evaluation for unified voice and artifact experience.\nSession paused by user. Resume unresolved questions one at a time; see Original Q&A review and wiki resumption log. No audio retention by default; explicit opt-in to save recordings. Transcript may lag.",
   "sources": [
     {
       "title": "Cloudflare Agents",
@@ -718,8 +760,8 @@
       {
         "number": 6,
         "topic": "Audience",
-        "status": "Open",
-        "detail": "Personal-only initially versus accommodating other users is not explicitly decided."
+        "status": "Answered",
+        "detail": "Personal use first. Later, anyone with a Cloudflare account and a MacBook should be able to use April. Distribution/provisioning details remain engineering work."
       },
       {
         "number": 7,
@@ -748,14 +790,14 @@
       {
         "number": 11,
         "topic": "Headless core",
-        "status": "Open",
-        "detail": "CLI/API/background-only use as a product interface is not decided."
+        "status": "Answered",
+        "detail": "No headless CLI/API product interface initially; deferred. Internal service APIs are not excluded."
       },
       {
         "number": 12,
         "topic": "Third-party extensibility",
-        "status": "Open",
-        "detail": "Other people building clients, integrations or specialists is not decided."
+        "status": "Answered",
+        "detail": "Plugin architecture is a major direction across integrations, specialists and artifacts. Detailed third-party contracts/trust/distribution are explicitly deferred."
       },
       {
         "number": 13,
@@ -772,8 +814,8 @@
       {
         "number": 15,
         "topic": "Desktop observation scope",
-        "status": "Open",
-        "detail": "Selected app/task context versus ongoing wider desktop observation is not decided."
+        "status": "Answered",
+        "detail": "Only explicitly shared desktop content initially. Broader app awareness/control later; Codex as north star; deep dive deferred."
       },
       {
         "number": 16,
@@ -826,20 +868,20 @@
       {
         "number": 24,
         "topic": "Audio capture scope",
-        "status": "Open",
-        "detail": "Microphone only versus meeting/system audio in initial recording scope is not chosen."
+        "status": "Answered",
+        "detail": "Microphone plus system audio; meetings and music identification are example tasks. Session controls/retention remain separate."
       },
       {
         "number": 25,
         "topic": "Capture with UI closed",
-        "status": "Open",
-        "detail": "Recording/transcription when the window closes is not decided."
+        "status": "Answered",
+        "detail": "Explicitly started sessions continue with workspace window closed, with a visible listening/capture indicator. Sleep/termination behavior remains open."
       },
       {
         "number": 26,
         "topic": "Languages and accents",
-        "status": "Open",
-        "detail": "Speech languages, accents and mixed-language requirements are unspecified."
+        "status": "Answered",
+        "detail": "English and Hindi, including primarily English with occasional mixed Hindi."
       },
       {
         "number": 27,
@@ -850,8 +892,8 @@
       {
         "number": 28,
         "topic": "Voice quality priorities",
-        "status": "Open",
-        "detail": "Acceptable latency, dropouts, transcription quality and responsiveness targets are not set."
+        "status": "Partial",
+        "detail": "Reference transcription may lag. Live spoken response/interruption quality, acceptable delays and resource/cost tradeoffs still need targets."
       },
       {
         "number": 29,
@@ -987,10 +1029,17 @@
       }
     ],
     "counts": {
-      "Answered": 15,
-      "Partial": 18,
-      "Open": 17
-    }
+      "Answered": 22,
+      "Partial": 19,
+      "Open": 9
+    },
+    "resume": "Continue one question at a time from unresolved/partial items. Prioritize authority/grant boundaries, sync/key/recovery design and budgets; do not reopen settled choices. Plugin internals, computer-use and memory-provider research are explicitly deferred."
   },
-  "questionReviewRevision": 1
+  "questionReviewRevision": 1,
+  "audienceRevision": 1,
+  "pluginDirectionRevision": 1,
+  "desktopAwarenessRevision": 1,
+  "audioRequirementsRevision": 1,
+  "backgroundAudioRevision": 1,
+  "sessionFinalRevision": 1
 }

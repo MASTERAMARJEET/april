@@ -176,3 +176,13 @@ Both public-to-April and private vaults sync eagerly between local devices and C
 ## Central approval service
 
 April / specialist → central approval agent → scoped request shown in trusted overlay → explicit user button click → auditable grant → capability enforcement. Private-vault approvals cannot be inferred from voice. April does not directly issue permission prompts outside this flow. User-facing approval coordination is centralized; enforcement must occur at the resource/capability boundary rather than relying only on a model decision. Learned approval behavior is bounded by the user's policy and explicit-consent requirements.
+
+## Plugin architecture — major direction, detailed design deferred
+
+Confirmed user direction: build around a plugin architecture across three areas:
+
+- Application/tool integrations, initially Cursor, Slack and the user's browser.
+- Specialist/subagent capabilities and their integrations with the main agent.
+- Vault artifact support, including Markdown, PDFs, Word documents, interactive HTML and JavaScript.
+
+Treat extensibility as an architectural requirement rather than an assumption that every artifact renderer or specialist is built into the core. Return later to plugin contracts, discovery, packaging, lifecycle, compatibility, isolation, permissions and distribution. The user has not selected those mechanisms or requested plugin implementation now. Plugins must fit the central approval and vault-access boundaries; these requirements do not grant arbitrary execution or data access.

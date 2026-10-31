@@ -156,3 +156,43 @@ Historical evaluation findings: Markdown, PDFs and common media are supported di
 User clarification: DOCX preview is sufficient initially; full Word editing inside April is not required. This strengthens the case for prototyping Obsidian as the initial artifact interface, but adoption is still under discussion. Reuse its navigation, tabs and Markdown editing; add scoped April integration, update/action indicators, document previews and isolated interactive surfaces as needed. Do not assume that Obsidian itself implements April's cross-vault grants or future web client.
 
 Final direction from the subsequent voice clarification: do not require switching between April and another application. Build a unified April application that includes the vault browser, even if workspace functionality must be implemented. Reuse existing libraries where appropriate. Obsidian remains a UX reference; using it as a required separate host is ruled out for the primary experience. This supersedes the proposed Obsidian-host prototype. The unified shell, Markdown editing, DOCX preview and isolated interactive artifact requirements must inform the pending UI framework choice. Optional external integrations are not prohibited, but cannot be required for the core workflow.
+
+## Headless product interface
+
+Status: Deferred by user
+
+No CLI or API interface for interacting with April is needed right now. The initial product interface is the app. This does not rule out internal APIs or a future headless client.
+
+## Initial application integrations and extensibility
+
+Status: Initial targets confirmed; plugin design deferred
+
+Start with Cursor (coding-agent workflow), Slack and the user's browser. Exact browser and first workflows remain open. Explore a plugin system that expands April's integrations over time; return to its design later. Naming Cursor as a target does not by itself replace the proposed Pi/cloud harness. Third-party packaging and trust model remain open.
+
+Further clarification: plugin architecture is a major confirmed direction, not merely an optional integration idea. It should cover app/tool integrations, specialist subagents and vault artifact handlers, including Markdown, PDF, Word, interactive HTML and JavaScript. Detailed architecture is deferred for a later focused discussion; no plugin framework or implementation has been chosen.
+
+API-versus-UI preference is explicitly deferred to implementation. User recognizes a service API may be easier for an integration such as Slack, but has not chosen a universal preference. Proposed architectural response: capability/plugin contracts describe intent and required authority without assuming either a cloud API or a local UI. Each implementation declares device/connectivity needs and permission scope; do not make access to the local desktop mandatory for cloud-capable operations.
+
+## Staged desktop awareness and computer use
+
+Status: Chosen direction; detailed computer-use design deferred
+
+Initially April sees only content the user explicitly shares. Over time, add broader awareness of desktop applications and then the ability to interact with those apps on the user's behalf, under the central permission model. Use Codex's computer-use interaction experience as a north star and study it in a separate session. This is a UX/capability reference, not a claim of access to proprietary internals or a decision to copy implementation. Ongoing desktop monitoring or control is not an initial default.
+
+## Initial speech languages and audio inputs
+
+Status: Chosen requirements
+
+Support English and Hindi initially, including primarily English conversations with occasional Hindi mixed in. Include system-audio capture alongside microphone input. A user example is recognizing which music is playing. System audio is a capability requirement, not a choice to record continuously; activation, permission, routing, retention and music-identification implementation remain open.
+
+## Background capture and visible listening state
+
+Status: Chosen requirements
+
+An explicitly started listening/recording session can continue when the workspace window is closed, including meeting capture through available audio inputs. Show an indicator whenever April is listening or recording, suggested as a small light beside the notch; use an equivalent on displays without a notch. This extends the earlier inactive-overlay rule: inactive can remain invisible, but active capture must remain visibly indicated. Closing the workspace is not equivalent to dismissing an active session. Explicit session start/stop, OS sleep, termination, retention and meeting consent details still need design. System-audio capability alone does not mean every meeting is automatically recorded.
+
+## Transcription and audio retention
+
+Status: Chosen requirements — final voice clarification
+
+Transcription is mainly for later reference and may lag; the user does not need to read a live transcript of everything. This does not relax responsiveness requirements for spoken conversation. By default, do not retain audio recordings after processing. The user can explicitly request retaining a recording, including a meeting or important conversation, as a backup if transcription misses something. This final clarification supersedes the earlier blanket no-audio statement. Temporary processing buffers, provider retention, retention duration for explicitly saved recordings and deletion behavior remain implementation questions; no zero-retention implementation has been verified.

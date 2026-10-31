@@ -35,8 +35,8 @@
     {
       "number": 6,
       "topic": "Audience",
-      "status": "Open",
-      "detail": "Personal-only initially versus accommodating other users is not explicitly decided."
+      "status": "Answered",
+      "detail": "Personal use first. Later, anyone with a Cloudflare account and a MacBook should be able to use April. Distribution/provisioning details remain engineering work."
     },
     {
       "number": 7,
@@ -65,14 +65,14 @@
     {
       "number": 11,
       "topic": "Headless core",
-      "status": "Open",
-      "detail": "CLI/API/background-only use as a product interface is not decided."
+      "status": "Answered",
+      "detail": "No headless CLI/API product interface initially; deferred. Internal service APIs are not excluded."
     },
     {
       "number": 12,
       "topic": "Third-party extensibility",
-      "status": "Open",
-      "detail": "Other people building clients, integrations or specialists is not decided."
+      "status": "Answered",
+      "detail": "Plugin architecture is a major direction across integrations, specialists and artifacts. Detailed third-party contracts/trust/distribution are explicitly deferred."
     },
     {
       "number": 13,
@@ -89,8 +89,8 @@
     {
       "number": 15,
       "topic": "Desktop observation scope",
-      "status": "Open",
-      "detail": "Selected app/task context versus ongoing wider desktop observation is not decided."
+      "status": "Answered",
+      "detail": "Only explicitly shared desktop content initially. Broader app awareness/control later; Codex as north star; deep dive deferred."
     },
     {
       "number": 16,
@@ -143,20 +143,20 @@
     {
       "number": 24,
       "topic": "Audio capture scope",
-      "status": "Open",
-      "detail": "Microphone only versus meeting/system audio in initial recording scope is not chosen."
+      "status": "Answered",
+      "detail": "Microphone plus system audio; meetings and music identification are example tasks. Session controls/retention remain separate."
     },
     {
       "number": 25,
       "topic": "Capture with UI closed",
-      "status": "Open",
-      "detail": "Recording/transcription when the window closes is not decided."
+      "status": "Answered",
+      "detail": "Explicitly started sessions continue with workspace window closed, with a visible listening/capture indicator. Sleep/termination behavior remains open."
     },
     {
       "number": 26,
       "topic": "Languages and accents",
-      "status": "Open",
-      "detail": "Speech languages, accents and mixed-language requirements are unspecified."
+      "status": "Answered",
+      "detail": "English and Hindi, including primarily English with occasional mixed Hindi."
     },
     {
       "number": 27,
@@ -167,8 +167,8 @@
     {
       "number": 28,
       "topic": "Voice quality priorities",
-      "status": "Open",
-      "detail": "Acceptable latency, dropouts, transcription quality and responsiveness targets are not set."
+      "status": "Partial",
+      "detail": "Reference transcription may lag. Live spoken response/interruption quality, acceptable delays and resource/cost tradeoffs still need targets."
     },
     {
       "number": 29,
@@ -304,8 +304,9 @@
     }
   ],
   "counts": {
-    "Answered": 15,
-    "Partial": 18,
-    "Open": 17
-  }
+    "Answered": 22,
+    "Partial": 19,
+    "Open": 9
+  },
+  "resume": "Continue one question at a time from unresolved/partial items. Prioritize authority/grant boundaries, sync/key/recovery design and budgets; do not reopen settled choices. Plugin internals, computer-use and memory-provider research are explicitly deferred."
 }

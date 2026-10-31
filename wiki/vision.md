@@ -74,3 +74,7 @@ Confirmed Mac interaction: a vault browser indicates newly created and edited it
 ## Unified application requirement
 
 Keep the primary experience in April itself: voice, vault browsing, document previews and interactive artifacts should not require hopping between applications. Use an Obsidian-inspired workspace, but do not depend on the separate Obsidian app as the primary viewer. Reuse suitable editing, preview and layout libraries rather than assuming all components must be authored from scratch. DOCX preview is sufficient initially. Select the UI framework with these requirements in mind; no framework is selected yet.
+
+## Audience and distribution
+
+Confirmed in voice: personal use first. Longer term, anyone with a Cloudflare account and a MacBook should be able to use April. Multi-user hosted-service design and exact installation/account provisioning remain unspecified; do not require multi-user accounts for the initial version.

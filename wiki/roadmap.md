@@ -60,3 +60,9 @@ The user intends self-extension as the development strategy. It is not permissio
 - [ ] **Validate shared core on all three OSes** — Add a CI matrix when code exists; UI/native features may remain macOS-only initially.
 - [ ] **Validate documents and interruptible audio** — Choose the UI only after testing the same workload against shortlisted frameworks.
 - [ ] **Add Windows and Linux adapters later** — Define the supported Linux environments and capability differences before promising parity.
+
+## Integration follow-up
+
+- [ ] **Define first Cursor, Slack and browser workflows** — These are the user's initial application targets. Choose browser, read/control scope and API-versus-UI behavior.
+- [ ] **Explore plugin extensibility later** — Expand supported tools/apps over time; define plugin contracts, installation and authority separately.
+- [ ] **Deep-dive computer use separately** — Codex as UX/capability reference; initial explicit sharing, later wider app awareness and delegated interaction. Define accessible-tree/screenshot inputs, action permissions, uncertainty, focus and recovery during that investigation.
