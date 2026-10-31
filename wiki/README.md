@@ -10,6 +10,7 @@ A living design for a personal agent system: one interaction agent across device
 - [Shared task and result contracts](contracts.md)
 - [Decision log](decisions.md)
 - [Roadmap](roadmap.md)
+- [Interactive memory exploration](workspace/memory-exploration.html) — lifecycle, forgetting, April fit and evaluation; available in every workspace dropdown.
 - [Memory research: Supermemory deep dive](research/supermemory.md) — processing, retrieval, corrections, privacy, deployment and a resumption checklist.
 - [Ideas and working notes](ideas.md)
 - [Interactive design workspace](workspace/agent-system-workspace.html)

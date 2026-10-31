@@ -2,6 +2,8 @@
 
 Research checkpoint: 1 November 2026. Memory Q&A is paused pending review of this section. This is a documentation-based investigation, not an installed integration or a benchmark. Supermemory is a behavioral reference; no provider, deployment or license has been selected.
 
+[Open the interactive memory exploration](../workspace/memory-exploration.html).
+
 ## Findings at a glance
 
 The useful model is three connected layers: original source material, extracted facts with relationships over time, and a compact profile for conversational context. April can learn from that separation without adopting every Supermemory default. In particular, April’s private-task grants, user-led conflict clarification and deletion rules must remain authoritative.
@@ -94,3 +96,9 @@ First explain the three-layer model and correction/version distinction. Then res
 - How will memory extraction and retrieval enforce private task grants without contaminating the general profile?
 
 The existing requirements remain in force. This research does not reopen settled choices or silently adopt all vendor defaults.
+
+## Temporal forgetting and historical retrieval follow-up
+
+A further four-result Exa search examined expiry and invalidation. The legacy direct-create API describes a scheduled expiry time; this is not assumed to be a v5 request field. Current migration docs distinguish forgotten/expired latest records in lists from search that explicitly includes forgotten content. Historical retrieval is not evidence of automatic revival or restoration as current truth. Review undo is documented for declined inferences, not as a universal reversal of erasure. These distinctions are separate branches in the interactive artifact.
+
+Sources: [legacy scheduled forgetting](https://supermemory.ai/docs/api-reference/content-management/create-memories-directly), [current historical visibility](https://supermemory.ai/docs/migration/api-v5-document-reads).

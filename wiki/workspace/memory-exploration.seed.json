@@ -1,0 +1,153 @@
+{
+  "title": "April memory exploration",
+  "notes": "Memory Q&A paused for this research. Supermemory is a reference, not a selected provider.",
+  "questions": "Provider choice, inference review policy, historical revival, deletion propagation, private context enforcement.",
+  "candidates": [],
+  "experiments": [],
+  "decisions": [
+    {
+      "title": "Sources",
+      "category": "Lifecycle",
+      "caption": "Original evidence",
+      "rationale": "Store source material separately from extracted facts and prompt context. Index completion and memory extraction completion are distinct.",
+      "source": "https://supermemory.ai/docs/concepts/how-it-works",
+      "status": "Documented behavior"
+    },
+    {
+      "title": "Extraction",
+      "category": "Lifecycle",
+      "caption": "Background learning",
+      "rationale": "Dynamic dreaming groups related material. Instant processing handles one document when immediate availability matters; this is not a guarantee of zero latency.",
+      "source": "https://supermemory.ai/docs/concepts/how-it-works",
+      "status": "Documented behavior"
+    },
+    {
+      "title": "Relationships",
+      "category": "Lifecycle",
+      "caption": "Update \u00b7 extend \u00b7 derive",
+      "rationale": "A changed fact replaces current truth; added detail enriches it; an inference is a conclusion not explicitly stated. Preserve the distinction between evidence and guesses.",
+      "source": "https://supermemory.ai/docs/concepts/graph-memory",
+      "status": "Documented behavior"
+    },
+    {
+      "title": "Recall",
+      "category": "Lifecycle",
+      "caption": "Chunks \u00b7 graph \u00b7 profile",
+      "rationale": "Use chunks to ground answers, graph facts for connected knowledge, and static/dynamic profiles for compact context. April must filter all three by current task authority.",
+      "source": "https://supermemory.ai/docs/quickstart",
+      "status": "Documented behavior"
+    },
+    {
+      "title": "Time expiry",
+      "category": "Forgetting",
+      "caption": "Temporary relevance ends",
+      "rationale": "Supermemory describes automatic expiry of temporary facts. Legacy APIs expose scheduled forgetting; do not copy those fields into v5 without compatibility validation. Expiry is not proof of physical erasure.",
+      "source": "https://supermemory.ai/docs/concepts/graph-memory",
+      "status": "Documented behavior"
+    },
+    {
+      "title": "Superseded facts",
+      "category": "Forgetting",
+      "caption": "Current truth changes",
+      "rationale": "Updated information takes precedence for current answers; older facts can remain historical. Ambiguous contradictions in April\u2019s wiki still require user clarification.",
+      "source": "https://supermemory.ai/docs/concepts/graph-memory",
+      "status": "Documented behavior"
+    },
+    {
+      "title": "Soft forgetting",
+      "category": "Forgetting",
+      "caption": "Hidden from normal recall",
+      "rationale": "The current memory operation excludes a forgotten fact from normal search but preserves it. Forgetting is separate from source deletion and permanent erasure.",
+      "source": "https://supermemory.ai/docs/recall/memory-operations",
+      "status": "Documented behavior"
+    },
+    {
+      "title": "Historical recall",
+      "category": "Forgetting",
+      "caption": "Retrievable is not revived",
+      "rationale": "Migration docs distinguish list visibility from search including forgotten records. Historical retrieval does not itself mean a fact should become current again. April\u2019s revival policy remains open.",
+      "source": "https://supermemory.ai/docs/migration/api-v5-document-reads",
+      "status": "Documented behavior"
+    },
+    {
+      "title": "Inference review",
+      "category": "Forgetting",
+      "caption": "Approve \u00b7 decline \u00b7 undo",
+      "rationale": "Inferred memories can be approved, declined or returned to an unreviewed state. Decline forgets an inference; undo can un-forget that declined item. Do not generalize this to every deletion.",
+      "source": "https://supermemory.ai/docs/recall/memory-review",
+      "status": "Documented behavior"
+    },
+    {
+      "title": "Permanent deletion",
+      "category": "Forgetting",
+      "caption": "Separate lifecycle",
+      "rationale": "April\u2019s recoverable bin and weekly user review remain authoritative. Validate cleanup of sources, chunks, summaries, facts, profiles, caches and backups; soft forgetting alone is insufficient.",
+      "source": "https://supermemory.ai/docs/recall/memory-operations",
+      "status": "Documented behavior"
+    },
+    {
+      "title": "Private context",
+      "category": "April fit",
+      "caption": "Task grant before processing",
+      "rationale": "Keep financial and medical material out of general memory. Only task-approved content can enter agent processing; derived content stays private and user viewing remains independent.",
+      "source": "https://supermemory.ai/docs/concepts/filtering",
+      "status": "Research / proposed April fit"
+    },
+    {
+      "title": "Correction APIs",
+      "category": "April fit",
+      "caption": "Version-specific behavior",
+      "rationale": "Older docs expose direct memory updates; current v5 docs update source documents and reprocess their memories. Pin and test an API version instead of combining examples.",
+      "source": "https://supermemory.ai/docs/recall/memory-operations",
+      "status": "Research / proposed April fit"
+    },
+    {
+      "title": "Deployment",
+      "category": "April fit",
+      "caption": "Provider remains open",
+      "rationale": "Hosted service, non-public self-hosted server binary, or an owned subsystem are alternatives. Cloudflare deployment compatibility is not validated.",
+      "source": "https://supermemory.ai/docs/self-hosting/overview",
+      "status": "Research / proposed April fit"
+    },
+    {
+      "title": "Privacy audit",
+      "category": "April fit",
+      "caption": "No training \u2260 zero retention",
+      "rationale": "Audit exact processors, extraction paths, retention, logs and contracts. Self-hosting with remote models can still send data elsewhere.",
+      "source": "https://supermemory.ai/docs/overview/security",
+      "status": "Research / proposed April fit"
+    },
+    {
+      "title": "Correction test",
+      "category": "Evaluation",
+      "caption": "Synthetic fixtures first",
+      "rationale": "Correct a preference and verify current answers, history and profile refresh. Distinguish time-based changes from ambiguous contradictions.",
+      "source": "https://supermemory.ai/docs/recall/memory-operations",
+      "status": "Research / proposed April fit"
+    },
+    {
+      "title": "Expiry and recall test",
+      "category": "Evaluation",
+      "caption": "No silent revival",
+      "rationale": "Expire and forget facts, inspect default recall and authorized history, and test rejected-inference regeneration. Establish April\u2019s explicit revival rules before implementation.",
+      "source": "https://supermemory.ai/docs/migration/api-v5-document-reads",
+      "status": "Research / proposed April fit"
+    },
+    {
+      "title": "Privacy and purge test",
+      "category": "Evaluation",
+      "caption": "No general-profile leakage",
+      "rationale": "Grant one private source to one task; verify sibling data stays inaccessible, expiry blocks later agent use, and deletion propagates through derived stores.",
+      "source": "https://supermemory.ai/docs/concepts/filtering",
+      "status": "Research / proposed April fit"
+    },
+    {
+      "title": "Cost and quality",
+      "category": "Evaluation",
+      "caption": "Measure April\u2019s workload",
+      "rationale": "Benchmark English/Hindi, readiness delays, replay, retrieval errors and ingestion costs with synthetic data. No provider benchmark claims are treated as proof.",
+      "source": "https://supermemory.ai/pricing/",
+      "status": "Research / proposed April fit"
+    }
+  ]
+}
