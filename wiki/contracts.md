@@ -90,3 +90,11 @@ Pause requests include the user's reason. The coordinator resolves which descend
 Confirmed user direction: When a specialist is genuinely stuck, bring the blocker to the user and work through it together. The user sees this as a possible sign that requirements need clarification or the specialist scope is too large. Do not silently substitute specialists, expand scope or run an autonomous repair loop as the default response to being stuck. Preserve task state and resume or rescope after clarification. The definition/detection of a blocker and handling of routine transient errors remain implementation details.
 
 Proposed runtime mapping of confirmed behavior: Running → Needs user input when stuck → Clarified/rescoped → Queued/Running. Keep the original objective, blocker, relevant task branch and changed scope linked for audit. This is a draft state mapping, not implemented execution.
+
+## Offline request delivery
+
+Confirmed user direction: Automatically send requests queued while offline when the client reconnects; no separate queue-review step is required. Sending a queued request is not approval to bypass private access, release or other policy checks. Ordering, deduplication, cancellation of unsent requests and stale-scope handling remain implementation details.
+
+## Voice session recovery
+
+Confirmed user direction: If connectivity drops during an active voice session, attempt automatic resumption on a best-effort basis. If recovery is not possible, the user can summon April again. Do not revive a session explicitly dismissed during the outage. Preserve visible connection/listening state; do not imply offline voice inference or default audio retention. Recovery deadlines, buffering and failure indicators remain implementation details.

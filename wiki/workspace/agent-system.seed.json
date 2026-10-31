@@ -716,6 +716,20 @@
       "rationale": "When a specialist is genuinely stuck, bring the blocker to the user and work through it together. The user sees this as a possible sign that requirements need clarification or the specialist scope is too large. Do not silently substitute specialists, expand scope or run an autonomous repair loop as the default response to being stuck. Preserve task state and resume or rescope after clarification. The definition/detection of a blocker and handling of routine transient errors remain implementation details. Pause reason taxonomy is deferred; user provides a reason when needed.",
       "id": "stuck-specialist-human-escalation",
       "next": "Define blocker evidence, clarification and rescoping transitions."
+    },
+    {
+      "title": "Auto-send offline requests on reconnect",
+      "status": "Chosen direction",
+      "rationale": "Automatically send requests queued while offline when the client reconnects; no separate queue-review step is required. Sending a queued request is not approval to bypass private access, release or other policy checks. Ordering, deduplication, cancellation of unsent requests and stale-scope handling remain implementation details.",
+      "id": "auto-send-reconnect-queue",
+      "next": "Specify ordered, deduplicated delivery under existing approval policy."
+    },
+    {
+      "title": "Best-effort automatic voice resumption",
+      "status": "Chosen direction",
+      "rationale": "If connectivity drops during an active voice session, attempt automatic resumption on a best-effort basis. If recovery is not possible, the user can summon April again. Do not revive a session explicitly dismissed during the outage. Preserve visible connection/listening state; do not imply offline voice inference or default audio retention. Recovery deadlines, buffering and failure indicators remain implementation details.",
+      "id": "best-effort-voice-recovery",
+      "next": "Define recovery/failure indicators and explicit-dismissal precedence."
     }
   ],
   "roadmap": [
@@ -1262,5 +1276,7 @@
   "taskAuditTreeRevision": 1,
   "pauseResumeRevision": 1,
   "pauseReasonRevision": 1,
-  "blockedSpecialistRevision": 1
+  "blockedSpecialistRevision": 1,
+  "offlineAutoSendRevision": 1,
+  "voiceRecoveryRevision": 1
 }
