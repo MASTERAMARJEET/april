@@ -135,6 +135,17 @@ render();$('#save-status').textContent=storageProblem?'Using starting content':'
 #amap .am-inspector::-webkit-scrollbar-thumb{background:var(--mline);border-radius:8px}
 #amap .am-inspector:hover::-webkit-scrollbar-thumb,#amap .am-inspector:focus-within::-webkit-scrollbar-thumb{background:var(--mmuted)}
 #amap .am-inspector::-webkit-scrollbar-corner{background:transparent}
+
+html{scrollbar-width:thin;scrollbar-color:#33433e #121718;color-scheme:dark}
+html::-webkit-scrollbar{width:6px;height:6px}html::-webkit-scrollbar-track{background:#121718}html::-webkit-scrollbar-thumb{background:#33433e;border-radius:8px}
+#amap,#amap *{scrollbar-width:thin;scrollbar-color:var(--mline) transparent}
+#amap *:hover,#amap *:focus-within{scrollbar-color:var(--mmuted) transparent}
+#amap::-webkit-scrollbar,#amap *::-webkit-scrollbar{width:6px;height:6px}
+#amap::-webkit-scrollbar-track,#amap *::-webkit-scrollbar-track{background:transparent}
+#amap::-webkit-scrollbar-thumb,#amap *::-webkit-scrollbar-thumb{background:var(--mline);border-radius:8px}
+#amap *:hover::-webkit-scrollbar-thumb,#amap *:focus-within::-webkit-scrollbar-thumb{background:var(--mmuted)}
+#amap::-webkit-scrollbar-corner,#amap *::-webkit-scrollbar-corner{background:transparent}
+@media(prefers-color-scheme:light){html{color-scheme:light;scrollbar-color:#d0dbd3 #f5f6f1}html::-webkit-scrollbar-track{background:#f5f6f1}html::-webkit-scrollbar-thumb{background:#d0dbd3}}
 </style>
 
 <script id="april-map-code">
