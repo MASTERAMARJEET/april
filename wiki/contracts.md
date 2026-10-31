@@ -98,3 +98,5 @@ Confirmed user direction: Automatically send requests queued while offline when 
 ## Voice session recovery
 
 Confirmed user direction: If connectivity drops during an active voice session, attempt automatic resumption on a best-effort basis. If recovery is not possible, the user can summon April again. Do not revive a session explicitly dismissed during the outage. Preserve visible connection/listening state; do not imply offline voice inference or default audio retention. Recovery deadlines, buffering and failure indicators remain implementation details.
+
+Recovery deadline: approximately five seconds for automatic voice resumption; on timeout transition to manual-resume-needed rather than retrying indefinitely.

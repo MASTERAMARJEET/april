@@ -571,6 +571,16 @@
       "title": "Best-effort automatic voice resumption",
       "status": "Confirmed direction",
       "rationale": "If connectivity drops during an active voice session, attempt automatic resumption on a best-effort basis. If recovery is not possible, the user can summon April again. Do not revive a session explicitly dismissed during the outage. Preserve visible connection/listening state; do not imply offline voice inference or default audio retention. Recovery deadlines, buffering and failure indicators remain implementation details."
+    },
+    {
+      "title": "Five-second automatic voice recovery window",
+      "status": "Confirmed direction",
+      "rationale": "Bound automatic voice-session recovery to approximately five seconds. If it cannot resume within that attempt window, stop automatic resumption and wait for the user to summon/resume manually. Display recovery/failure state and do not reopen a dismissed session. Exact timer implementation remains engineering work."
+    },
+    {
+      "title": "Full local copy first; cloud-only on-demand later",
+      "status": "Confirmed direction",
+      "rationale": "Initially keep/copy all vault files locally and synchronize everything to the cloud, simplifying the first version. Cloud remains authoritative and private-file agent access stays task scoped. Future direction: fetch only files being viewed or needed, keeping the rest cloud-only. Selective caching/pinning is not required initially. This describes future product behavior, not authorization to copy/upload the user's current files now."
     }
   ],
   "questions": "Confirmed: approved cloud tasks, including private-file tasks under existing task-scoped access, continue if the Mac disconnects. Next: specify key custody, revocation and device-unavailable handling; all persistent files are cloud-backed.\nEngineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.\nPrivate grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.\nSync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.\nCoding bootstrap: Cloudflare execution, April-only GitHub repositories, dev/PR/user approval flow are decided; validate macOS packaging/native tests and exact release evidence.\nDeferred deep dives: plugin contracts/trust, per-integration API versus UI, Codex-inspired computer use and memory systems including Supermemory.\nOperational implementation: accurate cost tracking and non-blocking $20 AI nudge, task retry/cancellation, recovery history and permission enforcement.",
@@ -940,5 +950,7 @@
   "pauseReasonRevision": 1,
   "blockedSpecialistRevision": 1,
   "offlineAutoSendRevision": 1,
-  "voiceRecoveryRevision": 1
+  "voiceRecoveryRevision": 1,
+  "voiceRecoveryTimeoutRevision": 1,
+  "vaultMaterializationRevision": 1
 }

@@ -330,3 +330,9 @@ Confirmed user direction: Automatically send requests queued while offline when 
 ## Best-effort voice reconnection
 
 Confirmed user direction: If connectivity drops during an active voice session, attempt automatic resumption on a best-effort basis. If recovery is not possible, the user can summon April again. Do not revive a session explicitly dismissed during the outage. Preserve visible connection/listening state; do not imply offline voice inference or default audio retention. Recovery deadlines, buffering and failure indicators remain implementation details.
+
+Voice recovery timeout clarified: Bound automatic voice-session recovery to approximately five seconds. If it cannot resume within that attempt window, stop automatic resumption and wait for the user to summon/resume manually. Display recovery/failure state and do not reopen a dismissed session. Exact timer implementation remains engineering work.
+
+## Full local vault copy initially; on-demand files later
+
+Confirmed user direction: Initially keep/copy all vault files locally and synchronize everything to the cloud, simplifying the first version. Cloud remains authoritative and private-file agent access stays task scoped. Future direction: fetch only files being viewed or needed, keeping the rest cloud-only. Selective caching/pinning is not required initially. This describes future product behavior, not authorization to copy/upload the user's current files now.

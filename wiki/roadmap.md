@@ -94,3 +94,5 @@ The user intends self-extension as the development strategy. It is not permissio
 
 - [ ] **Study long conversations and internal threading** — Use Codex's experience as a reference for internal branches, context management and subagents while preserving one user-facing thread. Study publicly observable/documented behavior, not assumed proprietary internals.
 - [ ] **Separate voice and task interruption** — Barge-in stops playback/conversation output; only an explicit task instruction cancels delegated work. Validate that voice dismissal/reconnect does not terminate subagents.
+
+- [ ] **Start with full local vault mirroring** — Sync all initial vault files to cloud and retain a complete local copy. Later add on-demand materialization/cloud-only files without changing cloud authority or private access rules.
