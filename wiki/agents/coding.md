@@ -22,6 +22,8 @@ Maintain project knowledge and dependency hygiene.
 Return evidence, limitations, and a reproducible change.
 Propose improvements to the agent platform without controlling its release policy.
 
+User-requested tasks may expose missing capabilities. Inform the user, develop the capability through the existing planning/review/release flow, then resume the original task. Keep the original task and feature dependency linked, and keep the user informed. A missing feature is not automatically a permanent failure; unsupported or infeasible cases still require truthful reporting.
+
 ## Inputs and context
 
 Repository + exact commit; selected work-in-progress patch; task brief; acceptance criteria; allowed services; budget.

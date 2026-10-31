@@ -534,6 +534,104 @@
       "rationale": "Reference transcription may lag. Do not retain audio by default after processing; user may explicitly request a saved recording for meetings/conversations as a backup. This supersedes earlier blanket no-audio remarks. Live voice responsiveness remains separate. Provider retention, temporary buffers and saved-recording expiry/deletion remain open.",
       "id": "final-audio-retention",
       "next": "Define provider/temporary-buffer handling and expiry for opted-in recordings."
+    },
+    {
+      "title": "Private access expires with the task",
+      "status": "Chosen direction",
+      "rationale": "User confirms that private-vault access granted for a task stops when the task ends. It is not a continuing permission for later tasks. Terminal-state handling, early revocation and cached/derived-context cleanup remain implementation work.",
+      "id": "task-bound-private-expiry",
+      "next": "Specify terminal-state enforcement and context cleanup."
+    },
+    {
+      "title": "Initial operating budget",
+      "status": "Chosen direction",
+      "rationale": "Start with Cloudflare $5 base-plan expectation plus approximately $20/month AI; flexible AI budget based on use. Infrastructure fit is not verified. Overage behavior, warnings and caps remain open.",
+      "id": "budget-correction-0",
+      "next": "Define practical budgets and correction mechanisms during implementation."
+    },
+    {
+      "title": "Evolving approval and conversational correction",
+      "status": "Chosen direction",
+      "rationale": "Discover additional approval categories during use; existing mandatory consent remains. User asks April to correct noticed mistakes. Recoverable history is a recommendation, not yet selected; irreversible side effects need separate treatment.",
+      "id": "budget-correction-1",
+      "next": "Define practical budgets and correction mechanisms during implementation."
+    },
+    {
+      "title": "Efficient, fluid client over shipping speed",
+      "status": "Chosen direction",
+      "rationale": "Prioritize efficient resource use and fluid/non-janky interactions over shipping sooner. Evaluate idle CPU/memory/battery and under-load responsiveness. Numeric targets, minimum hardware and framework remain open.",
+      "id": "performance-soft-budget-0",
+      "next": "Specify measurable workload and operating limits."
+    },
+    {
+      "title": "Soft AI budget nudge",
+      "status": "Chosen direction",
+      "rationale": "$20 monthly AI threshold is non-blocking. Ask/nudge about increased spend, but keep working while pending. Exact overrun bounds and accounting remain open; this is not unlimited spend authority.",
+      "id": "performance-soft-budget-1",
+      "next": "Specify measurable workload and operating limits."
+    },
+    {
+      "title": "Clarify and correct wiki conflicts",
+      "status": "Chosen direction",
+      "rationale": "For conflicting wiki information, ask the user for clarification before selecting a version. Correct the wiki, then continue affected work from the corrected record. Do not silently choose or leave disagreement unresolved as the final behavior. Provenance/history and stale-derived-context cleanup remain supporting implementation work.",
+      "id": "wiki-conflict-clarification",
+      "next": "Define clarification presentation and corrected-context propagation."
+    },
+    {
+      "title": "Proactive simple work; discuss heavy work first",
+      "status": "Chosen direction",
+      "rationale": "Proactively research and perform simpler day-to-day work within existing guardrails. Research and notes can feed coding ideas. Substantial work, such as building a feature, needs a user conversation first. Detailed triggers, topic selection and routing are deferred; this is sufficient direction for this pass.",
+      "id": "proactivity-boundary",
+      "next": "Map triggers and specialist handoffs during later design."
+    },
+    {
+      "title": "Add missing capability, then resume task",
+      "status": "Chosen direction",
+      "rationale": "When a user task needs an unsupported feature, inform the user, add the capability where feasible, then resume and complete the original task. Keep the user in the loop. Existing substantial-feature discussion, scoped permissions, dev/PR review and production approval still apply; no bypass or guaranteed feasibility is implied.",
+      "id": "capability-gap-resume",
+      "next": "Link task and feature dependency; retain planning and release policy."
+    },
+    {
+      "title": "Mac performance baseline",
+      "status": "Chosen direction",
+      "rationale": "Initial performance baseline: the user's current MacBook Pro, Apple M2 Pro, 10-core CPU (6 performance + 4 efficiency), 16 GB unified memory, currently macOS 26.7.1. Hardware read locally at the user's request; serial numbers and device identifiers are not recorded. Run efficiently and fluidly on this machine. This is an initial target, not a benchmark-proven minimum; older OS/hardware support remains open.",
+      "id": "hardware-remote-0",
+      "next": "Validate performance and scoped remote capability routing."
+    },
+    {
+      "title": "Phone requests can use authorized Mac",
+      "status": "Chosen direction",
+      "rationale": "Confirmed: requests from the phone may use capabilities on an online, authorized Mac. Scoped permissions remain required; routing and unavailable-device handling remain implementation work.",
+      "id": "hardware-remote-1",
+      "next": "Validate performance and scoped remote capability routing."
+    },
+    {
+      "title": "Preserve both sides of sync conflicts",
+      "status": "Chosen direction",
+      "rationale": "Preserve both versions of conflicting local/cloud edits and ask the user which to keep. Do not silently overwrite either version. Cloud remains authoritative after reconciliation; version tracking and resolution propagation need implementation.",
+      "id": "sync-conflict-preservation",
+      "next": "Define version detection and user resolution workflow."
+    },
+    {
+      "title": "Reviewed approval learning loop",
+      "status": "Chosen direction",
+      "rationale": "Dedicated approval agent evaluates requests, auto-approves within user policy and learns from decisions. April initiates requests through that system. Review repeated routinely approved prompts and promote them to explicit default allowances in operating context/policy. Existing explicit consent boundaries remain until changed by user.",
+      "id": "approval-language-0",
+      "next": "Implement reviewed policy updates; evaluate technical stack separately."
+    },
+    {
+      "title": "Choose language by requirements",
+      "status": "Chosen direction",
+      "rationale": "No programming-language preference or exclusion. Select implementation based on portability, resource efficiency, fluid interaction and other established requirements; stack choice is an engineering evaluation.",
+      "id": "approval-language-1",
+      "next": "Implement reviewed policy updates; evaluate technical stack separately."
+    },
+    {
+      "title": "Replace chat/voice/computer-use and Cursor prompting workflows",
+      "status": "Chosen direction",
+      "rationale": "Replace the user's ChatGPT app workflows: text chat, voice conversation and computer use. Later take over much of manual Cursor prompting. Cursor remains an initial integration target; reducing prompting does not necessarily mean replacing the editor. Full parity is a destination, not a v1 promise.",
+      "id": "replacement-workflows",
+      "next": "Use these workflows as architecture and acceptance-test reference points."
     }
   ],
   "roadmap": [
@@ -742,8 +840,8 @@
       {
         "number": 3,
         "topic": "Products to replace",
-        "status": "Open",
-        "detail": "Obsidian is a UX reference, but the products/workflows April should replace are unspecified."
+        "status": "Answered",
+        "detail": "Replace the user's ChatGPT app workflows for text, voice and computer use. Over time, April should handle much of the manual prompting currently done in Cursor, which remains an integration target."
       },
       {
         "number": 4,
@@ -820,14 +918,14 @@
       {
         "number": 16,
         "topic": "API versus visible UI",
-        "status": "Open",
-        "detail": "Prefer direct service API or visible interaction when both are available is not decided."
+        "status": "Answered",
+        "detail": "API versus UI choice is explicitly deferred per integration; plugin contracts should allow either. No universal preference required now."
       },
       {
         "number": 17,
         "topic": "Screenshot/input fallback",
-        "status": "Open",
-        "detail": "Fallback when accessibility information is missing is not decided."
+        "status": "Answered",
+        "detail": "Computer-use details, including screenshot/input fallback, are explicitly deferred to a Codex-inspired deep dive. Initial observation only sees explicitly shared content."
       },
       {
         "number": 18,
@@ -928,8 +1026,8 @@
       {
         "number": 34,
         "topic": "Knowledge corrections and conflicts",
-        "status": "Open",
-        "detail": "Handling conflicting sources, outdated claims and user corrections is not specified."
+        "status": "Answered",
+        "detail": "Actively ask the user to clarify conflicts before choosing; correct the wiki and continue affected work from the corrected version. Provenance and revision mechanics remain design work."
       },
       {
         "number": 35,
@@ -953,7 +1051,7 @@
         "number": 38,
         "topic": "Permission model granularity",
         "status": "Partial",
-        "detail": "Central approver, task-scoped private grants and public cross-vault access; exact domain/task/default rules open."
+        "detail": "Central learned approval agent with policy-bounded automatic approvals. Repeated routinely approved prompts can be reviewed into default allowances. Private grants expire with task; enforcement details remain implementation work."
       },
       {
         "number": 39,
@@ -976,8 +1074,8 @@
       {
         "number": 42,
         "topic": "Mistake recovery",
-        "status": "Open",
-        "detail": "User-facing undo, history, rollback and action-log expectations are not chosen."
+        "status": "Answered",
+        "detail": "User asks April conversationally to fix noticed mistakes. Recovery mechanisms such as history/undo are implementation design rather than an unanswered interaction preference."
       },
       {
         "number": 43,
@@ -988,8 +1086,8 @@
       {
         "number": 44,
         "topic": "Remote device capabilities",
-        "status": "Open",
-        "detail": "Phone task using the Mac, consent and device-selection rules not decided."
+        "status": "Answered",
+        "detail": "Yes: requests from the phone may use an online, authorized Mac. Remote routing, device choice and unavailable-device behavior remain implementation work."
       },
       {
         "number": 45,
@@ -1000,20 +1098,20 @@
       {
         "number": 46,
         "topic": "Technology preferences",
-        "status": "Open",
-        "detail": "Core language and GUI framework not chosen; Exa preferred for research."
+        "status": "Answered",
+        "detail": "No strong language preference; choose based on product constraints, efficiency, fluid interaction and portability. Final stack requires engineering evaluation."
       },
       {
         "number": 47,
         "topic": "Resource/development tradeoffs",
-        "status": "Open",
-        "detail": "Memory, startup, battery and platform-specific effort priorities are not set."
+        "status": "Answered",
+        "detail": "Efficient resource use and fluid/non-janky interactions matter more than shipping sooner. Numeric budgets and minimum hardware remain to be defined."
       },
       {
         "number": 48,
         "topic": "Budget",
-        "status": "Open",
-        "detail": "Comfortable monthly spend, caps and per-task limits not set."
+        "status": "Partial",
+        "detail": "Starting target: Cloudflare $5 base plan plus about $20/month AI, flexible with usage. Actual infrastructure usage costs, overage behavior and caps remain unverified/open."
       },
       {
         "number": 49,
@@ -1029,11 +1127,11 @@
       }
     ],
     "counts": {
-      "Answered": 22,
-      "Partial": 19,
-      "Open": 9
+      "Answered": 30,
+      "Partial": 20,
+      "Open": 0
     },
-    "resume": "Continue one question at a time from unresolved/partial items. Prioritize authority/grant boundaries, sync/key/recovery design and budgets; do not reopen settled choices. Plugin internals, computer-use and memory-provider research are explicitly deferred."
+    "resume": "Original broad questionnaire reviewed: no fully unanswered items remain; 20 partial items retain scoped follow-ups or explicitly deferred detail. Continue with engineering evaluation and focused architecture choices, without reopening settled product decisions. Consult decision log for latest grant, budget, performance and correction decisions."
   },
   "questionReviewRevision": 1,
   "audienceRevision": 1,
@@ -1041,5 +1139,15 @@
   "desktopAwarenessRevision": 1,
   "audioRequirementsRevision": 1,
   "backgroundAudioRevision": 1,
-  "sessionFinalRevision": 1
+  "sessionFinalRevision": 1,
+  "taskExpiryRevision": 1,
+  "budgetCorrectionRevision": 1,
+  "performanceRevision": 1,
+  "wikiConflictRevision": 1,
+  "proactivityRevision": 1,
+  "capabilityGapRevision": 1,
+  "hardwareRemoteRevision": 1,
+  "syncConflictRevision": 1,
+  "approvalLanguageRevision": 1,
+  "replacementRevision": 1
 }

@@ -60,3 +60,7 @@ Storage clarification: both classes are cloud-hosted, encrypted by requirement a
 ## Approval requests and audit
 
 Confirmed: all requests route through the central approval agent. Private-vault access uses an overlay describing the scope and an explicit user button click; voice assent is insufficient. Proposed record fields: request and task identity, requesting specialist, vault/item references, operations, purpose, expiry, policy version, displayed scope, click/denial event, granted scope, revocation and execution evidence. Bind the recorded decision to the exact request and enforce grants outside the model. Final schema and trust mechanisms remain open.
+
+Private-grant lifetime clarified: bind access to the approved task and expire it when that task ends. Do not carry the grant into subsequent tasks. Implement terminal-state and cleanup semantics explicitly.
+
+Sync conflict requirement: preserve both conflicting local/cloud versions and request user resolution before discarding either. Cloud-authoritative state must not silently overwrite unresolved local changes.

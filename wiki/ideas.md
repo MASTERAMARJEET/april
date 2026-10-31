@@ -28,6 +28,8 @@ Next design conversation: pick one vertical slice and define its job contract, p
 
 ## Clarification review — original 50 questions
 
-22 answered, 19 partial, 9 open. Partial means the direction is known but a detail remains unresolved. See [question-by-question review](workspace/clarification-status.json).
+30 answered, 20 partial, 0 entirely open. The partial items include explicitly deferred design details; this does not mean implementation decisions are complete. Partial means the direction is known but a detail remains unresolved. See [question-by-question review](workspace/clarification-status.json).
 
 Next priorities: cloud/key access to encrypted private vaults; private-grant lifetime/revocation; local/cloud sync conflicts; first native accessibility workflow and observation scope; resource/cost budgets; first coding acceptance criteria and recovery behavior. Languages, recording scope and detailed device handoff can be clarified later unless needed by the bootstrap.
+
+Latest pass: original broad questionnaire is covered, with 20 scoped/deferred follow-ups. Confirmed task-end private grant expiry, soft $20 AI nudge, efficiency/fluidity over shipping speed, verified M2 Pro/16 GB Mac baseline, phone-to-Mac capabilities, preserve both sync conflicts, clarify/correct wiki conflicts, reviewed learned approval, proactive simple work and missing-capability task resumption. Next: evaluate architecture/GUI against these requirements; do not repeat settled preference questions.

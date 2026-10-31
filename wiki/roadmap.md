@@ -66,3 +66,8 @@ The user intends self-extension as the development strategy. It is not permissio
 - [ ] **Define first Cursor, Slack and browser workflows** — These are the user's initial application targets. Choose browser, read/control scope and API-versus-UI behavior.
 - [ ] **Explore plugin extensibility later** — Expand supported tools/apps over time; define plugin contracts, installation and authority separately.
 - [ ] **Deep-dive computer use separately** — Codex as UX/capability reference; initial explicit sharing, later wider app awareness and delegated interaction. Define accessible-tree/screenshot inputs, action permissions, uncertainty, focus and recovery during that investigation.
+
+## Performance and device validation
+
+- [ ] **Validate against the user's current Mac** — MacBook Pro, M2 Pro, 10-core CPU, 16 GB memory; current macOS 26.7.1. Measure idle resources and fluid voice/artifact interactions before claiming minimum support.
+- [ ] **Support authorized remote Mac capabilities later** — Phone requests may use an online, authorized Mac; design scoped routing and unavailable-device behavior.

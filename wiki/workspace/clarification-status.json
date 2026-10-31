@@ -17,8 +17,8 @@
     {
       "number": 3,
       "topic": "Products to replace",
-      "status": "Open",
-      "detail": "Obsidian is a UX reference, but the products/workflows April should replace are unspecified."
+      "status": "Answered",
+      "detail": "Replace the user's ChatGPT app workflows for text, voice and computer use. Over time, April should handle much of the manual prompting currently done in Cursor, which remains an integration target."
     },
     {
       "number": 4,
@@ -95,14 +95,14 @@
     {
       "number": 16,
       "topic": "API versus visible UI",
-      "status": "Open",
-      "detail": "Prefer direct service API or visible interaction when both are available is not decided."
+      "status": "Answered",
+      "detail": "API versus UI choice is explicitly deferred per integration; plugin contracts should allow either. No universal preference required now."
     },
     {
       "number": 17,
       "topic": "Screenshot/input fallback",
-      "status": "Open",
-      "detail": "Fallback when accessibility information is missing is not decided."
+      "status": "Answered",
+      "detail": "Computer-use details, including screenshot/input fallback, are explicitly deferred to a Codex-inspired deep dive. Initial observation only sees explicitly shared content."
     },
     {
       "number": 18,
@@ -203,8 +203,8 @@
     {
       "number": 34,
       "topic": "Knowledge corrections and conflicts",
-      "status": "Open",
-      "detail": "Handling conflicting sources, outdated claims and user corrections is not specified."
+      "status": "Answered",
+      "detail": "Actively ask the user to clarify conflicts before choosing; correct the wiki and continue affected work from the corrected version. Provenance and revision mechanics remain design work."
     },
     {
       "number": 35,
@@ -228,7 +228,7 @@
       "number": 38,
       "topic": "Permission model granularity",
       "status": "Partial",
-      "detail": "Central approver, task-scoped private grants and public cross-vault access; exact domain/task/default rules open."
+      "detail": "Central learned approval agent with policy-bounded automatic approvals. Repeated routinely approved prompts can be reviewed into default allowances. Private grants expire with task; enforcement details remain implementation work."
     },
     {
       "number": 39,
@@ -251,8 +251,8 @@
     {
       "number": 42,
       "topic": "Mistake recovery",
-      "status": "Open",
-      "detail": "User-facing undo, history, rollback and action-log expectations are not chosen."
+      "status": "Answered",
+      "detail": "User asks April conversationally to fix noticed mistakes. Recovery mechanisms such as history/undo are implementation design rather than an unanswered interaction preference."
     },
     {
       "number": 43,
@@ -263,8 +263,8 @@
     {
       "number": 44,
       "topic": "Remote device capabilities",
-      "status": "Open",
-      "detail": "Phone task using the Mac, consent and device-selection rules not decided."
+      "status": "Answered",
+      "detail": "Yes: requests from the phone may use an online, authorized Mac. Remote routing, device choice and unavailable-device behavior remain implementation work."
     },
     {
       "number": 45,
@@ -275,20 +275,20 @@
     {
       "number": 46,
       "topic": "Technology preferences",
-      "status": "Open",
-      "detail": "Core language and GUI framework not chosen; Exa preferred for research."
+      "status": "Answered",
+      "detail": "No strong language preference; choose based on product constraints, efficiency, fluid interaction and portability. Final stack requires engineering evaluation."
     },
     {
       "number": 47,
       "topic": "Resource/development tradeoffs",
-      "status": "Open",
-      "detail": "Memory, startup, battery and platform-specific effort priorities are not set."
+      "status": "Answered",
+      "detail": "Efficient resource use and fluid/non-janky interactions matter more than shipping sooner. Numeric budgets and minimum hardware remain to be defined."
     },
     {
       "number": 48,
       "topic": "Budget",
-      "status": "Open",
-      "detail": "Comfortable monthly spend, caps and per-task limits not set."
+      "status": "Partial",
+      "detail": "Starting target: Cloudflare $5 base plan plus about $20/month AI, flexible with usage. Actual infrastructure usage costs, overage behavior and caps remain unverified/open."
     },
     {
       "number": 49,
@@ -304,9 +304,9 @@
     }
   ],
   "counts": {
-    "Answered": 22,
-    "Partial": 19,
-    "Open": 9
+    "Answered": 30,
+    "Partial": 20,
+    "Open": 0
   },
-  "resume": "Continue one question at a time from unresolved/partial items. Prioritize authority/grant boundaries, sync/key/recovery design and budgets; do not reopen settled choices. Plugin internals, computer-use and memory-provider research are explicitly deferred."
+  "resume": "Original broad questionnaire reviewed: no fully unanswered items remain; 20 partial items retain scoped follow-ups or explicitly deferred detail. Continue with engineering evaluation and focused architecture choices, without reopening settled product decisions. Consult decision log for latest grant, budget, performance and correction decisions."
 }

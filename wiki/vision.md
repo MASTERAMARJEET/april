@@ -78,3 +78,7 @@ Keep the primary experience in April itself: voice, vault browsing, document pre
 ## Audience and distribution
 
 Confirmed in voice: personal use first. Longer term, anyone with a Cloudflare account and a MacBook should be able to use April. Multi-user hosted-service design and exact installation/account provisioning remain unspecified; do not require multi-user accounts for the initial version.
+
+## Tools and workflows April should replace
+
+Confirmed goal: replace the ChatGPT app experience the user relies on for text chat, voice conversation and computer use. Over time, also reduce the need to manually prompt Cursor by having April manage much of that coding-agent interaction. This describes the user's target workflow, not a claim of feature parity or API availability. Cursor remains an initial integration target; the goal is to take over the prompting/orchestration burden, not necessarily replace its editor.

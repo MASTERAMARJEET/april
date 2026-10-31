@@ -16,6 +16,10 @@ Maintain linked topic pages, glossaries, and learning paths.
 Revisit stale claims and record corrections.
 Track what I know, want to learn, and have questioned.
 
+Confirmed conflict behavior: actively ask the user to clarify conflicting wiki information before selecting a version. Correct the wiki from the clarified result and continue affected work from that corrected version. Do not silently choose between conflicting records. Keep revisions/provenance as supporting evidence; operational details remain open.
+
+User permits proactive research and simpler day-to-day work within configured authority. Findings or notes can feed coding ideas, but substantial feature work needs a user conversation first. Topic selection and detailed routing are deferred rather than settled mechanisms.
+
 ## Inputs and context
 
 Questions; learning goals; approved reading history; existing wiki; source material.

@@ -94,6 +94,8 @@ All approval requests are routed through a central approval agent/model. April a
 
 This centralizes approval across the system. Earlier learned-approver aspirations remain within user-granted policy; they do not override mandatory explicit private-vault consent. Exact grant lifetime, request fields, trusted UI/service boundary, verification of click provenance, enforcement, revocation and audit integrity remain design work. The requirement to store encrypted data does not yet specify end-to-end encryption or model access to decryption keys.
 
+Further approval-loop clarification: April continues initiating permission requests as usual through the central approval system. The dedicated approval model evaluates which requests need user involvement, auto-approves within policy and learns from user decisions. Repeated prompts for actions the user routinely permits can be reviewed and promoted into explicit default allowances in April's operating context/policy, reducing unnecessary future requests. This is a reviewed policy-learning loop, not unilateral permission expansion by a requesting agent. Existing explicit private-access and release requirements remain until the user changes them. Do not reopen whether an approval model exists as an unresolved product choice.
+
 
 ## Platform-agnostic core; macOS integrations first
 
@@ -196,3 +198,77 @@ An explicitly started listening/recording session can continue when the workspac
 Status: Chosen requirements — final voice clarification
 
 Transcription is mainly for later reference and may lag; the user does not need to read a live transcript of everything. This does not relax responsiveness requirements for spoken conversation. By default, do not retain audio recordings after processing. The user can explicitly request retaining a recording, including a meeting or important conversation, as a backup if transcription misses something. This final clarification supersedes the earlier blanket no-audio statement. Temporary processing buffers, provider retention, retention duration for explicitly saved recordings and deletion behavior remain implementation questions; no zero-retention implementation has been verified.
+
+## Private-vault grant lifetime
+
+Status: Confirmed by user
+
+Access approved for a task ends when that task ends. It must not remain available for later unrelated tasks. A fixed wall-clock lifetime is not the selected primary expiry rule. Terminal-state handling (completion, failure, cancellation), early revocation and cleanup of cached/derived task context need implementation specification.
+
+## Evolving approval rules and mistake correction
+
+Status: User preference clarified; mechanisms open
+
+Discover additional access/approval categories incrementally during use rather than defining every category now. Existing explicit private-vault and production-review requirements remain in force; deferring other categories is not blanket permission.
+
+When the user notices a mistake, they expect to ask April to fix it conversationally. Automatic rollback, version-history retention, undo scope and behavior for irreversible side effects are not selected. Proposed supporting design: preserve enough provenance and recoverable history to investigate and correct changes, without treating conversational correction as a guarantee that every action can be undone.
+
+## Replacement workflow targets
+
+Status: Confirmed user goal
+
+Replace the user's ChatGPT app workflow for text, voice and computer use. Progressively take over much of the user's manual Cursor prompting. Keep the existing phased bootstrap and initial integration scope; full parity is a destination, not an initial-release promise.
+
+## Initial operating budget
+
+Status: User budget preference confirmed; actual costs unverified
+
+User expects to start with the Cloudflare $5 Workers plan and approximately $20/month for AI usage. AI spend may increase if needed based on actual monthly use. These are starting budget targets, not a verified estimate that all infrastructure fits within $5 or blanket authorization for unlimited spending. Validate sandbox/container, storage, traffic and other usage costs before implementation. Warning thresholds, overage approval and hard caps remain open.
+
+Overage behavior clarified: $20/month AI is a soft threshold, not a blocking cap. April should ask/nudge the user about additional spend but may keep working while that request is pending. This does not establish unlimited spending authority or a separate hard safety ceiling; exact overrun bounds, notification frequency and accounting remain implementation questions. Route the budget request through the central approval flow; do not suspend ordinary work solely because the soft threshold is reached.
+
+## Client performance priorities
+
+Status: Confirmed user priorities
+
+Prioritize efficient resource use and fluid, non-janky interaction over shipping sooner. Evaluate idle CPU/memory/battery use as well as voice, overlay and artifact responsiveness under load. No numeric targets or UI framework have been selected. Resource efficiency should not be reduced to executable size or renderer benchmarks alone; compare representative end-to-end workloads. Minimum supported Mac hardware remains unspecified.
+
+Technology preference clarified: no strong programming-language preference or exclusion. Choose the best fit for the established requirements, portability, resource efficiency and fluid interaction. Framework/language selection is an engineering evaluation, not an unanswered personal preference.
+
+## Away-state task management
+
+Status: Direction confirmed; detailed rules deferred
+
+April may manage notifications and task state while the user is away; detailed triggers and behaviors will be mapped later. Keep cloud task state, scheduling, notification decisions and resumable user-attention requests independent of an open Mac window. Device-dependent actions still require an available, authorized device. This supports the existing Cloudflare/background-agent direction and does not select a new framework or grant blanket authority to send messages to other people.
+
+## Resolve conflicting wiki information through clarification
+
+Status: Confirmed user preference
+
+When April encounters conflicting wiki information, actively prompt the user for clarification before choosing a version. Correct the wiki according to that clarification, then continue the affected work from the corrected version. Do not silently resolve the conflict or merely leave competing versions unresolved. Preserve provenance and revision history as supporting design; unrelated work need not be blocked. Mechanisms for surfacing the request, invalidating stale derived context and applying edits remain implementation work.
+
+## Proactive small work; discuss substantial work first
+
+Status: Confirmed product boundary; detailed routing deferred
+
+April can proactively research and perform simpler day-to-day work within existing authority. Research or notes may produce ideas that feed into coding; exact routing and triggers will be mapped later. Substantial work, such as building a feature, requires a conversation with the user before proceeding. This elaborates the existing feature-planning requirement rather than granting automatic implementation of every researched idea. The user considers this sufficient direction for now; do not require exhaustive proactive-task classification during this pass.
+
+## Missing capability as a self-extension workflow
+
+Status: Confirmed desired behavior
+
+If a user-requested task requires an unsupported feature, April should tell the user, add the capability where feasible, then complete the original task. Keep the user in the loop instead of treating unsupported functionality as an automatic dead end. Preserve the original objective while tracking implementation as a dependency. This extends the self-improvement vision; it does not supersede the existing substantial-feature conversation, central permission flow, development/PR review and production-approval boundaries. The meaning of notification versus explicit go-ahead for small additions remains to be clarified as needed.
+
+## Initial Mac hardware baseline and remote use
+
+Status: User-selected baseline; hardware verified locally
+
+Initial performance baseline: the user's current MacBook Pro, Apple M2 Pro, 10-core CPU (6 performance + 4 efficiency), 16 GB unified memory, currently macOS 26.7.1. Hardware read locally at the user's request; serial numbers and device identifiers are not recorded. Run efficiently and fluidly on this machine. This is an initial target, not a benchmark-proven minimum; older OS/hardware support remains open.
+
+User confirms that a request from the phone may use capabilities on an online, authorized Mac. Device availability and scoped permissions remain required. Exact remote routing, sleep/offline handling and device selection remain implementation work.
+
+## Local/cloud edit conflicts
+
+Status: Confirmed user preference
+
+If local and cloud edits conflict, preserve both versions and ask the user which to keep. Cloud authority does not justify silently discarding local work. Conflict detection, version lineage, merge choices and propagation of the resolved version remain implementation details.
