@@ -257,8 +257,8 @@
     {
       "number": 43,
       "topic": "Cross-device continuity",
-      "status": "Partial",
-      "detail": "Seamless device continuity and cloud authority chosen. Preserve both conflicting local/cloud edits and ask the user. Exact session merging remains open."
+      "status": "Answered",
+      "detail": "One continuous user-facing thread across interactions; April internally branches and organizes context as needed. Conversations do not belong to vaults. Cross-device protocol and context-routing mechanics remain implementation work."
     },
     {
       "number": 44,
@@ -304,8 +304,8 @@
     }
   ],
   "counts": {
-    "Answered": 31,
-    "Partial": 19,
+    "Answered": 32,
+    "Partial": 18,
     "Open": 0
   },
   "resume": "Continue architecture refinement. Cloud-first tasks, cloud storage for all files, lightweight Mac client and approved task continuation after disconnect are confirmed. Do not reopen the offline-Mac/private-task question. Key custody, revocation and local-device availability handling remain implementation work.",

@@ -135,9 +135,9 @@ This does not establish that every provider offers identical capabilities or tha
 
 Status: Chosen direction — voice clarification, 31 October 2026
 
-Save artifacts to user-accessible folders at locations the user chooses. Provide a default vault and additional vaults for contexts such as work, personal, financial and medical matters, inspired by Obsidian. Active-vault scope, switching, permitted cross-vault access, file formats and sync rules remain open. Sensitive vaults retain the previously confirmed task-scoped access and ordinary-memory exclusions.
+Save artifacts to user-accessible folders at locations the user chooses. Provide a default vault and additional vaults for personal, financial and medical matters (work deferred), inspired by Obsidian. Active-vault scope, switching, permitted cross-vault access, file formats and sync rules remain open. Sensitive vaults retain the previously confirmed task-scoped access and ordinary-memory exclusions.
 
-Subsequent clarification supersedes blanket active-vault isolation: vaults have cross-context accessibility classes, described by the user as public and private. Public vaults may be consulted from another active vault, for example reading the work schedule while in the personal vault. This describes internal agent access, not internet publication or sharing with other people. The exact allowed operations remain to be defined.
+Subsequent clarification supersedes blanket active-vault isolation: vaults have cross-context accessibility classes, described by the user as public and private. Public-to-April vaults are accessible independently of conversations; browsing another vault does not change the conversation. This describes internal agent access, not internet publication or sharing with other people. The exact allowed operations remain to be defined.
 
 Private vaults require explicit permission to access specific information from another context. Access is temporary and removed after a period of time; for example, financial information requested while in the personal vault. Define grant scope, lifetime, revocation, operation permissions and cleanup of retrieved context. Financial/medical memory exclusions remain in force. Defaults for new vaults and whether private-vault activation itself grants access are unresolved.
 
@@ -282,3 +282,15 @@ Status: Confirmed user architecture clarification
 All tasks are cloud-first and most work runs in Cloudflare. All files, including public and private vault contents, have cloud storage as their persistent home and source of truth at all times. The Mac is a lightweight client for voice, visuals and local device integrations; local copies and offline pending changes synchronize with cloud state. Approved cloud tasks, including private-file tasks, continue if the Mac disconnects, within the existing task-scoped grant. Disconnection neither revokes the grant nor expands its scope; private access still expires when the task ends. Operations needing a local integration require that device to be reachable. Encryption-key custody, revocation and enforcement remain implementation work.
 
 Supersedes resumption notes that described private-task continuation after Mac disconnection as unanswered. No additional authorization is required merely because the client disconnects; new scope still follows the central approval flow.
+
+## Vault-independent conversations
+
+Confirmed user clarification: Conversations are not tied to a particular vault. Vaults organize stored data and access, not conversational sessions. Public-to-April vaults are available to April across conversations without an active-vault switch granting access. Browsing a vault in the UI does not create a new conversation or restrict the conversation to that vault. Private vaults retain explicit task-scoped approval and task-end expiry. This supersedes earlier suggestions that the active vault defines the conversation context; an individual tool operation may still target a specific vault.
+
+## Initial vault scope: personal, medical and financial
+
+Confirmed: Initial scope excludes work and any work vault. Start with personal, medical and financial vaults. Work can be reconsidered later. Vaults remain storage/access boundaries, not conversation containers; public-to-April vaults are always available, private data requires task-scoped approval.
+
+## One user-facing thread, internally managed context
+
+Confirmed user direction: The user interacts through a single ongoing thread and does not manage separate conversation sessions. April may internally organize, branch and manage task/topic context as needed. Internal context/session boundaries are implementation details, not user-facing vault boundaries. Vaults remain independent storage/access domains. This does not require one ever-growing model prompt or bypass private-data approvals.

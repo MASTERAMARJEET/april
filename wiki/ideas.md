@@ -14,7 +14,7 @@ User instruction: whenever changes are committed in April, push them to the conf
 
 ## Resume the clarification session
 
-Paused at the user's request after the broad product pass. The original 50-question ledger has 31 answered and 19 scoped/deferred follow-ups, not 19 missing product directions. Do not restart the questionnaire or repeat confirmed choices. See [question ledger and technical follow-ups](workspace/clarification-status.json).
+Paused at the user's request after the broad product pass. The original 50-question ledger has 32 answered and 18 scoped/deferred follow-ups, not 18 missing product directions. Do not restart the questionnaire or repeat confirmed choices. See [question ledger and technical follow-ups](workspace/clarification-status.json).
 
 Next session: compare architecture/GUI options against the recorded workflows and measured constraints. That question is now closed: approved cloud tasks, including private-vault tasks under their existing task-scoped grant, continue if the Mac disconnects. All files live in cloud storage; the Mac is a lightweight client.
 
@@ -40,8 +40,8 @@ Next design conversation: pick one vertical slice and define its job contract, p
 
 ## Clarification review — original 50 questions
 
-31 answered, 19 partial, 0 entirely open. The partial items include explicitly deferred design details; this does not mean implementation decisions are complete. Partial means the direction is known but a detail remains unresolved. See [question-by-question review](workspace/clarification-status.json).
+32 answered, 18 partial, 0 entirely open. The partial items include explicitly deferred design details; this does not mean implementation decisions are complete. Partial means the direction is known but a detail remains unresolved. See [question-by-question review](workspace/clarification-status.json).
 
 Next priorities are the technical follow-ups above. Languages, initial recording scope, grant expiry, conflict behavior and starting budget already have recorded answers; do not ask those preferences again.
 
-Latest pass: original broad questionnaire is covered, with 19 scoped/deferred follow-ups. Confirmed task-end private grant expiry, soft $20 AI nudge, efficiency/fluidity over shipping speed, verified M2 Pro/16 GB Mac baseline, phone-to-Mac capabilities, preserve both sync conflicts, clarify/correct wiki conflicts, reviewed learned approval, proactive simple work and missing-capability task resumption. Next: evaluate architecture/GUI against these requirements; do not repeat settled preference questions.
+Latest pass: original broad questionnaire is covered, with 18 scoped/deferred follow-ups. Confirmed task-end private grant expiry, soft $20 AI nudge, efficiency/fluidity over shipping speed, verified M2 Pro/16 GB Mac baseline, phone-to-Mac capabilities, preserve both sync conflicts, clarify/correct wiki conflicts, reviewed learned approval, proactive simple work and missing-capability task resumption. Next: evaluate architecture/GUI against these requirements; do not repeat settled preference questions.

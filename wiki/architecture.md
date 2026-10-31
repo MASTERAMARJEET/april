@@ -192,3 +192,11 @@ Treat extensibility as an architectural requirement rather than an assumption th
 All tasks are cloud-first and most work runs in Cloudflare. All files, including public and private vault contents, have cloud storage as their persistent home and source of truth at all times. The Mac is a lightweight client for voice, visuals and local device integrations; local copies and offline pending changes synchronize with cloud state. Approved cloud tasks, including private-file tasks, continue if the Mac disconnects, within the existing task-scoped grant. Disconnection neither revokes the grant nor expands its scope; private access still expires when the task ends. Operations needing a local integration require that device to be reachable. Encryption-key custody, revocation and enforcement remain implementation work.
 
 This closes the previously unanswered private-task/offline-Mac question. Cloud task execution must not rely on a live Mac session to remain authorized; device-specific work still depends on the relevant endpoint. This is a documented requirement, not implemented infrastructure or a chosen key-management design.
+
+## Conversation and vault boundaries
+
+Confirmed user clarification: Conversations are not tied to a particular vault. Vaults organize stored data and access, not conversational sessions. Public-to-April vaults are available to April across conversations without an active-vault switch granting access. Browsing a vault in the UI does not create a new conversation or restrict the conversation to that vault. Private vaults retain explicit task-scoped approval and task-end expiry. This supersedes earlier suggestions that the active vault defines the conversation context; an individual tool operation may still target a specific vault.
+
+## User-facing continuity and internal context branches
+
+Confirmed user direction: The user interacts through a single ongoing thread and does not manage separate conversation sessions. April may internally organize, branch and manage task/topic context as needed. Internal context/session boundaries are implementation details, not user-facing vault boundaries. Vaults remain independent storage/access domains. This does not require one ever-growing model prompt or bypass private-data approvals.

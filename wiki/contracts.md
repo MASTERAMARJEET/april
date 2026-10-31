@@ -68,3 +68,9 @@ Sync conflict requirement: preserve both conflicting local/cloud versions and re
 ## Cloud execution continuity
 
 An approved cloud task continues after the Mac disconnects, including a private-file task under its existing grant. Bind authorization to task identity and scope, not client connectivity. Expire private access at task end; preserve explicit revocation and scope enforcement. Local integration steps report device unavailability separately from cloud task authorization. All persistent files are cloud-backed; offline edits are pending synchronization rather than a separate authoritative store.
+
+## Session scope versus storage scope
+
+Confirmed user clarification: Conversations are not tied to a particular vault. Vaults organize stored data and access, not conversational sessions. Public-to-April vaults are available to April across conversations without an active-vault switch granting access. Browsing a vault in the UI does not create a new conversation or restrict the conversation to that vault. Private vaults retain explicit task-scoped approval and task-end expiry. This supersedes earlier suggestions that the active vault defines the conversation context; an individual tool operation may still target a specific vault.
+
+Session design requirement: preserve one user-facing thread while tracking internal branches/tasks/context references independently. Vault identity is not conversation identity. Context routing, compaction and merge behavior must preserve scoped authorization and task provenance; protocol details are still open.

@@ -61,11 +61,11 @@ Multi-monitor clarification: April should appear on whichever display the user i
 
 When summoned, April should emerge visually from the notch, with a line/wave or blob animation and distinct listening and speaking behavior. Non-notch, multi-monitor and focus behavior are clarified below; fullscreen handling remains open.
 
-Artifacts should be saved in an accessible folder chosen by the user. Use an Obsidian-inspired vault model: a default vault, with additional vaults that can be opened for different contexts, such as work, everyday personal use, financial matters and medical matters. File formats, storage layout, indexing, cloud sync and active-vault behavior remain open.
+Artifacts should be saved in an accessible folder chosen by the user. Use an Obsidian-inspired vault model: a default vault, with additional vaults that can be opened for different contexts, for personal use, financial matters and medical matters (work is deferred). File formats, storage layout, indexing, cloud sync and active-vault behavior remain open.
 
 Financial/medical vaults do not override the sensitive-memory exception: opening or storing a vault does not by itself grant general memory retention or background access. Explicit provisional access for a particular task remains the confirmed requirement; clarify how vault selection relates to that grant.
 
-Vault boundary clarification: the active vault is the main context, but vaults marked public for April may be consulted across contexts (e.g. work schedule from personal). Private vaults need explicit permission for specific information, with temporary access that later expires. Public does not mean internet-public. This replaces blanket isolation between all vaults; private-vault access and sensitive-memory exclusions remain explicit boundaries.
+Vault boundary clarification: vaults are storage/access boundaries independent of conversations, and vaults marked public for April are available across conversations without tying the conversation to a vault. Private vaults need explicit permission for specific information, with temporary access that later expires. Public does not mean internet-public. This replaces blanket isolation between all vaults; private-vault access and sensitive-memory exclusions remain explicit boundaries.
 
 ## Artifact presentation and task continuity
 
@@ -86,3 +86,5 @@ Confirmed goal: replace the ChatGPT app experience the user relies on for text c
 ## Cloud-first core and lightweight devices
 
 All tasks are cloud-first and most work runs in Cloudflare. All files, including public and private vault contents, have cloud storage as their persistent home and source of truth at all times. The Mac is a lightweight client for voice, visuals and local device integrations; local copies and offline pending changes synchronize with cloud state. Approved cloud tasks, including private-file tasks, continue if the Mac disconnects, within the existing task-scoped grant. Disconnection neither revokes the grant nor expands its scope; private access still expires when the task ends. Operations needing a local integration require that device to be reachable. Encryption-key custody, revocation and enforcement remain implementation work.
+
+Current scope clarification: Initial scope excludes work and any work vault. Start with personal, medical and financial vaults. Work can be reconsidered later. Vaults remain storage/access boundaries, not conversation containers; public-to-April vaults are always available, private data requires task-scoped approval.

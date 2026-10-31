@@ -360,7 +360,7 @@
     {
       "title": "User-owned multi-vault artifacts",
       "status": "Confirmed direction",
-      "rationale": "User chooses artifact folder locations. Provide a default vault and additional vaults, with an Obsidian-style file/folder browser and tabbed artifacts. Cross-context accessible vaults may be consulted from other active vaults; this is not internet publication."
+      "rationale": "Vaults are user-chosen storage folders with a default and additional vaults. Conversations do not belong to a vault; public-to-April vaults are available across conversations. Private access remains explicit and task scoped. Browsing a vault is not a session switch."
     },
     {
       "title": "Private vault grants",
@@ -511,6 +511,21 @@
       "title": "Cloud-first tasks continue when the Mac disconnects",
       "status": "Confirmed direction",
       "rationale": "All tasks are cloud-first and most work runs in Cloudflare. All files, including public and private vault contents, have cloud storage as their persistent home and source of truth at all times. The Mac is a lightweight client for voice, visuals and local device integrations; local copies and offline pending changes synchronize with cloud state. Approved cloud tasks, including private-file tasks, continue if the Mac disconnects, within the existing task-scoped grant. Disconnection neither revokes the grant nor expands its scope; private access still expires when the task ends. Operations needing a local integration require that device to be reachable. Encryption-key custody, revocation and enforcement remain implementation work."
+    },
+    {
+      "title": "Conversations are independent of vaults",
+      "status": "Confirmed direction",
+      "rationale": "Conversations are not tied to a particular vault. Vaults organize stored data and access, not conversational sessions. Public-to-April vaults are available to April across conversations without an active-vault switch granting access. Browsing a vault in the UI does not create a new conversation or restrict the conversation to that vault. Private vaults retain explicit task-scoped approval and task-end expiry. This supersedes earlier suggestions that the active vault defines the conversation context; an individual tool operation may still target a specific vault."
+    },
+    {
+      "title": "Personal, medical and financial vaults; work deferred",
+      "status": "Confirmed direction",
+      "rationale": "Initial scope excludes work and any work vault. Start with personal, medical and financial vaults. Work can be reconsidered later. Vaults remain storage/access boundaries, not conversation containers; public-to-April vaults are always available, private data requires task-scoped approval."
+    },
+    {
+      "title": "One ongoing thread; April manages internal context",
+      "status": "Confirmed direction",
+      "rationale": "The user interacts through a single ongoing thread and does not manage separate conversation sessions. April may internally organize, branch and manage task/topic context as needed. Internal context/session boundaries are implementation details, not user-facing vault boundaries. Vaults remain independent storage/access domains. This does not require one ever-growing model prompt or bypass private-data approvals."
     }
   ],
   "questions": "Confirmed: approved cloud tasks, including private-file tasks under existing task-scoped access, continue if the Mac disconnects. Next: specify key custody, revocation and device-unavailable handling; all persistent files are cloud-backed.\nEngineering evaluation: unified voice overlay and artifact workspace, plugin-ready architecture, low resource use and fluid interactions on the verified M2 Pro / 16 GB Mac.\nPrivate grants: task-end expiry is decided; specify revocation, terminal-state handling, derived-context cleanup, encryption keys and recovery.\nSync: preserve both conflicting edits and ask the user is decided; specify lineage, resolution propagation, deletion and reconnection.\nCoding bootstrap: Cloudflare execution, April-only GitHub repositories, dev/PR/user approval flow are decided; validate macOS packaging/native tests and exact release evidence.\nDeferred deep dives: plugin contracts/trust, per-integration API versus UI, Codex-inspired computer use and memory systems including Supermemory.\nOperational implementation: accurate cost tracking and non-blocking $20 AI nudge, task retry/cancellation, recovery history and permission enforcement.",
@@ -780,8 +795,8 @@
       {
         "number": 43,
         "topic": "Cross-device continuity",
-        "status": "Partial",
-        "detail": "Seamless device continuity and cloud authority chosen. Preserve both conflicting local/cloud edits and ask the user. Exact session merging remains open."
+        "status": "Answered",
+        "detail": "One continuous user-facing thread across interactions; April internally branches and organizes context as needed. Conversations do not belong to vaults. Cross-device protocol and context-routing mechanics remain implementation work."
       },
       {
         "number": 44,
@@ -827,8 +842,8 @@
       }
     ],
     "counts": {
-      "Answered": 31,
-      "Partial": 19,
+      "Answered": 32,
+      "Partial": 18,
       "Open": 0
     },
     "resume": "Continue architecture refinement. Cloud-first tasks, cloud storage for all files, lightweight Mac client and approved task continuation after disconnect are confirmed. Do not reopen the offline-Mac/private-task question. Key custody, revocation and local-device availability handling remain implementation work.",
@@ -869,5 +884,8 @@
     "Operational implementation: accurate cost tracking and non-blocking $20 AI nudge, task retry/cancellation, recovery history and permission enforcement."
   ],
   "pauseCheckpointRevision": 1,
-  "cloudFirstContinuityRevision": 1
+  "cloudFirstContinuityRevision": 1,
+  "vaultIndependentSessionRevision": 1,
+  "personalVaultScopeRevision": 1,
+  "singleThreadRevision": 1
 }

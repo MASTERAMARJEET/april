@@ -90,3 +90,7 @@ Unified April app with Obsidian-inspired vault browser; no required separate Obs
 Approval routing clarified: all permission requests go to the central approval agent/service. April cannot bypass that service by sending its own prompt. Private-vault access is approved by an explicit button in an overlay showing the scope, with an audit record; spoken confirmation is not sufficient. Both public/private vaults sync eagerly to encrypted cloud storage; syncing is separate from granting access.
 
 Cloud-first clarification: most work executes in Cloudflare; all persistent files are cloud-backed. The Mac is a lightweight voice/visual client and local-integration endpoint. Approved tasks continue when it disconnects, including private tasks within the existing grant; disconnection does not grant new authority.
+
+## Conversation organization
+
+Confirmed user direction: The user interacts through a single ongoing thread and does not manage separate conversation sessions. April may internally organize, branch and manage task/topic context as needed. Internal context/session boundaries are implementation details, not user-facing vault boundaries. Vaults remain independent storage/access domains. This does not require one ever-growing model prompt or bypass private-data approvals.
