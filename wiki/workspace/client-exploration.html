@@ -49,6 +49,14 @@ document.addEventListener('change',async e=>{if(e.target.id==='filter'){filter=e
 #amap .am-map{overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;height:640px}#amap .am-stage{position:relative}#amap .am-canvas{position:relative;transform-origin:0 0}#amap .am-canvas svg{position:absolute;inset:0;width:100%;height:100%}#amap .am-canvas .am-node{min-height:90px;max-height:125px}#amap .am-map-controls{display:inline-flex;gap:5px;align-items:center;margin-left:auto}#amap .am-map-controls button{height:32px;padding:0 10px;border:1px solid var(--mline);border-radius:5px;background:var(--mpanel)}#amap .am-map-controls output{font-size:11px;min-width:44px;text-align:center;color:var(--mmuted)}
 #amap .am-map{overflow:hidden;scrollbar-gutter:auto;touch-action:pinch-zoom}#amap .am-stage{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
 #amap .am-map{cursor:grab;touch-action:none;user-select:none}#amap .am-map.am-dragging,#amap .am-map.am-dragging *{cursor:grabbing!important}#amap .am-map .am-node{touch-action:none}
+
+#amap .am-inspector{scrollbar-width:thin;scrollbar-color:var(--mline) transparent;padding-right:8px}
+#amap .am-inspector:hover,#amap .am-inspector:focus-within{scrollbar-color:var(--mmuted) transparent}
+#amap .am-inspector::-webkit-scrollbar{width:6px;height:6px}
+#amap .am-inspector::-webkit-scrollbar-track{background:transparent}
+#amap .am-inspector::-webkit-scrollbar-thumb{background:var(--mline);border-radius:8px}
+#amap .am-inspector:hover::-webkit-scrollbar-thumb,#amap .am-inspector:focus-within::-webkit-scrollbar-thumb{background:var(--mmuted)}
+#amap .am-inspector::-webkit-scrollbar-corner{background:transparent}
 </style>
 
 <script id="april-map-code">
