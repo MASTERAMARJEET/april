@@ -108,9 +108,9 @@ The user intends self-extension as the development strategy. It is not permissio
 
 ## Memory research checkpoint
 
-Memory Q&A is paused for the [Supermemory deep dive](research/supermemory.md). Review the documented behavior and API-version differences before resuming. Provider selection, private-grant enforcement and deletion propagation remain open; no memory integration is installed.
+Memory Q&A is paused for the [Supermemory deep dive](research/memory.md#supermemory-deep-dive). Review the documented behavior and API-version differences before resuming. Provider selection, private-grant enforcement and deletion propagation remain open; no memory integration is installed.
 
 
 ## Memory design parked by user
 
-Remaining memory questions are deferred to reduce design detail for now. [Research and confirmed decisions](research/supermemory.md) preserve the checkpoint. Build an owned subsystem using Supermemory as a strong reference, not a dependency, and follow shared artifact data-protection standards. Pending: correction propagation, effects on running tasks, internal grouping, permanent erasure enforcement and implementation evaluation. Do not resume the preference questionnaire automatically.
+Remaining memory questions are deferred to reduce design detail for now. [Research and confirmed decisions](research/memory.md) preserve the checkpoint. Build an owned subsystem using Supermemory as a strong reference, not a dependency, and follow shared artifact data-protection standards. Pending: correction propagation, effects on running tasks, internal grouping, permanent erasure enforcement and implementation evaluation. Do not resume the preference questionnaire automatically.

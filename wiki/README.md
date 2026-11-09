@@ -11,7 +11,7 @@ A living design for a personal agent system: one interaction agent across device
 - [Decision log](decisions.md)
 - [Roadmap](roadmap.md)
 - [Interactive memory exploration](workspace/memory-exploration.html) — lifecycle, forgetting, April fit and evaluation; available in every workspace dropdown.
-- [Memory research: Supermemory deep dive](research/supermemory.md) — processing, retrieval, corrections, privacy, deployment and a resumption checklist.
+- [Memory research](research/memory.md) — design references, open questions, and April memory decisions.
 - [Ideas and working notes](ideas.md)
 - [Interactive design workspace](workspace/agent-system-workspace.html)
 - [Interactive concept demo](workspace/april-experience-demo.html) — a scripted local simulation of voice activation, research artifacts, feature review and private-task approval. No actual microphone, accounts, repository or cloud services are connected.

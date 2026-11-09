@@ -74,7 +74,7 @@ function editorDraw(){
 let zoom=1,needsFit=true,panX=0,panY=0,dragState=null,suppressMapClick=false;
 function shortStatus(r){return r.status||r.category||r.layer||'Proposed'}
 function details(g){
-if(g.id==='root')return `<div class="am-eyebrow">MEMORY RESEARCH / 1 NOVEMBER 2026</div><h2>Learn. Update. Forget.</h2><p>Explore how Supermemory separates sources, facts and profiles. Open a branch for evidence and April’s unresolved choices.</p><h3>Four different changes</h3><p>Expiry ends relevance. Updates change current truth. Forgetting hides retained facts. Erasure removes stored data.</p><h3>Read the research</h3><p><a href="../research/supermemory.md">Full wiki deep dive</a></p><h3>Research status</h3><p>Documentation reviewed with Exa. No live provider tests, installation or vendor selection. Existing privacy rules remain in force.</p>`;
+if(g.id==='root')return `<div class="am-eyebrow">MEMORY RESEARCH / 1 NOVEMBER 2026</div><h2>Learn. Update. Forget.</h2><p>Explore how Supermemory separates sources, facts and profiles. Open a branch for evidence and April’s unresolved choices.</p><h3>Four different changes</h3><p>Expiry ends relevance. Updates change current truth. Forgetting hides retained facts. Erasure removes stored data.</p><h3>Read the research</h3><p><a href="../research/memory.md">Full wiki deep dive</a></p><h3>Research status</h3><p>Documentation reviewed with Exa. No live provider tests, installation or vendor selection. Existing privacy rules remain in force.</p>`;
 let records=g.records;
 return `<div class="am-eyebrow">${h(lens.toUpperCase())} / ${records.length} RECORD${records.length===1?'':'S'}</div><h2>${h(g.title)}</h2><p>${h(g.caption)}</p>`+records.map((r,i)=>{
 const title=r.title||r.name;

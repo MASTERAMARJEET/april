@@ -670,7 +670,7 @@
     {
       "title": "Memory research checkpoint: Supermemory",
       "status": "Research checkpoint",
-      "rationale": "Memory Q&A paused for wiki/research/supermemory.md. The deep dive distinguishes sources, extracted facts and profiles; current versus legacy correction APIs; soft forgetting versus erasure; private-task controls; hosting and costs. Supermemory is a reference, not a selected provider. Resume with deployment choice and unresolved memory semantics after review."
+      "rationale": "Memory Q&A paused for wiki/research/memory.md. The deep dive distinguishes sources, extracted facts and profiles; current versus legacy correction APIs; soft forgetting versus erasure; private-task controls; hosting and costs. Supermemory is a reference, not a selected provider. Resume with deployment choice and unresolved memory semantics after review."
     },
     {
       "title": "Owned memory; credited references",

@@ -10,7 +10,9 @@ Start with the [project wiki](wiki/README.md), [architecture](wiki/architecture.
 
 We credit the teams whose work informs April’s design:
 
-- **[Supermemory](https://supermemory.ai/)** — a strong reference for memory extraction, temporal facts, relationships, profiles, corrections and forgetting. April will implement its own memory system; Supermemory is not a planned runtime dependency. Our [research notes](wiki/research/supermemory.md) distinguish documented behavior from April’s decisions.
+- **[Supermemory](https://supermemory.ai/)** — a strong reference for memory extraction, temporal facts, relationships, profiles, corrections and forgetting. April will implement its own memory system; Supermemory is not a planned runtime dependency. Our [research notes](wiki/research/memory.md) distinguish documented behavior from April’s decisions.
+
+- **Anthropic’s The components of agent memory** is a reading reference for how agents capture, consolidate, and retrieve knowledge across sessions. [Article](https://www.anthropic.com/research/components-of-agent-memory) · [April’s reading questions](wiki/research/memory.md#related-reading-on-agent-memory)
 - **[Obsidian](https://obsidian.md/)** — inspiration for file-based vault organization, navigation and a tabbed knowledge workspace. April’s interface will be unified within its own application.
 - **[OpenAI’s Codex](https://openai.com/codex/)** — a product reference for computer-use interaction, long-running conversations and delegated task workflows. Further study is planned; references do not imply access to proprietary implementation details.
 
