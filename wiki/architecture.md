@@ -6,6 +6,22 @@ User channels → main interaction agent → scoped specialist jobs → independ
 
 Persist trusted state; discard untrusted execution environments. Cloudflare Computer provides workspace capabilities, the harness provides the agent loop, and a Linux sandbox provides isolated execution.
 
+## Always-on agent design reference
+
+[Building always-on agents](https://claude.com/resources/articles/building-always-on-agents), William Hu, Anthropic, 13 November 2026. Added as a reference for building April on 14 November 2026.
+
+The article describes short, event-triggered runs with durable state between them. Its five primitives are an event inbox, timers, memory, permissions and an outbox.
+
+Use it as an implementation checklist when evaluating April’s cloud coordinator:
+
+- Durable event intake with deduplication, batching, retry recovery and one active worker per inbox.
+- Persisted follow-ups and recurring schedules that enqueue work when due.
+- Cross-run instructions, user context and task progress, with lean initial context and pointers to retrievable sources.
+- Deferred approvals that resume through incoming events while other work continues.
+- Outgoing delivery with recovery and notification pacing when needed; background runs may finish silently.
+
+April-specific interpretation: map these responsibilities onto the candidate Cloudflare services while preserving the central approval service, private-data boundaries and single user-facing thread. The article’s internal sessions need not become separate user conversations. This is a design reference, not an adopted implementation; storage schemas, concurrency scope and delivery guarantees remain to be evaluated.
+
 ## Workers + Durable Objects
 
 Layer: Trusted runtime
